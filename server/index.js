@@ -11,7 +11,7 @@ if (process.env.NODE_ENV === 'production'){
     app.get(/.*/, (req,res) => res.sendFile(__dirname + '/dist/index.html'))
 }
 
-// start server
+// start server instant
 const port = process.env.PORT 
 app.listen(port, function () {
     console.log('Server listening on port ' + port);
