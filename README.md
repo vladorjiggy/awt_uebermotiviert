@@ -86,7 +86,7 @@ Performancegründen HTTP-Requests zu sparen
 
 ## 4. Projektweite Technologien
 
-- Planung: Trello (https://trello.com/b/bXSeorLS/projektplanung)
+- Planung: [Trello](https://trello.com/b/bXSeorLS/projektplanung)
 - Kommunikation: Discord
 - API-Spezifikation: Swagger
 - Versionsverwaltung: Git
