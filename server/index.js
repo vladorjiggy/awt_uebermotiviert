@@ -64,6 +64,6 @@ if (process.env.NODE_ENV === 'production'){
 
 // start server instant
 const port = process.env.PORT 
-app.listen(port, function () {
+app.listen(3000, function () {
     console.log('Server listening on port ' + port);
 });
