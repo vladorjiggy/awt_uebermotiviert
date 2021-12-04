@@ -5,7 +5,7 @@ let router = express.Router()
 
 const postsController =  require('../controller/posts')
 /*
-router.get("/getAll", postsController.getAll)
+router.get("/get", postsController.getAll)
 router.get("/get/:id", postsController.get)
 router.post("/create", postsController.create)
 router.put("/update/:id", postsController.update)

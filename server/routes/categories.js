@@ -5,7 +5,7 @@ let router = express.Router()
 
 let categoriesController =  require('../controller/categories')
 /*
-router.get("/getAll", categoriesController.getAll)
+router.get("/get", categoriesController.getAll)
 router.get("/get/:id", categoriesController.get)
 router.post("/create", categoriesController.create)
 router.put("/update/:id", categoriesController.update)

@@ -48,9 +48,9 @@ app.use(session({
  * API
  */
 
-app.use('/api/user', UserRouter)
-app.use('/api/post', PostRouter)
-app.use('/api/category', CategoryRouter)
+app.use('/user', UserRouter)
+app.use('/post', PostRouter)
+app.use('/category', CategoryRouter)
 
 
 
