@@ -9,16 +9,16 @@ exports.login = function (req, res) {
     const credentials = authHeader.split(" ")[1]
     const [username, password] = Buffer.from(credentials, 'base64').toString().split(':')
     authservice.checkPassword(username, password, (status, err, user) => {
-        if(err){
-            res.status(status).json({ error: err})
+        if (err) {
+            res.status(status).json({ error: err })
         }
-        else{
-            if(user){
+        else {
+            if (user) {
                 req.session.isLoggedIn = true
                 req.session.user_id = user._id.toString()
                 res.status(status).json({ message: "user successfully logged in" })
             }
-            else{
+            else {
                 res.status(status).json({ error: err })
             }
         }
@@ -31,17 +31,17 @@ exports.logout = function (req, res) {
     res.status(200).json({ message: "user successfully logged out" })
 }
 
-exports.changePassword = function(req,res){
+exports.changePassword = function (req, res) {
     const oldPassword = req.body.oldPassword
     const newPassword = req.body.newPassword
     const id = req.session.user_id
     userservice.changeUserPassword(id, oldPassword, newPassword, (status, err, success) => {
-        if(err){
-            res.status(status).json({error: err})
+        if (err) {
+            res.status(status).json({ error: err })
         }
-        else if(success){
-            res.status(status).json({success: success})
+        else if (success) {
+            res.status(status).json({ success: success })
         }
-        
+
     })
 }

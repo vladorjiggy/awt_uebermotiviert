@@ -71,7 +71,7 @@ function updateUser(id, data, callback){
     }
 }
 
-function saveUser(data, callback){
+function createUser(data, callback){
     if(!data){
         return callback('no Data', null)
     }
@@ -136,7 +136,7 @@ module.exports = {
     findUserByName,
     findUserById,
     updateUser,
-    saveUser,
+    createUser,
     changeUserPassword,
     deleteUser
 }

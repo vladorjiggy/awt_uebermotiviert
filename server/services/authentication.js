@@ -6,7 +6,6 @@ exports.checkPassword = function (username, password, callback) {
         return callback('No Data', false)
     }
     else {
-
         userservice.findUserByName(username, function (err, user) {
             if (err) {
                 return callback(500, err, false)
