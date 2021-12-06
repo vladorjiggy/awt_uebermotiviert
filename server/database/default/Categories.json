@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Strand"
+    },
+    {
+        "id": 2,
+        "name": "Berge"
+    },
+    {
+        "id": 3,
+        "name": "Stadt"
+    },
+    {
+        "id": 4,
+        "name": "Wald"
+    },
+    {
+        "id": 5,
+        "name": "Kultur"
+    },
+    {
+        "id": 6,
+        "name": "Party"
+    }
+]
