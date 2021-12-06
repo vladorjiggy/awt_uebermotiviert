@@ -1,0 +1,138 @@
+body{
+    height: 100vh;
+    
+}
+
+main{
+    background-color: aqua;
+}
+nav{
+    padding: 20px;
+}
+#aboveTheFold{
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-image: url("../images/lagos.jpeg");
+    
+}
+#aboveTheFoldContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: rgb(255, 255, 255);
+    box-shadow:inset 0 0 0 2000px rgba(148, 0, 86, 0.137);
+}
+.game_grid_item{
+    background-position: center;
+    background-size:cover ;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 0;
+    padding-top: 20%;
+    margin:10px
+
+}
+.classic{
+    background-image: url(../images/ist.jpeg);
+}
+.tbc{
+    background-image: url(../images/lisbon.jpeg);
+}
+.wotlk{
+    background-image: url(../images/sintra2.jpeg);
+}
+.mist{
+    background-image: url(../images/verdon.jpeg);
+}
+.legion{
+    background-image: url(../images/tore-belem.jpeg);
+}
+.shadow{
+    background-image: url(../images/saint-tropez.jpeg);
+}
+#mainContent > h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+.footer{
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background-color: #000000;
+}
+.container_footer{
+    display: flex;
+    justify-content: center;
+}
+aside{
+    height: 95vh;
+    position: sticky;
+}
+aside > div{
+    height: inherit;
+}
+
+#ham_icon{
+    width: 30px;
+}
+#private_main{
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: baseline;
+}
+.card{
+    width: 25%;
+    margin: 20px;
+}
+@media only screen and (max-width: 600px) {
+    #private_main{
+        flex-direction: column;
+    }
+    .card{
+        width: 100%;
+        margin: 20px 0;
+    }
+    #sidebar{
+        display: none;
+    }
+}
+#private_section{
+    display: flex;
+}
+#imp_dat > ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}
+#imp_dat > ul > li{
+    list-style: none;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.card_footer{
+    padding: 20px;
+
+    border-top: 1px dotted black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.post_info >span{
+    margin-right: 5px;
+}
+.desc{
+    width: 50%;
+    margin: 20px auto;
+    text-align: center;
+}
