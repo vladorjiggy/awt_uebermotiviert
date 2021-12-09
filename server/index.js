@@ -9,6 +9,7 @@ const database = require('./database/db')
 const UserRouter = require('./routes/user')
 const PostRouter = require('./routes/posts')
 const CategoryRouter = require('./routes/categories')
+const FileuploadController = require('./routes/fileupload')
 
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
@@ -51,7 +52,8 @@ app.use(session({
 app.use('/user', UserRouter)
 app.use('/post', PostRouter)
 app.use('/category', CategoryRouter)
-
+app.use('/file/upload', require('./controller/fileUpload'))
+app.use('/uploads',express.static(__dirname + '/uploads/'))
 
 
 if (process.env.NODE_ENV === 'production'){

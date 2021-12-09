@@ -1,5 +1,5 @@
 const User = require('../models/User').User
-function getUsers(callback){
+exports.getUsers = function (callback){
     User.find((err, users) => {
         if(err){
             console.log("Fehler bei Suche: " + err)
@@ -10,7 +10,7 @@ function getUsers(callback){
         }
     }).select('-password')
 }
-function findUserByName(userName, callback){
+exports.findUserByName = function (userName, callback){
     if(!userName){
         return callback(err, null)
     }
@@ -31,7 +31,7 @@ function findUserByName(userName, callback){
         })
     }
 }
-function findUserById(id, callback){
+exports.findUserById = function (id, callback){
     if(!id){
         return callback('Id not provided', null)
     }
@@ -49,7 +49,7 @@ function findUserById(id, callback){
         })
     }
 }
-function updateUser(id, data, callback){
+exports.updateUser = function (id, data, callback){
     if(!id){
         return callback('No ID', null)
     }
@@ -71,7 +71,7 @@ function updateUser(id, data, callback){
     }
 }
 
-function createUser(data, callback){
+exports.createUser = function (data, callback){
     if(!data){
         return callback('no Data', null)
     }
@@ -89,7 +89,7 @@ function createUser(data, callback){
         })
     }
 }
-function changeUserPassword(id, oldPassword, newPassword, callback){
+exports.changeUserPassword = function (id, oldPassword, newPassword, callback){
     if(!id){
         return callback(400, 'No User provided', null)
     }
@@ -117,7 +117,7 @@ function changeUserPassword(id, oldPassword, newPassword, callback){
         
     }
 }
-function deleteUser(id, callback){
+exports.deleteUser = function (id, callback){
     if(id){
         User.findByIdAndRemove(id, function (err, docs) {
             if (err){
@@ -130,13 +130,4 @@ function deleteUser(id, callback){
             }
         });
     }
-}
-module.exports = {
-    getUsers,
-    findUserByName,
-    findUserById,
-    updateUser,
-    createUser,
-    changeUserPassword,
-    deleteUser
 }
