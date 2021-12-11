@@ -76,17 +76,18 @@ function login(userID, password){
     const requestOptions = {
         method: 'POST',
         headers: {
+            'Content-Type': 'application/json',
            'Authorization' : "Basic " + base64.encode(userID+ ":" + password)
         }
         
     }
-    return fetch('https://localhost:3000/user', requestOptions)
+    return fetch('http://localhost:3000/user/login', requestOptions)
     .then(handleResponse)
     .then(userSession => {
         return userSession
     })
 }
-
+ 
 /* function categorie(id){
     'https://localhost/category/get/' + id
 } */
