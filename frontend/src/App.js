@@ -8,7 +8,6 @@ import PrivatePage from './components/PrivatePage';
 import { connect } from 'react-redux';
 
 
-
 const mapStateToProps = state => {
   return state
 }
