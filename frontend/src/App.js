@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import TopMenu from './components/TopMenu';
-import PublicPage from './components/PublicPage';
+import PublicPage from './components/publicPage';
 import PrivatePage from './components/PrivatePage';
 
 import { connect } from 'react-redux';
