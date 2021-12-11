@@ -16,6 +16,8 @@ export function getUserAuthErrorAction(error){
     }
 }
 
+//test
+
 export function authenticateUser(name, password){
     console.log(name, password)
     return dispatch => {
