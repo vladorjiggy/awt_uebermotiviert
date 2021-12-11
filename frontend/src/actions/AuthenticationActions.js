@@ -16,6 +16,8 @@ export function getUserAuthErrorAction(error){
     }
 }
 
+//test
+
 export function authenticateUser(name, password){
     console.log(name, password)
     return dispatch => {
@@ -50,6 +52,10 @@ function login(name, password){
     .then(userSession => {
         return userSession
     })
+}
+
+function categorie(id){
+    'https://localhost/category/get/' + id
 }
 
 function handleResponse(response){
