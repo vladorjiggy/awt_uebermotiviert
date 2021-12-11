@@ -5,51 +5,62 @@ import "../layout/css/style.css";
 import LoginButton from "./LoginButton";
 
 class PublicPage extends Component {
-  render() {
-    return(
-      <div>
-        <section id="aboveTheFold">
-          <div id="aboveTheFoldContent">
-            <h1>Forum</h1>
-            <p>Lorem ipsum sftu</p>
-            <LoginButton />
-            <button onclick="window.location = 'blog_form.html'" type="button" class="btn btn-outline-light">Kostenlos anmelden</button>
-          </div>
+
+    render() {
+        return(
+        <div>
+              <section id="aboveTheFold">
+            <div id="aboveTheFoldContent">
+                <h1>Forum</h1>
+                <p>Forum für??</p>
+                <LoginButton />
+                <button onclick="window.location = 'login_form.html'" type="button" class="btn btn-outline-light">Kostenlos anmelden</button>
+            </div>
+            
         </section>
-          
-        <section id="mainContent">
+            
+             <section id="mainContent">
           <div class="desc">
-            <h1>??? Forumbeiträge</h1>
+            <h1>??? Forum</h1>
             <p>
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam 
-              nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, 
-              sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-              Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy 
-              eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-              At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-              no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam 
+                nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, 
+                sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+                Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy 
+                eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+                no sea takimata sanctus est Lorem ipsum dolor sit amet.
             </p>
           </div>
-        
-          <div class="container">
-            <div class="row">
-              <div onclick="window.location = 'forum_template.html'" class="col-sm game_grid_item classic">
+          
+            <div class="container">
+                <div class="row">
+                  
+                    
+                  <div onclick="window.location = 'forum_template.html'" class="col-sm game_grid_item classic">
+                    
+                  </div>
+                
+                  <div class="col-sm game_grid_item tbc">
+                    
+                  </div>
+                  <div class="col-sm game_grid_item wotlk">
+                    
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm game_grid_item mist">
+                        
+                    </div>
+                    <div class="col-sm game_grid_item legion">
+                        
+                    </div>
+                    <div class="col-sm game_grid_item shadow">
+                        
+                    </div>
+                  </div>
               </div>
-              <div class="col-sm game_grid_item tbc"> 
-              </div>
-              <div class="col-sm game_grid_item wotlk">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm game_grid_item mist">
-              </div>
-              <div class="col-sm game_grid_item legion">
-              </div>
-              <div class="col-sm game_grid_item shadow">
-              </div>
-            </div>
-          </div>
         </section>
         <section id="imp_dat">
           <ul>
@@ -57,9 +68,9 @@ class PublicPage extends Component {
             <li>Datenschutz</li>
           </ul>
         </section>
-      </div>
-    )
-  }
+        </div>
+        )
+    }
 }
 
 export default PublicPage

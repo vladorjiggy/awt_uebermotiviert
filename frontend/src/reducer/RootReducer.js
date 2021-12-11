@@ -1,30 +1,64 @@
 import * as authenticationActions from '../actions/AuthenticationActions'
+
 const initialState = {
     user: null,
-    loggedIn: false,
+    loginPending: false,
+    showLoginDialog: false,
     error: null
 };
 function rootReducer(state = initialState, action) {
-    console.log("Bin im Reducer: ",action)
-
+    console.log("Bin im Reducer: " + action.type)
 
     switch (action.type) {
-        case authenticationActions.AUTHENTICATION_SUCCESS:
+        case authenticationActions.SHOW_LOGIN_DIALOG:
             return {
                 ...state,
-                user: action.user,
-                loggedIn: true,
-                accessToken: action.accessToken
+                showLoginDialog: true,
+                error: null
+            }
+        case authenticationActions.HIDE_LOGIN_DIALOG:
+            return {
+                ...state,
+                showLoginDialog: false,
+                error: null
+            }
+        case authenticationActions.AUTHENTICATION_PENDING:
+            {
+                return {
+                    ...state,
+                    pending: true,
+                    error: null
+                }
+            }
+        case authenticationActions.AUTHENTICATION_SUCCESS:
+            {
+                return {
+                    ...state,
+                    showLoginDialog: false,
+                    pending: false,
+                    user: action.user,
+                    accessToken: action.accessToken
+                }
             }
         case authenticationActions.AUTHENTICATION_ERROR:
-            return {
-                ...state,
-                loggedIn: false,
-                error: "Auth failed"
+            {
+                return {
+                    ...state,
+                    pending: false,
+                    error: 'Auth failed'
+                }
             }
-            
+
+        case authenticationActions.USER_LOGOUT:
+            {
+                return{
+                    ...state,
+                    user: null,
+                    accessToken: null
+                }
+            }
         default:
-            return state
+            return state;
     }
 };
 export default rootReducer;
