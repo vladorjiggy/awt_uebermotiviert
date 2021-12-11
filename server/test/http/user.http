@@ -1,0 +1,16 @@
+### 
+POST http://localhost:3000/user/login
+Authorization: Basic QWRtaW46YmVzdFBhc3N3b3JkRXZlcg==
+
+### 
+POST http://localhost:3000/user/logout
+
+
+### 
+PUT http://localhost:3000/user/changePassword
+content-type: application/json
+
+{
+    "oldPassword": "bestPasswordEver",
+    "newPassword": "whatever"
+}

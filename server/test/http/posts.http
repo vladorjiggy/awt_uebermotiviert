@@ -1,0 +1,50 @@
+### 
+POST http://localhost:3000/user/login
+Authorization: Basic QWRtaW46YmVzdFBhc3N3b3JkRXZlcg==
+
+###
+GET http://localhost:3000/post/get
+
+###
+POST http://localhost:3000/post/create
+Content-Type: application/json
+
+{
+    "title": "TestPost",
+    "content": "Content of Testpost",
+    "categories": ["61ae49a754ec37e3d0acc031","61ae49a754ec37e3d0acc032","61ae49a754ec37e3d0acc033"]
+}
+
+
+###
+PUT http://localhost:3000/post/update/61b22cdb2c20172ab919f4c4
+Content-Type: application/json
+
+{
+    "title": "TestPost",
+    "content": "Content of Testpost",
+    "post_image": "https://avm.de",
+    "categories": ["61ae49a754ec37e3d0acc033"]
+}
+
+###
+GET http://localhost:3000/post/get/61b22cdb2c20172ab919f4c4
+
+
+###
+DELETE http://localhost:3000/post/delete/61b22cdb2c20172ab919f4c4
+
+###
+POST http://localhost:3000/file/upload/61b2374dc8fdfa72d661bcbf
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="text"
+
+title
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="post_image"; filename="test.png"
+Content-Type: image/png
+
+< ./default_profile_image.png
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
