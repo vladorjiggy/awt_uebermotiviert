@@ -1,13 +1,13 @@
 ### 
-POST http://localhost:3000/user/login
+POST http://localhost:4000/user/login
 Authorization: Basic QWRtaW46YmVzdFBhc3N3b3JkRXZlcg==
 
 ### 
-POST http://localhost:3000/user/logout
+POST http://localhost:4000/user/logout
 
 
 ### 
-PUT http://localhost:3000/user/changePassword
+PUT http://localhost:4000/user/changePassword
 content-type: application/json
 
 {
