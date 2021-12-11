@@ -1,0 +1,6 @@
+###
+GET http://localhost:3000/category/get
+
+
+###
+GET http://localhost:3000/category/get/61ae49a754ec37e3d0acc031

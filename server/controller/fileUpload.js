@@ -33,7 +33,6 @@ const upload = multer({ storage: storage })
 router.post('/:post_id', upload.single('post_image'), userUpload)
 
 function userUpload(req, res){
-    console.log(req.params.post_id)
     let post_id = req.params.post_id
     let data = {
         post_image: process.env.SERVERHOST + '/uploads/' + req.file.filename
