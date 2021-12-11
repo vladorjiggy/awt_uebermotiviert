@@ -9,7 +9,6 @@ const database = require('./database/db')
 const UserRouter = require('./routes/user')
 const PostRouter = require('./routes/posts')
 const CategoryRouter = require('./routes/categories')
-const FileuploadController = require('./routes/fileupload')
 
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
