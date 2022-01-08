@@ -1,12 +1,14 @@
 import React, { Component } from "react";
+import Button from 'react-bootstrap/Button'
 
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
-import{getShowLoginDialogAction} from '../actions/AuthenticationActions'
+import {getShowLoginDialogAction} from '../actions/AuthenticationActions'
 
 class LoginButton extends Component{
 
-    constructor(props){
+    constructor(props)
+    {
         super(props);
         this.showLoginDialog = this.showLoginDialog.bind(this);
     }
@@ -19,7 +21,10 @@ class LoginButton extends Component{
     render(){
         return(
             <div>
-               <button id="LoginOpenDialogButton" type="button" class="btn btn-outline-light" onClick={this.showLoginDialog}>Login</button>
+               {/*<button type="button" class="btn btn-outline-light" onClick={this.showLoginDialog}>Login</button>*/}
+                <Button id="LoginOpenDialogButton" variant="light"  onClick={this.showLoginDialog}>
+                    Login
+                </Button>
             </div>
         )
     }

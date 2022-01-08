@@ -5,12 +5,11 @@ import Nav from 'react-bootstrap/Nav'
 // import NavDropdown from 'react-bootstrap/NavDropdown'
 import { Container } from "react-bootstrap";
 
-import UserSessionWidget from './UserSessionWidget'
+import LogoutButton from './LogoutButton'
 
-class TopMenu extends Component {
-
+class TopMenuLoggedIn extends Component {
     render() {
-        return(
+      return(
         <div>
           <Navbar bg="light" expand="lg" fixed="top">
             <Container>
@@ -30,13 +29,13 @@ class TopMenu extends Component {
                     <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                   </NavDropdown>*/}
                 </Nav>
-                <UserSessionWidget />
+                <LogoutButton />
               </Navbar.Collapse>
             </Container>
           </Navbar>
         </div>
-        )
+      )
     }
 }
 
-export default TopMenu
+export default TopMenuLoggedIn
