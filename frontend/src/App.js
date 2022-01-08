@@ -1,48 +1,45 @@
 import React, { Component } from 'react';
 import './App.css';
 
-<<<<<<< HEAD
 import TopMenu from './components/TopMenu';
 import PublicPage from './components/PublicPage';
 import PrivatePage from './components/PrivatePage';
+import CreateUser from './components/CreateUser';
 
-import { connect } from 'react-redux';
-
-=======
-import { connect } from 'react-redux';
-
-import TopMenu from './components/TopMenu';
-import TopMenuLoggedIn from './components/TopMenuLoggedIn';
-import PublicPage from './components/PublicPage';
-import PrivatePage from './components/PrivatePage';
->>>>>>> f1cbc4a137ccd37368c89956e7efd1697b42d180
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import {connect} from 'react-redux';
 
 const mapStateToProps = state => {
   return state
 }
 
 class App extends Component {
-  
+
   render() {
 
-    const user = this.props.user;
-    let workspace;
-    let topmenu;
+    const user = this.props.user
 
-    if(user){
-      topmenu = <TopMenuLoggedIn/>
-      workspace = <PrivatePage /*{...this.props}*/ />
+    let workspace;
+    let createUser;
+
+    if(user) {
+      workspace = <PrivatePage />
+      createUser = <CreateUser/>
     }
-    else{
-      topmenu = <TopMenu/>
-      workspace = <PublicPage/>
+    else {
+      workspace = <PublicPage />
     }
 
     return (
+      <Router>
       <div className="App">
-        {topmenu}
-        {workspace}
+        <TopMenu />
+        <Routes>
+          <Route exact path = "/" element = {workspace}/>
+          <Route exact path = "/UserManagement" element = {createUser}/>
+          </Routes>
       </div>
+      </Router>
     );
   }
 }
