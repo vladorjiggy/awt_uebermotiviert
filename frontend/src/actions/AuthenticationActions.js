@@ -17,8 +17,8 @@ export function getShowLoginDialogAction(){
     }
 }
 
-export function getHideLoginDialogAction(){
-return{
+export function getHideLoginDialogAction() {
+    return {
         type: HIDE_LOGIN_DIALOG
     }
 }
@@ -52,9 +52,9 @@ export function getUserLogout(){
     }
 }
 
-//test
-
-export function authenticateUser(userID, password){
+export function authenticateUser(userID, password) {
+    
+    console.log("Authenticate")
     console.log(userID, password)
 
     return dispatch => {
@@ -93,13 +93,14 @@ function login(userID, password){
 }
 
 function handleResponse(response){
-    const authorizationHeader = response.headers.get('Authorization');
+    
+    const authorizationHeader = response.headers.get('Authorization')
 
     return response.text().then(text => {
-        console.log('Result: ' + authorizationHeader)
+        console.log('Received result: ' + authorizationHeader);
 
-        const data = authorizationHeader.split(" ")[0];
-        let token
+        const data = text && JSON.parse(text);
+        var token;
         if(authorizationHeader){
             token = authorizationHeader.split(" ")[1];
         }
@@ -111,18 +112,21 @@ function handleResponse(response){
             const error = (data && data.message) || response.statusText;
             return Promise.reject(error);
         }
-        else {
+        else{
+
+            console.log(data)
             let userSession = {
-                user : data,
-                accesToken: token
+                user: data,
+                accessToken: token,
             }
-            return userSession
+            return userSession;
         }
     })
 }
 
 function logout(){
-    return dispatch => {
-        dispatch(getUserLogout());
-    }
+    console.error("Should logout user")
+    localStorage.clear();
+    window.location.href = '/';
 }
+
