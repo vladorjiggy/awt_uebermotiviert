@@ -1,53 +1,91 @@
-export const AUTHENTICATION_SUCCESS = "AUTHENTICATION_SUCCESS"
-export const AUTHENTICATION_ERROR = "AUTHENTICATION_ERROR"
+import base64 from 'base-64'
 
-export function getUserAuthSuccessAction(userSession){
-    return {
-        type: AUTHENTICATION_SUCCESS,
-        user: userSession.user,
-        accessToken: userSession.accessToken
+export const SHOW_LOGIN_DIALOG = 'SHOW_LOGIN_DIALOG';
+export const HIDE_LOGIN_DIALOG = "HIDE_LOGIN_DIALOG";
+
+export const AUTHENTICATION_PENDING = "AUTHENTICATION_PENDING";
+export const AUTHENTICATION_SUCCESS = "AUTHENTICATION_SUCCESS";
+export const AUTHENTICATION_ERROR = "AUTHENTICATION_ERROR";
+export const USER_LOGOUT = "LOGOUT";
+
+
+
+
+export function getShowLoginDialogAction(){
+    return{
+        type: SHOW_LOGIN_DIALOG
     }
 }
 
-export function getUserAuthErrorAction(error){
-    return {
-        type: AUTHENTICATION_ERROR,
-        error: error
+export function getHideLoginDialogAction(){
+return{
+        type: HIDE_LOGIN_DIALOG
+    }
+}
+
+export function getAuthenticateUserPendingAction(){
+    return{
+            type: AUTHENTICATION_PENDING
+    }
+}
+
+export function getAuthenticationSuccessAction(userSession){
+    return{
+            type: AUTHENTICATION_SUCCESS,
+            user: userSession.user,
+            accesToken: userSession.accesToken
+
+    }
+}
+
+export function getAuthenticationErrorAction(error){
+    return{
+            type: AUTHENTICATION_ERROR,
+            error: error
+
+    }
+}
+
+export function getUserLogout(){
+    return{
+        type: USER_LOGOUT
     }
 }
 
 //test
 
-export function authenticateUser(name, password){
-    console.log(name, password)
+export function authenticateUser(userID, password){
+    console.log(userID, password)
+
     return dispatch => {
-        return login(name, password)
+        dispatch(getAuthenticateUserPendingAction());
+        login(userID, password)
         .then(
             userSession => {
-                const action = getUserAuthSuccessAction(userSession)
+                const action = getAuthenticationSuccessAction(userSession)
                 dispatch(action)
                 return true
             },
             error => {
-                dispatch(getUserAuthErrorAction(error))
+                dispatch(getAuthenticationErrorAction(error))
                 return false
             }
         )
         .catch(error => {
-            dispatch(getUserAuthErrorAction(error))
+            dispatch(getAuthenticationErrorAction(error))
         })
     }
 }
 
-function login(name, password){
+function login(userID, password){
     const requestOptions = {
-        method: 'post',
+        method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Basic ' + btoa(name + ":" + password)
+           'Authorization' : "Basic " + base64.encode(userID+ ":" + password)
         }
+        
     }
-    return fetch('https://localhost/auth/login', requestOptions)
+    return fetch('http://localhost:8080/auth/login', requestOptions)
     .then(handleResponse)
     .then(userSession => {
         return userSession
@@ -55,25 +93,28 @@ function login(name, password){
 }
 
 function handleResponse(response){
-    
-    const authorizationHeader = response.headers.get('Authorization')
+    const authorizationHeader = response.headers.get('Authorization');
+
     return response.text().then(text => {
-        const data = text && JSON.parse(text)
+        console.log('Result: ' + authorizationHeader)
+
+        const data = authorizationHeader.split(" ")[0];
         let token
         if(authorizationHeader){
-            token = authorizationHeader.split(" ")[1]
+            token = authorizationHeader.split(" ")[1];
         }
-        if(!response.ok){
-            if(response.status === 401){
+
+        if (!response.ok){
+            if (response.status ===401){
                 logout()
             }
-            const error = (data && data.message) || response.statusText
-            return Promise.reject(error)
+            const error = (data && data.message) || response.statusText;
+            return Promise.reject(error);
         }
-        else{
+        else {
             let userSession = {
-                user: data,
-                accessToken: token
+                user : data,
+                accesToken: token
             }
             return userSession
         }
@@ -81,5 +122,7 @@ function handleResponse(response){
 }
 
 function logout(){
-    console.log("logout")
+    return dispatch => {
+        dispatch(getUserLogout());
+    }
 }

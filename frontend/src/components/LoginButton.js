@@ -1,16 +1,30 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 
-// import {connect} from 'react-redux';
+import {connect} from 'react-redux';
+
+import{getShowLoginDialogAction} from '../actions/AuthenticationActions'
+
+import Button from 'react-bootstrap/Button'
 
 class LoginButton extends Component{
+
+    constructor(props){
+        super(props);
+        this.showLoginDialog = this.showLoginDialog.bind(this);
+    }
+
+    showLoginDialog() {
+        const dispatch = this.props.dispatch;
+        dispatch(getShowLoginDialogAction())
+    }
 
     render(){
         return(
             <div>
-               <button type="button" class="btn btn-outline-light" onClick={this.showLoginDialog}>Login</button>
+               <Button id="LoginOpenDialogButton" type="button" variant="light" onClick={this.showLoginDialog}>Login</Button>
             </div>
         )
     }
 }
 
-export default LoginButton
+export default connect()(LoginButton)
