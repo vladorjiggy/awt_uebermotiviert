@@ -5,6 +5,7 @@ import TopMenu from './components/TopMenu';
 import PublicPage from './components/PublicPage';
 import PrivatePage from './components/PrivatePage';
 import CreateUser from './components/CreateUser';
+import CreatePost from './components/CreatePost';
 
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import {connect} from 'react-redux';
@@ -21,10 +22,12 @@ class App extends Component {
 
     let workspace;
     let createUser;
+    let createPost;
 
     if(user) {
       workspace = <PrivatePage />
       createUser = <CreateUser/>
+      createPost = <CreatePost/>
     }
     else {
       workspace = <PublicPage />
@@ -37,6 +40,7 @@ class App extends Component {
         <Routes>
           <Route exact path = "/" element = {workspace}/>
           <Route exact path = "/UserManagement" element = {createUser}/>
+          <Route exact path = "/createPost" element = {createPost}/>
           </Routes>
       </div>
       </Router>

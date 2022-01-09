@@ -33,8 +33,7 @@ export function getAuthenticationSuccessAction(userSession){
     return{
             type: AUTHENTICATION_SUCCESS,
             user: userSession.user,
-            accesToken: userSession.accesToken
-
+            accessToken: userSession.accessToken
     }
 }
 

@@ -23,12 +23,18 @@ class TopMenu extends Component {
     const user = this.props.user;
 
     let userManagement;
+    let createPost;
 
     if (user) {
       userManagement = <Nav.Link as={Link} to="/userManagement" id="OpenUserManagementButton">
         User Anelegen
       </Nav.Link>
+      createPost = <Nav.Link as={Link} to="/createPost" id="OpenCreatePostButton">
+      Create Post
+    </Nav.Link>
     }
+
+
 
     return (
 
@@ -39,8 +45,10 @@ class TopMenu extends Component {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
-                <Nav.Link as={Link} to="/">Home</Nav.Link>
+                <Nav.Link as={Link} to="/"></Nav.Link>
                 {userManagement}
+              <Nav.Link as={Link} to="/"></Nav.Link>
+                {createPost}
               </Nav>
               <UserSessionWidget />
             </Navbar.Collapse>
