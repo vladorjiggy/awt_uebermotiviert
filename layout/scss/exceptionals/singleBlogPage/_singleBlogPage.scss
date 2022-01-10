@@ -1,0 +1,76 @@
+@use "../../base/colors" as colors;
+@use "../../base/font" as font;
+
+@use "../../mixins/flex-mixin" as flex-mixin;
+
+$container-top-margin: 4%;
+$container-bottom-margin: 6%;
+
+$h3-top-margin: 0%;
+$h3-bottom-margin: 2%;
+
+#container-SBP {
+    margin-top: $container-top-margin;
+    margin-bottom: $container-bottom-margin;
+}
+
+#blog-head-image {
+    @include flex-mixin.flex-mixin();
+}
+
+#head-con-img1,
+#head-con-img2 {
+    width: 45%;
+    margin: 1%;
+}
+
+#blog-img1,
+#blog-img2 {
+    width: 100%;
+    height: auto;
+}
+
+#blog-title-info {
+    text-align: center;
+
+    @include flex-mixin.flex-mixin($direction: column);
+}
+
+#blog-title {
+    width: 25rem;
+}
+
+#category-date {
+    @include flex-mixin.flex-mixin($justify-content: space-between);
+}
+
+#category {
+    color: colors.$branding-color;
+
+    &:hover {
+        color: colors.$hover-color;
+    }
+}
+
+
+#div-blog-text {
+    margin-right: 4%;
+    margin-left: 4%;
+}
+
+
+#article-blog-text-1, #article-blog-text-2 {
+
+    margin-top: $container-top-margin *0.5;
+    margin-bottom:  $container-bottom-margin *0.5;
+    
+}
+
+#blog-img-center {
+
+    width: 50%;
+    margin-left:25%;
+    margin-right: 25%;
+
+    
+}

@@ -1,0 +1,48 @@
+@use "../../base/colors" as colors;
+@use "../../base/font" as font;
+
+@use "../../mixins/btn-mixin" as btn-mixin;
+@use "../../mixins/flex-mixin" as flex-mixin;
+
+
+$container-bottom-margin: 6%;
+
+#container-impressum {
+    display: flex;
+    flex-direction: row wrap;
+    margin-bottom: $container-bottom-margin;
+
+    h4 {
+        margin-bottom: 3%;
+    }
+}
+
+#con-left #con-right {
+    display: flex;
+    flex-direction: column wrap;
+}
+
+#article1-section1 {
+    width: 90%;
+    height: auto;
+}
+
+#article1-section1-text,  #article3-section1-text {
+    width: 7rem;
+}
+
+#article2-section1-headline {
+    width: 30rem;
+}
+
+#article2-section2-text1 {
+    width: 20rem;
+
+}
+
+#article2-section1 {
+    width: 90%;
+    height: auto;
+}
+
+
