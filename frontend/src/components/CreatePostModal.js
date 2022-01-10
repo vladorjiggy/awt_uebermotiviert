@@ -24,6 +24,7 @@ class CreatePostModal extends Component {
         this.handleClose = this.handleClose.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
     }
 
     handleShow(e) {
@@ -41,6 +42,13 @@ class CreatePostModal extends Component {
 
     handleChange(e) {
         const { name, value } = e.target;
+        this.setState({ [name]: value })
+    }
+
+    handleCheckboxChange(e){
+        const target = e.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
         this.setState({ [name]: value })
     }
 
@@ -83,8 +91,83 @@ class CreatePostModal extends Component {
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="formBasicUser">
-                                <Form.Label>Categories. Hier müssen Radio Buttons o.Ä. hin</Form.Label>
-                                <Form.Control id="CategoriesInput" type="text" placeholder="Select Categories" name='categories' onChange={this.handleChange} />
+                                <Form.Label>Categories. Hier müssen 6 Radio Buttons o.Ä. hin</Form.Label>
+
+                                <Form>
+                                    {['checkbox'].map((type) => (
+                                        <div key={`inline-${type}`} className="mb-3">
+                                        <Form.Check
+                                            inline
+                                            label="Strand"
+                                            name="group1"
+                                            type={type}
+                                            id={`inline-${type}-1`}
+                                            onChange={this.handleCheckboxChange}
+                                        />
+                                        <Form.Check
+                                            inline
+                                            label="Berge"
+                                            name="group1"
+                                            type={type}
+                                            id={`inline-${type}-2`}
+                                            onChange={this.handleCheckboxChange}
+                                        />
+                                        <Form.Check
+                                            inline
+                                            label="Stadt"
+                                            type={type}
+                                            id={`inline-${type}-3`}
+                                            onChange={this.handleCheckboxChange}
+                                        />
+                                        <Form.Check
+                                            inline
+                                            label="Wald"
+                                            type={type}
+                                            id={`inline-${type}-4`}
+                                            onChange={this.handleCheckboxChange}
+                                        />
+                                        <Form.Check
+                                            inline
+                                            label="Kultur"
+                                            type={type}
+                                            id={`inline-${type}-5`}
+                                            onChange={this.handleCheckboxChange}
+                                        />
+                                        <Form.Check
+                                            inline
+                                            label="Party"
+                                            type={type}
+                                            id={`inline-${type}-6`}
+                                            onChange={this.handleCheckboxChange}
+                                        />
+                                        </div>
+                                    ))}
+                                    
+                                    <div className="inputContainer">
+                                        <label className="label" htmlFor="strand">Strand</label>
+                                        <input id="strand" type="checkbox" name="strand" className="createinput" onChange={this.handleCheckboxChange}/>
+                                    </div>
+                                    <div className="inputContainer">
+                                        <label className="label" htmlFor="berge">Berge</label>
+                                        <input id="berge" type="checkbox" name="berge" className="createinput" onChange={this.handleCheckboxChange}/>
+                                    </div>
+                                    <div className="inputContainer">
+                                        <label className="label" htmlFor="berge">Stadt</label>
+                                        <input id="berge" type="checkbox" name="berge" className="createinput" onChange={this.handleCheckboxChange}/>
+                                    </div>
+                                    <div className="inputContainer">
+                                        <label className="label" htmlFor="berge">Wald</label>
+                                        <input id="berge" type="checkbox" name="berge" className="createinput" onChange={this.handleCheckboxChange}/>
+                                    </div>
+                                    <div className="inputContainer">
+                                        <label className="label" htmlFor="berge">Kultur</label>
+                                        <input id="berge" type="checkbox" name="berge" className="createinput" onChange={this.handleCheckboxChange}/>
+                                    </div>
+                                    <div className="inputContainer">
+                                        <label className="label" htmlFor="berge">Party</label>
+                                        <input id="berge" type="checkbox" name="berge" className="createinput" onChange={this.handleCheckboxChange}/>
+                                    </div>
+                                </Form>
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="formBasicUser">
