@@ -88,6 +88,6 @@ Performancegründen HTTP-Requests zu sparen
 
 - Planung: [Trello](https://trello.com/b/bXSeorLS/projektplanung)
 - Kommunikation: Discord
-- API-Spezifikation: Swagger
+- API-Spezifikation: ![Swagger](https://app.swaggerhub.com/apis/awt-uebermotiviert/AWT/1.0.0)
 - Versionsverwaltung: Git
 - Repository: [Github](https://github.com/vladorjiggy/awt_uebermotiviert.git)
