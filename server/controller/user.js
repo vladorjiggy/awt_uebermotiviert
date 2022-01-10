@@ -14,10 +14,18 @@ exports.login = function (req, res) {
         }
         else {
             if (user) {
-                req.session.isLoggedIn = true
-                req.session.user_id = user._id.toString()
-                res.status(status).send({ message: "user successfully logged in" })
-                console.log(req.session.isLoggedIn)
+                console.log('user true')
+                req.session.regenerate(function (err) {
+                    req.session.isLoggedIn = true
+                    req.session.user_id = user._id.toString()
+                    res.status(status).json({ message: "user successfully logged in" })
+                    console.log(req.session.isLoggedIn)
+    
+                  })
+                    
+                
+                
+                
             }
             else {
                 res.status(status).json({ error: err })
@@ -27,6 +35,7 @@ exports.login = function (req, res) {
 }
 
 exports.logout = function (req, res) {
+    console.log('logout_trigger')
     req.session.destroy()
     res.clearCookie("connect.sid", { path: "/" })
     res.status(200).json({ message: "user successfully logged out" })

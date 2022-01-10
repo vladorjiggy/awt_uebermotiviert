@@ -14,13 +14,13 @@ class PublicPage extends Component {
                 <h1>Forum</h1>
                 <p>Forum für??</p>
                 <LoginButton />
-                <button onclick="window.location = 'login_form.html'" type="button" class="btn btn-outline-light">Kostenlos anmelden</button>
+                <button type="button" className="btn btn-outline-light">Kostenlos anmelden</button>
             </div>
             
         </section>
             
              <section id="mainContent">
-          <div class="desc">
+          <div className="desc">
             <h1>??? Forum</h1>
             <p>
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam 
@@ -34,29 +34,29 @@ class PublicPage extends Component {
             </p>
           </div>
           
-            <div class="container">
-                <div class="row">
+            <div className="container">
+                <div className="row">
                   
                     
-                  <div onclick="window.location = 'forum_template.html'" class="col-sm game_grid_item classic">
+                  <div className="col-sm game_grid_item classic">
                     
                   </div>
                 
-                  <div class="col-sm game_grid_item tbc">
+                  <div className="col-sm game_grid_item tbc">
                     
                   </div>
-                  <div class="col-sm game_grid_item wotlk">
+                  <div className="col-sm game_grid_item wotlk">
                     
                   </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm game_grid_item mist">
+                <div className="row">
+                    <div className="col-sm game_grid_item mist">
                         
                     </div>
-                    <div class="col-sm game_grid_item legion">
+                    <div className="col-sm game_grid_item legion">
                         
                     </div>
-                    <div class="col-sm game_grid_item shadow">
+                    <div className="col-sm game_grid_item shadow">
                         
                     </div>
                   </div>

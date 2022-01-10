@@ -5,7 +5,15 @@ const userController =  require('../controller/user')
 const checkLogin = require('../services/authentication')
 
 router.post("/login", userController.login)
-router.post("/logout", checkLogin.checkLogin, userController.logout)
+router.post("/logout", function (req, res, next) {
+    console.log(req.session)
+    if (req.session?.isLoggedIn) {
+        next()
+    }
+    else {
+        res.status(403).json({ error: 'not allowed' })
+    }
+}, userController.logout)
 router.put("/changePassword", checkLogin.checkLogin, userController.changePassword)
 /*
 router.get("/getAll", userController.getAll)
