@@ -1,0 +1,60 @@
+@use "../base/colors" as colors;
+@use "../base/font" as font;
+
+@use "../mixins/btn-mixin" as btn-mixin;
+
+h1 {
+    color: colors.$title-color;
+    margin-bottom: 0%;
+}
+h5 {
+    margin-left: 10%;
+    margin-top: 0%;
+}
+
+#div-search {
+    position: absolute;
+    left: 60%;
+    top: 8%;
+
+    display: flex;
+    flex-direction: row wrap;
+    justify-content: end;
+    align-items: center;
+}
+
+#div-search-input {
+    border-color: transparent;
+    position: absolute;
+    font-family: inherit;
+    
+}
+
+#div-search-button {
+    @include btn-mixin.btn-mixin($border-radius-t-r: 15%, $border-radius-b-r: 15%);
+    position: absolute;
+    left: -0.1rem;
+}
+
+$search-img-width: 0.8rem;
+$search-img-height: 0.8rem;
+
+#div-search-image {
+    width: $search-img-width;
+    height: $search-img-height;
+    position: absolute;
+    left: 0.28rem;
+
+}
+
+#div-log {
+    position: absolute;
+    right: 10%;
+    top: 6%;
+
+}
+
+a {
+  text-decoration: none;
+}
+
