@@ -152,20 +152,20 @@ class CreatePostModal extends Component {
                                         <input id="berge" type="checkbox" name="berge" className="createinput" onChange={this.handleCheckboxChange}/>
                                     </div>
                                     <div className="inputContainer">
-                                        <label className="label" htmlFor="berge">Stadt</label>
-                                        <input id="berge" type="checkbox" name="berge" className="createinput" onChange={this.handleCheckboxChange}/>
+                                        <label className="label" htmlFor="stadt">Stadt</label>
+                                        <input id="stadt" type="checkbox" name="stadt" className="createinput" onChange={this.handleCheckboxChange}/>
                                     </div>
                                     <div className="inputContainer">
-                                        <label className="label" htmlFor="berge">Wald</label>
-                                        <input id="berge" type="checkbox" name="berge" className="createinput" onChange={this.handleCheckboxChange}/>
+                                        <label className="label" htmlFor="wald">Wald</label>
+                                        <input id="wald" type="checkbox" name="wald" className="createinput" onChange={this.handleCheckboxChange}/>
                                     </div>
                                     <div className="inputContainer">
-                                        <label className="label" htmlFor="berge">Kultur</label>
-                                        <input id="berge" type="checkbox" name="berge" className="createinput" onChange={this.handleCheckboxChange}/>
+                                        <label className="label" htmlFor="kultur">Kultur</label>
+                                        <input id="kultur" type="checkbox" name="kultur" className="createinput" onChange={this.handleCheckboxChange}/>
                                     </div>
                                     <div className="inputContainer">
-                                        <label className="label" htmlFor="berge">Party</label>
-                                        <input id="berge" type="checkbox" name="berge" className="createinput" onChange={this.handleCheckboxChange}/>
+                                        <label className="label" htmlFor="party">Party</label>
+                                        <input id="party" type="checkbox" name="party" className="createinput" onChange={this.handleCheckboxChange}/>
                                     </div>
                                 </Form>
                             </Form.Group>
