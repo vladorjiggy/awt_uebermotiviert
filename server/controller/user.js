@@ -1,7 +1,7 @@
 let authservice = require('../services/authentication')
 let userservice = require('../services/user')
 exports.login = function (req, res) {
-
+    console.log('logintrigger')
     const authHeader = req.headers.authorization
     if (!authHeader || authHeader.indexOf('Basic') === -1) {
         res.status(401).send({ error: "No Authorization Header provided" })
@@ -16,7 +16,8 @@ exports.login = function (req, res) {
             if (user) {
                 req.session.isLoggedIn = true
                 req.session.user_id = user._id.toString()
-                res.status(status).json({ message: "user successfully logged in" })
+                res.status(status).send({ message: "user successfully logged in" })
+                console.log(req.session.isLoggedIn)
             }
             else {
                 res.status(status).json({ error: err })

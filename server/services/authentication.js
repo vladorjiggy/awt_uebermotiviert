@@ -35,6 +35,7 @@ exports.checkPassword = function (username, password, callback) {
 
 
 exports.checkLogin = function (req, res, next) {
+    console.log(req.session.isLoggedIn)
     if (req.session?.isLoggedIn) {
         next()
     }

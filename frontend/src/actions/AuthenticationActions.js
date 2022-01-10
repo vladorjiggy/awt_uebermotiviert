@@ -10,6 +10,15 @@ export const AUTHENTICATION_ERROR = "AUTHENTICATION_ERROR";
 export const SHOW_LOGIN_DIALOG = "SHOW_LOGIN_DIALOG";
 export const HIDE_LOGIN_DIALOG = "HIDE_LOGIN_DIALOG";
 
+export const LOGOUT_USER = "LOGOUT_USER"
+
+export function logoutUserAction()
+{
+    return {
+        type: LOGOUT_USER
+    }
+}
+
 export function getShowLoginDialogAction()
 {
     return {
@@ -59,6 +68,29 @@ export function authenticateUser(userID, password) {
                     // return true
                 },
                 error => {
+                    console.log('error catch')
+                    dispatch(getAuthenticationErrorAction(error));
+                    // return false
+                }
+            )
+            .catch(error => {
+                console.log('error catch')
+                dispatch(getAuthenticationErrorAction(error));
+        })
+    }
+}
+
+export function logoutUser() {
+    console.log('logoutrigger')
+
+    return dispatch => {
+        logout()
+            .then(
+                () => {
+                    dispatch(logoutUserAction());
+                    // return true
+                },
+                error => {
                     dispatch(getAuthenticationErrorAction(error));
                     // return false
                 }
@@ -68,6 +100,7 @@ export function authenticateUser(userID, password) {
         })
     }
 }
+
 
 function login(userID, password){
     const requestOptions = {
@@ -103,6 +136,7 @@ function handleResponse(response){
         }
 
         if(!response.ok) {
+            console.log('true')
             if(response.status === 401) {
                 logout();
             }
@@ -132,8 +166,13 @@ function logout(){
         
     }
     return fetch(connectionString + 'user/logout', requestOptions)
-    .then(handleResponse)
-    .then(userSession => {
-        return userSession
+    .then(resp => resp.json())
+    .then(resp => {
+        console.log(resp)
+        return true
     })
+    .catch(error => {
+        return false
+    })
+    
 }
