@@ -7,7 +7,7 @@ import { Provider } from 'react-redux'
 import thunk from 'redux-thunk';
 
 import rootReducer from './reducer/RootReducer'
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+//import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
