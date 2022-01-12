@@ -40,24 +40,34 @@ class TopMenu extends Component {
 
     return (
 
-      <div>
-        <Navbar bg="light" expand="lg">
-          <Container>
-            <Navbar.Brand as={Link} to="/">Home</Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-              <Nav className="me-auto">
-                <Nav.Link as={Link} to="/"></Nav.Link>
-                {userManagement}
-              <Nav.Link as={Link} to="/"></Nav.Link>
-                {createPost}
-              </Nav>
-              <UserSessionWidget />
-              <LogoutButton />
-            </Navbar.Collapse>
-          </Container>
-        </Navbar>
+      
+      <header id="header">
+      <div id="div-header">
+        <div id="div-branding" onClick={() => { this.routeHome()}}>
+          <h1>The Traveller's Chant</h1>
+          <h5>I havn't been everywhere. But it's on my list.</h5>
+        </div>
+
+        <div id="div-search">
+          <input
+            id="div-search-input"
+            type="text"
+            placeholder="Wonach suchst du?"
+          />
+          <button id="div-search-button"></button>
+          <img
+            id="div-search-image"
+            src="search.png"
+            alt="search.png"
+          />
+        </div>
+
+        <div id="div-log">
+        <UserSessionWidget />
+        </div>
       </div>
+      
+    </header>
     )
   }
 }

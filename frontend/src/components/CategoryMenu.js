@@ -5,7 +5,7 @@ class Categorymenu extends Component {
         categories: []
     };
     componentDidMount(){
-        const url = 'http://localhost:4000/category/get';
+        const url = process.env.REACT_APP_SERVERHOST + '/category/get';
         fetch(url, { 
             method: 'get',
             

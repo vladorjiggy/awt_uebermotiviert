@@ -1,7 +1,10 @@
 const Post = require('../models/Post').Post
 const Category = require('../models/Category').Category
 exports.getPosts = function (callback) {
-    Post.find((err, posts) => {
+    let query = Post.find()
+    .populate('categories', '-posts')
+    .sort('-createdAt')
+    query.exec((err, posts) => {
         if (err) {
             console.log("Fehler bei Suche: " + err)
             return callback(500, err, null)
@@ -47,6 +50,7 @@ exports.updatePost = function (id, data, callback) {
                     return callback(500, "cannot update Post: " +err, null)
                 }
                 else {
+                    console.log('hwh')
                     return callback(200, null, post)
                 }
             })
@@ -67,6 +71,10 @@ exports.createPost = function (data, callback) {
                 let newPost = new Post()
                 newPost.title = data.title
                 newPost.content = data.content
+                if(data.post_image){
+                    newPost.post_image = data.post_image
+                }
+                
                 newPost.categories = data.categories
                 newPost.save(err => {
                     if (err) {

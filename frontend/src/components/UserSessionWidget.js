@@ -19,7 +19,8 @@ class UserSessionWidget extends Component{
         super(props)
         this.state = { 
             userID: '',
-            password: ''
+            password: '',
+            openModal: false
         };
         this.handleShow = this.handleShow.bind(this);
         this.handleClose = this.handleClose.bind(this);
@@ -30,6 +31,7 @@ class UserSessionWidget extends Component{
     handleShow(e)
     {
         e.preventDefault();
+        this.setState({openModal: true})
         //this.setState({show: true})
         const { showLoginDialogAction } = this.props;
         showLoginDialogAction();
@@ -66,35 +68,24 @@ class UserSessionWidget extends Component{
         return(
             <div>
                 {/* Login- & Logout Button switch: Beispielanwendung Folie 44 */}
-                <Button variant="primary" className="button" onClick={this.handleShow}>
-                    Login
-                </Button>
+                <a variant="primary" className="button" onClick={this.handleShow}>
+                    Anmelden
+                </a>
+                {this.state.openModal && 
+                    <div id="popup_catsync" class="overlay" >
+                    <div class="popup">
+                        <h2>Login</h2>
+                        <label for="userID">Username</label><br/>
+                        <input type="text" id="LoginUserIDInput" type="text" placeholder="Enter userID" name="userID" onChange={this.handleChange}></input>
+                        <label for="password">Passwort</label><br/>
+                        <input id="LoginPasswordInput" type="password" placeholder="Enter password" name="password" onChange={this.handleChange} ></input>
+                        <input id="LoginButton" type="submit" onClick={this.handleSubmit}></input>
+                    </div>
+                </div>
+                }
+                
 
-                <Modal show={showDialog} onHide={this.handleClose}>
-                    <Modal.Header closeButton>
-                    <Modal.Title>Login</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                        <Form>
-                            <Form.Group controlId="formBasicUserID"> 
-                                <Form.Label>UserID</Form.Label>
-                                <Form.Control id="LoginUserIDInput" type="text" placeholder="Enter userID" name="userID" onChange={this.handleChange} />
-                            </Form.Group>
-
-                            <Form.Group controlId="formBasicPassword">
-                                <Form.Label>Password</Form.Label>
-                                <Form.Control id="LoginPasswordInput" type="password" placeholder="Enter password" name="password" onChange={this.handleChange} />
-                            </Form.Group>
-
-                            <Button id="LoginButton" variant="primary" type="submit" className="button" onClick={this.handleSubmit}>
-                                Submit
-                            </Button>
-                        </Form>
-                    </Modal.Body>
-                    <Modal.Footer>
-                        Passwort vergessen?
-                    </Modal.Footer>
-                </Modal>
+                
             </div>
         )
     }
