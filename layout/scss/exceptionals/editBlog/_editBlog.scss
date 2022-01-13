@@ -1,0 +1,123 @@
+@use "../../base/colors" as colors;
+@use "../../base/font" as font;
+
+@use "../../mixins/btn-mixin" as btn-mixin;
+@use "../../mixins/flex-mixin" as flex-mixin;
+
+//input file /////////////////////////////////////////
+input[type="file"] {
+    display: none;
+}
+
+.custom-file {
+    text-align: center;
+}
+
+.file-upload {
+    margin: auto;
+    border-radius: 0.25rem;
+    background-color: colors.$basic-color;
+    color: colors.$main-color;
+    cursor: pointer;
+    display: block;
+    width: 4rem;
+    text-align: center;
+
+    font-weight: font.$basic-font-size-header;
+    font-size: 3rem;
+    line-height: 4rem;
+    font-family: inherit;
+
+    &:hover {
+        font-weight: font.$basic-font-size-header;
+        font-size: 3rem;
+        background-color: colors.$hover-color;
+        color: colors.$basic-color;
+    }
+}
+
+//textarea///////////////////////////////////////
+
+.div-postHeadline-category {
+    @include flex-mixin.flex-mixin($justify-content: space-between);
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.div__input--headline {
+    width: 40rem;
+    height: 1.9;
+    border-color: transparent;
+    line-height: 1.5rem;
+    border-radius: 0.25rem;
+    height: 3rem;
+    font-family: inherit;
+    font-size: font.$basic-font-size;
+}
+
+.div__select--dropDownMenu {
+    background-color: colors.$basic-color;
+    color: colors.$main-color;
+    width: 19rem;
+    height: 3rem;
+    font-size: font.$basic-font-size;
+    border-radius: 0.25rem;
+}
+
+.div__textarea--post {
+    resize: vertical;
+    width: 100%;
+    height: 30rem;
+    border-radius: 0.25rem;
+    font-size: font.$basic-font-size;
+    border-color: transparent;
+    font-family: inherit;
+    line-height: 1.5rem;
+}
+
+.div-container-button {
+    @include flex-mixin.flex-mixin($justify-content: center);
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+}
+
+.div__button--submit {
+    margin: 1%;
+
+    @include btn-mixin.btn-mixin(
+        $color: colors.$main-color,
+        $background-color: colors.$submit-color,
+        $width: 11.813rem,
+        $height: 2.813rem
+    );
+    font-weight: font.$headline-font-weight;
+    font-size: font.$basic-font-size;
+
+    border-radius: 0.25rem;
+
+    &:hover {
+        background-color: colors.$hover-submit-color;
+        color: colors.$main-color;
+    }
+}
+
+.div__button--delete {
+    margin: 1%;
+
+    @include btn-mixin.btn-mixin(
+        $color: colors.$main-color,
+        $background-color: colors.$delete-color,
+        $width: 11.813rem,
+        $height: 2.813rem
+    );
+
+    font-weight: font.$headline-font-weight;
+    font-size: font.$basic-font-size;
+
+    border-radius: 0.25rem;
+
+    &:hover {
+        background-color: colors.$hover-delete-color;
+        color: colors.$main-color;
+    }
+}
