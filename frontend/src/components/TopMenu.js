@@ -2,14 +2,10 @@ import React, {Component} from "react";
 
 import {connect} from "react-redux";
 
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
-import Container from "react-bootstrap/Container";
-
-
 import UserSessionWidget from './UserSessionWidget';
 import LogoutButton from './LogoutButton'
 import {Link} from "react-router-dom"
+import CreatePostButton from "./CreatePostButton";
 
 const mapStateToProps = state => {
   return state;
@@ -22,25 +18,19 @@ class TopMenu extends Component {
 
     const user = this.props.user;
 
-    let userManagement;
+    let loginLogout;
     let createPost;
 
     if (user) {
-      
-      userManagement = <Nav.Link as={Link} to="/userManagement" id="OpenUserManagementButton">
-        User Anelegen
-      </Nav.Link>
-      createPost = <Nav.Link as={Link} to="/createPost" id="OpenCreatePostButton">
-      Create Post
-    </Nav.Link>
-    
+      loginLogout = <LogoutButton />
+      createPost = <CreatePostButton />
     }
-
-
+    else{
+      loginLogout = <UserSessionWidget />
+    }
 
     return (
 
-      
       <header id="header">
       <div id="div-header">
         <div id="div-branding" onClick={() => { this.routeHome()}}>
@@ -60,10 +50,12 @@ class TopMenu extends Component {
             src="search.png"
             alt="search.png"
           />
+          
         </div>
-
+        { createPost }
+        { loginLogout }
         <div id="div-log">
-        <UserSessionWidget />
+       
         </div>
       </div>
       

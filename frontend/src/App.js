@@ -4,9 +4,8 @@ import './App.css';
 import TopMenu from './components/TopMenu';
 import PublicPage from './components/PublicPage';
 import PrivatePage from './components/PrivatePage';
-import CreateUser from './components/CreateUser';
 import CreatePost from './components/CreatePost';
-import Footer from './components/Footer';
+//import Footer from './components/Footer';
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import {connect} from 'react-redux';
 
@@ -21,16 +20,17 @@ class App extends Component {
     const user = this.props.user
 
     let workspace;
-    let createUser;
     let createPost;
+
 
     if(user) {
       workspace = <PrivatePage />
-      createUser = <CreateUser/>
       createPost = <CreatePost/>
+      
     }
     else {
       workspace = <PublicPage />
+      
     }
 
     return (
@@ -39,10 +39,9 @@ class App extends Component {
         <TopMenu />
         <Routes>
           <Route exact path = "/" element = {workspace}/>
-          <Route exact path = "/UserManagement" element = {createUser}/>
           <Route exact path = "/createPost" element = {createPost}/>
         </Routes>
-        <Footer />
+        
       </div>
       </Router>
     );

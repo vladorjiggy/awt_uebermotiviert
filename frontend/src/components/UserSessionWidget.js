@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
 
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-
 import * as authenticationActions from '../actions/AuthenticationActions'
 
 
@@ -40,6 +36,7 @@ class UserSessionWidget extends Component {
         //this.setState({show: false})
         const { hideLoginDialogAction } = this.props;
         hideLoginDialogAction();
+        this.setState( { openModal: false } );
     }
 
     handleChange(e) {
@@ -54,6 +51,7 @@ class UserSessionWidget extends Component {
         const { authenticateUserAction } = this.props;
         authenticateUserAction(userID, password);
         console.log("Pushed Submit");
+        this.setState( { openModal: false } );
     }
 
     render() {
@@ -67,7 +65,7 @@ class UserSessionWidget extends Component {
             <div>
                 {/* Login- & Logout Button switch: Beispielanwendung Folie 44 */}
                 <a variant="primary" className="button" onClick={this.handleShow}>
-                    Anmelden
+                    Login
                 </a>
                 {this.state.openModal &&
 
