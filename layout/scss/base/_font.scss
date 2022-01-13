@@ -1,0 +1,107 @@
+@use "../base/colors" as colors;
+
+:root {
+  --general-font: "Montserrat";
+}
+
+$basic-font-size: 1rem;
+$breadcrums-font-size: 0.8rem;
+
+$basic-line-height: 150%;
+$mobile-line-height: 200%;
+
+$basic-font-weight: 400;
+$headline-font-weight: 600;
+$hover-font-size: $basic-font-size * 1.1;
+
+$basic-font-size-header: $basic-font-size * 0.9;
+
+:root {
+  font-family: var(--general-font);
+  font-size: $basic-font-size;
+  line-height: 1.5;
+}
+
+h1 {
+  font-size: $basic-font-size * 1.5;
+  font-weight: $headline-font-weight;
+
+  //   @media only screen and (max-width: dimensions.$breakpoint-tablet) {
+  //     text-align: center;
+  //     margin-left: 0%;
+  //     font-weight: $headline-font-weight;
+  //   }
+}
+
+h3 {
+  font-size: $basic-font-size * 1.3;
+  font-weight: $headline-font-weight;
+  color: colors.$branding-color;
+}
+
+span {
+  h2 {
+    color: colors.$basic-color;
+    font-weight: $headline-font-weight;
+  }
+  h3 {
+    color: colors.$basic-color;
+    font-weight: $headline-font-weight;
+  }
+}
+
+h5 {
+  color: colors.$basic-color;
+  font-size: $basic-font-size * 0.7;
+  font-weight: $headline-font-weight;
+}
+
+h4 {
+  color: colors.$basic-color;
+  font-weight: $headline-font-weight;
+}
+
+p,
+blockquote {
+  font-size: $basic-font-size;
+  font-weight: $basic-font-weight;
+  line-height: $basic-line-height;
+  color: colors.$basic-color;
+
+  //   @media only screen and (max-width: dimensions.$breakpoint-tablet) {
+  //     font-size: $basic-font-size * 1.1;
+  //     font-weight: $basic-font-weight;
+  //     line-height:$mobile-line-height;
+  // }
+
+  strong {
+    color: colors.$basic-color;
+    font-size: $basic-font-size;
+    font-weight: $headline-font-weight;
+  }
+}
+
+input {
+  font-size: $basic-font-size-header;
+}
+
+a {
+  font-size: $basic-font-size-header;
+  color: colors.$basic-color;
+  font-weight: $headline-font-weight;
+
+  &:hover {
+    color: colors.$hover-color;
+  }
+}
+
+#breadcrumb {
+  li {
+    font-size: $breadcrums-font-size;
+
+    font-weight: $headline-font-weight;
+    a {
+      font-weight: $basic-font-weight;
+    }
+  }
+}

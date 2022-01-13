@@ -1,0 +1,127 @@
+@use "../../base/colors" as colors;
+@use "../../base/font" as font;
+
+@use "../../mixins/btn-mixin" as btn-mixin;
+@use "../../mixins/flex-mixin" as flex-mixin;
+
+$container-top-margin: 4%;
+$container-bottom-margin: 6%;
+
+$h3-top-margin: 0%;
+$h3-bottom-margin: 2%;
+
+#read-more-link {
+    color: colors.$branding-color;
+
+    &:hover {
+        color: colors.$hover-color;
+    }
+}
+
+#category-name{
+    @include btn-mixin.btn-mixin($color: colors.$main-color, $width: 7.5rem, $height: 1.875rem);
+    font-family: inherit;
+
+    position: absolute;
+}
+
+
+#container1-index {
+    @include flex-mixin.flex-mixin();
+
+    margin-top: $container-top-margin;
+    margin-bottom: $container-bottom-margin;
+
+    h3 {
+        margin-top: $h3-top-margin;
+        margin-bottom: $h3-bottom-margin;
+    }
+}
+
+#article1-section1-index {
+    width: 45%;
+    height: auto;
+    margin-right: 5%;
+}
+
+#article1-img-index {
+    width: 100%;
+    height: auto;
+}
+
+#category-name-index {
+    @include btn-mixin.btn-mixin($color: colors.$main-color, $width: 7.5rem, $height: 1.875rem);
+    font-family: inherit;
+
+    position: absolute;
+}
+
+// zweiter Containerabschnitt ////////////////////////////////////////////////////////////////////
+
+#container2 {
+    display: flex;
+    flex-direction: row wrap;
+
+    margin-top: $container-bottom-margin;
+    margin-bottom: $container-bottom-margin;
+}
+
+#con2-1 #con2-2 {
+   
+    display: flex;
+    flex-direction: column wrap;
+
+ 
+
+}
+
+//container mit Image und Button
+#article2-section1 {
+    width: 90%;
+    height: auto;
+
+}
+
+#article2-img {
+    width: 100%;
+    height: auto;
+}
+
+//container mit Text
+#article2-section2 {
+    width: 90%;
+    height: auto;
+}
+
+
+
+// dritter Containerabschnitt ////////////////////////////////////////////////////////////////////
+
+#container3 {
+    display: flex;
+    flex-direction: row wrap;
+
+    margin-top: $container-bottom-margin;
+    margin-bottom: $container-bottom-margin;
+
+}
+
+
+//container mit Image und Button
+#article3-section1 {
+    width: 90%;
+    height: auto;
+
+}
+
+#article3-img {
+    width: 100%;
+    height: auto;
+}
+
+//container mit Text
+#article3-section2 {
+    width: 90%;
+    height: auto;
+}
+

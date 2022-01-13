@@ -13,13 +13,14 @@ const mapStateToProps = state => {
     return state;
 }
 
-class UserSessionWidget extends Component{
+class UserSessionWidget extends Component {
 
     constructor(props) {
         super(props)
-        this.state = { 
+        this.state = {
             userID: '',
-            password: ''
+            password: '',
+            openModal: false
         };
         this.handleShow = this.handleShow.bind(this);
         this.handleClose = this.handleClose.bind(this);
@@ -27,28 +28,27 @@ class UserSessionWidget extends Component{
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleShow(e)
-    {
+    handleShow(e) {
         e.preventDefault();
+        this.setState({ openModal: true })
         //this.setState({show: true})
         const { showLoginDialogAction } = this.props;
         showLoginDialogAction();
     }
 
-    handleClose(e)
-    {
+    handleClose(e) {
         //this.setState({show: false})
         const { hideLoginDialogAction } = this.props;
         hideLoginDialogAction();
     }
 
     handleChange(e) {
-        const {name, value} = e.target;
-        this.setState({ [name]: value})
+        const { name, value } = e.target;
+        this.setState({ [name]: value })
         console.log(JSON.stringify(this.state))
     }
 
-    handleSubmit(e){
+    handleSubmit(e) {
         e.preventDefault();
         const { userID, password } = this.state;
         const { authenticateUserAction } = this.props;
@@ -56,47 +56,70 @@ class UserSessionWidget extends Component{
         console.log("Pushed Submit");
     }
 
-    render(){
+    render() {
 
         var showDialog = this.props.showLoginDialog;
-        if(showDialog === undefined) {
+        if (showDialog === undefined) {
             showDialog = false;
         }
 
-        return(
+        return (
             <div>
                 {/* Login- & Logout Button switch: Beispielanwendung Folie 44 */}
-                <Button variant="primary" className="button" onClick={this.handleShow}>
-                    Login
-                </Button>
+                <a variant="primary" className="button" onClick={this.handleShow}>
+                    Anmelden
+                </a>
+                {this.state.openModal &&
 
-                <Modal show={showDialog} onHide={this.handleClose}>
-                    <Modal.Header closeButton>
-                    <Modal.Title>Login</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                        <Form>
-                            <Form.Group controlId="formBasicUserID"> 
-                                <Form.Label>UserID</Form.Label>
-                                <Form.Control id="LoginUserIDInput" type="text" placeholder="Enter userID" name="userID" onChange={this.handleChange} />
-                            </Form.Group>
 
-                            <Form.Group controlId="formBasicPassword">
-                                <Form.Label>Password</Form.Label>
-                                <Form.Control id="LoginPasswordInput" type="password" placeholder="Enter password" name="password" onChange={this.handleChange} />
-                            </Form.Group>
 
-                            <Button id="LoginButton" variant="primary" type="submit" className="button" onClick={this.handleSubmit}>
-                                Submit
-                            </Button>
-                        </Form>
-                    </Modal.Body>
-                    <Modal.Footer>
-                        Passwort vergessen?
-                    </Modal.Footer>
-                </Modal>
+
+                    <div id="containerLog">
+                        <div id="bg-Blurred"></div>
+                        <div id="div-log-form">
+                            <form id="log-form">
+                                <div id="div-wrap-head">
+                                    <img
+                                        id="log-span-img"
+                                        src="../images/icons/composition.png"
+                                        alt="search.png"
+                                    />
+                                    <div id="div-log-span-text">
+                                        <span id="log-span-text">
+                                            <h2>Willkommen, Reisender!</h2>
+                                        </span>
+                                        <span id="log-span-text">
+                                            <h3>Melde dich an:</h3>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div id="wrap-input">
+                                    <div id="wrap-input-UN">
+                                        <input type="text" id="LoginUserIDInput" type="text" placeholder="Enter userID" name="userID" onChange={this.handleChange}></input>
+                                    </div>
+                                    <div id="wrap-input-PW">
+                                        <input id="LoginPasswordInput" type="password" placeholder="Enter password" name="password" onChange={this.handleChange} ></input>
+                                    </div>
+                                </div>
+
+                                <div id="div-log-btn">
+                                    <button id="log-btn" onClick={this.handleSubmit}>Los Gehts</button>
+                                </div>
+
+                                <div id="div-log-text">
+                                    <a href="#" id="div-log-text-a">Password vergessen?</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                }
+
+
+
             </div>
-        )
+        );
     }
 }
 

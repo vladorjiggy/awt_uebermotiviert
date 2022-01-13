@@ -3,7 +3,7 @@
         "connectionString": "mongodb://localhost/awtReiseblog"
     },
     "session": {
-        "secret": "IthiswhereaTokenKeyItwouldBeVERYveryVeRyL0o0o0o0o0o0o0o0ong!987654345678902ß3490§$%&()",
+        "secret": "abcchr",
         "timeout": 86400
     }
 }
