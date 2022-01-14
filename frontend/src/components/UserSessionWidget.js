@@ -81,7 +81,7 @@ class UserSessionWidget extends Component {
                                 <div id="div-wrap-head">
                                     <img
                                         id="log-span-img"
-                                        src="../images/icons/composition.png"
+                                        src="composition.png"
                                         alt="search.png"
                                     />
                                     <div id="div-log-span-text">
