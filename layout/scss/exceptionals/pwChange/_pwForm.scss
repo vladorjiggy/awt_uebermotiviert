@@ -28,6 +28,26 @@ $border-radius: 0.625rem;
     border-radius: 0.625rem;
 }
 
+#position-button {
+    position: absolute;
+    top: 5%;
+    left: 90%;
+} 
+
+#close-button {
+  
+    text-align: center;
+    @include btn-mixin.btn-mixin($width: 2.2rem, $height: 2rem);
+    color: colors.$main-color;
+    border-radius: 0.5rem;
+
+    &:hover {
+        background-color: colors.$hover-color;
+        color: colors.$basic-color;
+        font-weight: font.$headline-font-weight;
+    }
+}
+
 #div-wrap-head {
     position: absolute;
     top: 10%;

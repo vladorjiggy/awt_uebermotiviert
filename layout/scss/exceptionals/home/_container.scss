@@ -18,13 +18,19 @@ $h3-bottom-margin: 2%;
     }
 }
 
-#category-name{
+#category-name {
     @include btn-mixin.btn-mixin($color: colors.$main-color, $width: 7.5rem, $height: 1.875rem);
     font-family: inherit;
 
     position: absolute;
 }
 
+//gesammter post in layout row 1
+.container1__post {
+    margin: 1%;
+
+    max-width: 100%;
+}
 
 #container1-index {
     @include flex-mixin.flex-mixin();
@@ -59,29 +65,27 @@ $h3-bottom-margin: 2%;
 // zweiter Containerabschnitt ////////////////////////////////////////////////////////////////////
 
 #container2 {
-    display: flex;
-    flex-direction: row wrap;
+    max-width: 100%;
+    @include flex-mixin.flex-mixin($justify-content: start);
 
     margin-top: $container-bottom-margin;
     margin-bottom: $container-bottom-margin;
 }
 
-#con2-1 #con2-2 {
-   
-    display: flex;
-    flex-direction: column wrap;
+//gesammter post in layout row 2
+.container2__post {
+    margin: 1%;
 
- 
-
+    max-width: 45%;
 }
 
-//container mit Image und Button
-#article2-section1 {
-    width: 90%;
+//article section with image and button
+#article2-section1-index {
+    width: 100%;
     height: auto;
-
 }
 
+//article section with image
 #article2-img {
     width: 100%;
     height: auto;
@@ -89,39 +93,45 @@ $h3-bottom-margin: 2%;
 
 //container mit Text
 #article2-section2 {
-    width: 90%;
+    width: 100%;
     height: auto;
 }
-
-
 
 // dritter Containerabschnitt ////////////////////////////////////////////////////////////////////
 
 #container3 {
-    display: flex;
-    flex-direction: row wrap;
+    max-width: 100%;
+    @include flex-mixin.flex-mixin($justify-content: start);
 
     margin-top: $container-bottom-margin;
     margin-bottom: $container-bottom-margin;
+}
 
+//gesammter post in layout row 3
+.container3__post {
+    margin: 1%;
+
+    max-width: 30%;
 }
 
 
 //container mit Image und Button
 #article3-section1 {
-    width: 90%;
+    width: 100%;
     height: auto;
-
 }
 
+//image in row 3
 #article3-img {
     width: 100%;
     height: auto;
 }
 
-//container mit Text
-#article3-section2 {
-    width: 90%;
-    height: auto;
+//p tag cuts down the text with "..."
+.cut-text {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
 }
 

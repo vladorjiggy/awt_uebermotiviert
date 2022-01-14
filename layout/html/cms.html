@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <title>Dashboard</title>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+    <header id="header">
+      <div id="div-header">
+        <div id="div-branding">
+          <h1>The Traveller's Chant</h1>
+          <h5>I havn't been everywhere. But it's on my list.</h5>
+        </div>
+
+        <div id="div-search">
+          <input
+            id="div-search-input"
+            type="text"
+            placeholder="Wonach suchst du?"
+          />
+          <button id="div-search-button"></button>
+          <img
+            id="div-search-image"
+            src="../images/icons/search.png"
+            alt="search.png"
+          />
+        </div>
+
+        <div id="div-dropDown">
+            <select name="select-dropDown" id="dropDownMenu">
+              <option value="welcome">Hey, <span id="username">Nutzername<span></option>
+              <option value="cms">Dashboard</option>
+              <option value="pwChange">Passwort ändern</option>
+              <option value="logout">Abmelden</option>
+            </select>
+        </div>
+     
+    </header>
+
+    <main>
+      <ul id="breadcrumb">
+        <li><a href="#">Startseite</a></li>
+        <li>Dashboard</li>
+      </ul>
+
+      <div id="container-cms">
+        <div id="div-add-button">
+            <button id="add-button"><p id="plusIcon">+</p></button>
+            <p id="btn-lable">Beitrag erstellen</p>
+        </div>
+
+        <div id="table-list">
+            <table>
+                <caption id="table-caption">Alle Beiträge</caption>
+                <tr>
+                  <th><span id="postName"><span>PostName</th>
+                  <td><span id="category"></span>Kategorie</td>
+                  <td><span id="posteDate"></span>Datum</td>
+                  <td id="td-e"><a href="#" id="edit">bearbeiten</a></td>
+                  <td id="td-d"><a href="#" id="delete">löschen</a></td>
+                </tr>
+    
+                <tr>
+                    <th><span id="postName"><span>PostName</th>
+                    <td><span id="category"></span>Kategorie</td>
+                    <td><span id="posteDate"></span>Datum</td>
+                    <td id="td-e"><a href="#" id="edit">bearbeiten</a></td>
+                    <td id="td-d"><a href="#" id="delete">löschen</a></td>
+                  </tr>
+                  
+            </table>
+        </div>    
+        
+      </div>
+    </main>
+
+    <footer>
+      <nav>
+        <ul>
+          <li id="link-li0">
+            <a href="#">Über Uns</a>
+          </li>
+          <li id="link-li1">
+            <a href="#">Impressum</a>
+          </li>
+          <li id="link-li2">
+            <a href="#">Kontakt</a>
+          </li>
+        </ul>
+      </nav>
+      <p>© 2021 UebermotiviertAWT</p>
+    </footer>
+  </body>
+</html>

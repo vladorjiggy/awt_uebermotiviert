@@ -1,13 +1,15 @@
 @use "../base/colors" as colors;
 
-@mixin btn-mixin( $border-color: transparent, $border-radius-t-r: 0%, $border-radius-b-r: 0%,  $color: color, $background-color: colors.$btn-bg-color, $width: 1.5rem, $height: 1.5rem, $cursor: pointer){
+@mixin btn-mixin( $border-color: transparent, $border-radius-t-r: 0%, $border-radius-b-r: 0%,  $color: color, $background-color: colors.$btn-bg-color, $width: 1.5rem, $height: 1.5rem, $cursor: pointer, $font-family: inherit){
     border-color:$border-color;
     border-top-right-radius: $border-radius-t-r;
     border-bottom-right-radius: $border-radius-b-r;
     color: $color;
-    background-color: colors.$btn-bg-color;
+    background-color: $background-color;
     width: $width;
     height: $height;
     cursor: $cursor;
+    font-family: inherit;
+   
 
 }

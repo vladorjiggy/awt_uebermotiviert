@@ -1,0 +1,99 @@
+@use "../../base/colors" as colors;
+@use "../../base/font" as font;
+
+@use "../../mixins/btn-mixin" as btn-mixin;
+@use "../../mixins/flex-mixin" as flex-mixin;
+
+#div-dropDown {
+    position: absolute;
+    right: 6%;
+    top: 6%;
+}
+
+select {
+    border-color: transparent;
+    background-color: colors.$secondary-color;
+
+    color: colors.$basic-color;
+    height: 1.5rem;
+    width: 12rem;
+    text-align: center;
+}
+
+#table-caption {
+    font-weight: font.$headline-font-weight;
+    text-align: start;
+    color: colors.$branding-color;
+    margin-bottom: 1rem;
+}
+
+#div-add-button {
+    width: 100%;
+    text-align: center;
+
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+#add-button {
+    align-items: center;
+    @include btn-mixin.btn-mixin($width: 4rem, $height: 4rem);
+    border-radius: 0.25rem;
+
+    &:hover {
+        background-color: colors.$hover-color;
+    }
+}
+
+#plusIcon {
+    font-family: inherit;
+    font-weight: font.$basic-font-size-header;
+    font-size: 3rem;
+    margin: 0rem;
+    color: colors.$main-color;
+    line-height: 3rem;
+
+    &:hover {
+        color: colors.$basic-color;
+    }
+}
+
+#btn-lable {
+    margin-top: 1%;
+    font-size: font.$basic-font-size * 0.8;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 4rem;
+
+    th {
+        width: 20rem;
+        text-align: start;
+        padding-left: 1%;
+    }
+
+    td {
+        padding-left: 3rem;
+        padding-right: 3rem;
+        padding-top: 1%;
+        padding-bottom: 1%;
+    }
+
+    #td-e {
+        padding-right: 1%;
+    }
+
+    #td-d {
+        padding-right: 1%;
+        padding-left: 1%;
+        text-align: end;
+    }
+}
+
+tr:not(:first-of-type) {
+    border-top-style: solid;
+    border-width: 0.09rem;
+    border-color: colors.$secondary-color;
+}
