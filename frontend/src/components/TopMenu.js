@@ -1,10 +1,11 @@
 import React, {Component} from "react";
 
 import {connect} from "react-redux";
+import {Link} from "react-router-dom"
 
 import UserSessionWidget from './UserSessionWidget';
 import LogoutButton from './LogoutButton'
-import {Link} from "react-router-dom"
+
 import CreatePostButton from "./CreatePostButton";
 
 const mapStateToProps = state => {

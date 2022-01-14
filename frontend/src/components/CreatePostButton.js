@@ -1,12 +1,14 @@
 import React, { Component } from "react"
 
 import { connect } from 'react-redux';
+import {Link} from "react-router-dom"
 
 import { getShowCreatePostDialogAction } from '../actions/CreatePostActions'
 
+
 class CreatePostButton extends Component {
 
-    constructor(props) 
+ /*    constructor(props) 
     {
         super(props);
         this.showCreatePostDialog = this.showCreatePostDialog.bind(this);
@@ -15,14 +17,12 @@ class CreatePostButton extends Component {
     showCreatePostDialog() {
         const dispatch = this.props.dispatch;
         dispatch(getShowCreatePostDialogAction())
-    }
+    } */
 
     render() {
         return (
             <div>
-                <button id="CreatePostOpenDialogButton" variant="light" onClick={this.showCreatePostDialog}>
-                    Create Post
-                </button>
+                <Link to="/createPost" id="CreatePostOpenDialogButton"></Link>
             </div>
         )
     }

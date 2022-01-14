@@ -110,9 +110,11 @@ function login(userID, password){
         headers: {
            'Authorization' : "Basic " + base64.encode(userID+ ":" + password)
         }
-        
     }
-    return fetch('http://localhost:4000/user/login', requestOptions)
+
+    const url = process.env.REACT_APP_SERVERHOST + '/user/login';
+
+    return fetch(url, requestOptions)
     .then(handleResponse)
     .then(userSession => {
         return userSession
@@ -154,7 +156,10 @@ function logout(){
         method: 'POST',
         credentials: 'include'
     }
-        return fetch('http://localhost:4000/user/logout', options)
+
+    const url = process.env.REACT_APP_SERVERHOST + '/user/logout';
+
+        return fetch(url, options)
         .then(resp => resp.json())
         .then(resp => {
             return true

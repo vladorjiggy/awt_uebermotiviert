@@ -26,7 +26,7 @@ class HomeContent extends Component {
             return (
             
                 <main>
-                    <div id="container1-index">
+                    <div class="container1__post" id="container1-index">
                         <article id="article1-section1-index">
                             <button id="category-name">{this.state.posts[0].categories[0].name}</button>
                             <img
@@ -38,7 +38,7 @@ class HomeContent extends Component {
     
                         <article id="article1-section1-index">
                             <h3 id="article1-headline-index">{this.state.posts[0].title}</h3>
-                            <p id="article1-text-index">
+                            <p class="cut-text" id="article1-text-index">
                                 {this.state.posts[0].content}
                             </p>
                             <a id="read-more-link" onClick={() => { this.routeToSingle(this.state.posts[0]._id) }}>Erfahre mehr...</a>
@@ -48,8 +48,8 @@ class HomeContent extends Component {
                     {this.state.posts.length > 1 &&
                         <div>
                             <div id="container2">
-                                <div id="con2-1">
-                                    <article id="article2-section1">
+                                <div class="container2__post" id="con2-1">
+                                    <article id="article2-section1-index">
                                         <button id="category-name">{this.state.posts[1].categories[0].name}</button>
                                         <img
                                             id="article2-img"
@@ -60,15 +60,15 @@ class HomeContent extends Component {
     
                                     <article id="article2-section2">
                                         <h3 id="article2-headline">{this.state.posts[1].title}</h3>
-                                        <p id="article2-text">
+                                        <p class="cut-text" id="article2-text">
                                         {this.state.posts[1].content}
                                         </p>
                                         <a id="read-more-link" onClick={() => { this.routeToSingle(this.state.posts[1]._id) }}>Erfahre mehr...</a>
                                     </article>
                                 </div>
                                 {this.state.posts.length > 2 && 
-                                    <div id="con2-2">
-                                    <article id="article2-section1">
+                                    <div class="container2__post" id="con2-2">
+                                    <article id="#article2-section1-index">
                                         <button id="category-name">{this.state.posts[2].categories[0].name}</button>
                                         <img
                                             id="article2-img"
@@ -79,7 +79,7 @@ class HomeContent extends Component {
     
                                     <article id="article2-section2">
                                         <h3 id="article2-headline">{this.state.posts[2].title}</h3>
-                                        <p id="article2-text">
+                                        <p class="cut-text" id="article2-text">
                                         {this.state.posts[2].content}
                                         </p>
                                         <a id="read-more-link" onClick={() => { this.routeToSingle(this.state.posts[2]._id) }}>Erfahre mehr...</a>
@@ -90,7 +90,7 @@ class HomeContent extends Component {
                             </div>
                             {this.state.posts.length > 3 && 
                                 <div id="container3">
-                                <div id="con3-1">
+                                <div class="container3__post" id="con3-1">
                                     <article id="article3-section1">
                                         <button id="category-name">{this.state.posts[3].categories[0].name}</button>
                                         <img
@@ -102,14 +102,14 @@ class HomeContent extends Component {
     
                                     <article id="article3-section2">
                                         <h3 id="article3-headline">{this.state.posts[3].title}</h3>
-                                        <p id="article3-text">
+                                        <p class="cut-text" id="article3-text">
                                         {this.state.posts[3].content}
                                         </p>
                                         <a id="read-more-link" onClick={() => { this.routeToSingle(this.state.posts[3]._id) }}>Erfahre mehr...</a>
                                     </article>
                                 </div>
                                 {this.state.posts.length > 4 && 
-                                    <div id="con3-2">
+                                    <div  class="container3__post" id="con3-2">
                                     <article id="article3-section1">
                                         <button id="category-name">{this.state.posts[4].categories[0].name}</button>
                                         <img
@@ -121,7 +121,7 @@ class HomeContent extends Component {
     
                                     <article id="article3-section2">
                                         <h3 id="article3-headline">{this.state.posts[4].title}</h3>
-                                        <p id="article3-text">
+                                        <p class="cut-text" id="article3-text">
                                         {this.state.posts[4].content}
                                         </p>
                                         <a id="read-more-link" onClick={() => { this.routeToSingle(this.state.posts[4]._id) }}>Erfahre mehr...</a>
@@ -129,7 +129,7 @@ class HomeContent extends Component {
                                 </div>
                                 }
                                 {this.state.posts.length > 5 && 
-                                    <div id="con3-3">
+                                    <div class="container3__post"  id="con3-3">
                                     <article id="article3-section1">
                                         <button id="category-name">{this.state.posts[5].categories[0].name}</button>
                                         <img
@@ -141,7 +141,7 @@ class HomeContent extends Component {
     
                                     <article id="article3-section2">
                                         <h3 id="article3-headline">{this.state.posts[5].title}</h3>
-                                        <p id="article3-text">
+                                        <p class="cut-text" id="article3-text">
                                         {this.state.posts[5].content}
                                         </p>
                                         <a id="read-more-link" onClick={() => { this.routeToSingle(this.state.posts[5]._id) }}>Erfahre mehr...</a>

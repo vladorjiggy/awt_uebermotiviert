@@ -1,9 +1,9 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 
-import Button from 'react-bootstrap/Button'
+/* import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
-import Form from 'react-bootstrap/Form'
+import Form from 'react-bootstrap/Form' */
 
 import * as createPostActions from '../actions/CreatePostActions'
 import { bindActionCreators } from "redux"
@@ -74,7 +74,7 @@ class CreatePostModal extends Component {
 
         return (
             <div>
-                <Modal show={showDialog} onHide={this.handleClose}>
+               {/*  <Modal show={showDialog} onHide={this.handleClose}>
                     <Modal.Header closeButton>
                         <Modal.Title>Create Post</Modal.Title>
                     </Modal.Header>
@@ -180,7 +180,7 @@ class CreatePostModal extends Component {
                             </Button>
                         </Form>
                     </Modal.Body>
-                </Modal>
+                </Modal> */}
             </div>
         )
     }

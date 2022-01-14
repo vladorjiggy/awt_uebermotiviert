@@ -38,6 +38,7 @@ export function getEditPostErrorAction() {
     }
 }
 
+// DIE FUNKTION IST NOCH NICHT FERTIG
 export function editPost(accessToken, title, content, categories, post_image){
     const requestOptions = {
         method: 'POST',
@@ -48,5 +49,8 @@ export function editPost(accessToken, title, content, categories, post_image){
         body: JSON.stringify({ title, content, categories }) // testen
     }
 
-    return fetch(connectionString + 'post/create', requestOptions)
+    // POST/CREATE IST FALSCH. editPost wurde anscheinend noch nicht umgesetzt, nur Struktur von Create kopiert
+    const url = process.env.REACT_APP_SERVERHOST + '/post/create';
+
+    return fetch(url, requestOptions)
 }

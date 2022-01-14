@@ -41,7 +41,7 @@ class App extends Component {
           <Route exact path = "/" element = {workspace}/>
           <Route exact path = "/createPost" element = {createPost}/>
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
       </div>
       </Router>
     );
