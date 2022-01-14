@@ -5,7 +5,7 @@ import TopMenu from './components/TopMenu';
 import PublicPage from './components/PublicPage';
 import PrivatePage from './components/PrivatePage';
 import CreatePost from './components/CreatePost';
-//import Footer from './components/Footer';
+import Footer from './components/Footer';
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import {connect} from 'react-redux';
 
@@ -41,7 +41,7 @@ class App extends Component {
           <Route exact path = "/" element = {workspace}/>
           <Route exact path = "/createPost" element = {createPost}/>
         </Routes>
-        
+        <Footer />
       </div>
       </Router>
     );
