@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import Button from 'react-bootstrap/Button'
 
 import { connect } from 'react-redux';
 
@@ -21,9 +20,9 @@ class CreatePostButton extends Component {
     render() {
         return (
             <div>
-                <Button id="CreatePostOpenDialogButton" variant="light" onClick={this.showCreatePostDialog}>
+                <button id="CreatePostOpenDialogButton" variant="light" onClick={this.showCreatePostDialog}>
                     Create Post
-                </Button>
+                </button>
             </div>
         )
     }

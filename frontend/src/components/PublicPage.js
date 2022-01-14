@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import "../layout/css/style.css";
 
-import LoginButton from "./LoginButton";
+//import LoginButton from "./LoginButton";
 import Categorymenu from "./CategoryMenu";
 import HomeContent from "./HomeContent";
 class PublicPage extends Component {
@@ -13,9 +13,9 @@ class PublicPage extends Component {
             <Categorymenu />
             <HomeContent />
           </div>
-          
+
         )
     }
 }
 
-export default PublicPage
+export default PublicPage;

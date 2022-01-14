@@ -162,7 +162,4 @@ function logout(){
         .catch(error => {
             return false
         })
-    
-    
-    
 }
