@@ -9,6 +9,7 @@ const CategoryRenderList = props => {
             </li>
         )
     })
-    return <ul>{rows}</ul>
+    return <ul>{rows}</ul> // sollte passen
+    
 }
 export default CategoryRenderList
