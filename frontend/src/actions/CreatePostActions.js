@@ -4,7 +4,7 @@ export function createPost(accessToken, title, content, categories, post_image){
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization' : "Bearer " + accessToken
+            'Authorization' : "Bearer " + accessToken  // es gibt kein accessToken
         },
         body: JSON.stringify({ title, content, categories, post_image }) // testen
     }
