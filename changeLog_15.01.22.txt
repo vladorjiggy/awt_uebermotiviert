@@ -17,9 +17,12 @@ EditPost
 CategoryPosts
 SearchResults
 
+evtl: CreateUser
+
 Components:
 Login mittig
 pwChange
+createUser
 
 Backend:
 search
