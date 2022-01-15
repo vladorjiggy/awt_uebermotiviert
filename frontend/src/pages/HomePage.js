@@ -2,10 +2,10 @@ import React, { Component } from "react";
 
 import "../layout/css/style.css";
 
-//import LoginButton from "./LoginButton";
-import Categorymenu from "./CategoryMenu";
-import HomeContent from "./HomeContent";
-class PublicPage extends Component {
+
+import Categorymenu from "../components/CategoryMenu";
+import HomeContent from "../components/HomeContent";
+class HomePage extends Component {
 
     render() {
         return(
@@ -18,4 +18,4 @@ class PublicPage extends Component {
     }
 }
 
-export default PublicPage;
+export default HomePage;

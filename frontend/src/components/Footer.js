@@ -7,14 +7,14 @@ class Footer extends Component {
         <nav>
           <ul>
             <li id="link-li0">
-                <Link className="nav-link" to="/">Über Uns</Link>
+                <Link className="nav-link" to="/ueberuns">Über Uns</Link>
               
             </li>
             <li id="link-li1">
-                <Link className="nav-link" to="/">Impressum</Link>
+                <Link className="nav-link" to="/impressum">Impressum</Link>
             </li>
             <li id="link-li2">
-              <Link className="nav-link" to="/">Kontakt</Link>
+              <Link className="nav-link" to="/contact">Kontakt</Link>
             </li>
   
           </ul>
