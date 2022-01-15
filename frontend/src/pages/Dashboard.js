@@ -1,14 +1,14 @@
 import React, { Component } from "react";
-
-class PrivatePage extends Component {
-
+import { Link } from 'react-router-dom';
+class Dashboard extends Component {
     render() {
         return(
            
             <main>
                 <div id="container-cms">
                     <div id="div-add-button">
-                        <button id="add-button"><p id="plusIcon">+</p></button>
+                    <Link to={'/post/create'} className="nav-link"><button id="add-button"><p id="plusIcon">+</p></button></Link>
+                        
                         <p id="btn-lable">Beitrag erstellen</p>
                     </div>
 
@@ -53,4 +53,4 @@ class PrivatePage extends Component {
     }
 }
 
-export default PrivatePage
+export default Dashboard

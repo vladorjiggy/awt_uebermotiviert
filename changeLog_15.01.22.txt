@@ -1,0 +1,25 @@
+
+
+zu besprechen:
+
+Aufteilung in Pages und Components
+Categorypost Template fehlt noch
+
+Files TODO:
+
+Pages:
+Contact
+Impressum
+ueberUns
+SinglePost
+CreatPost -- done
+EditPost
+CategoryPosts
+SearchResults
+
+Components:
+Login mittig
+pwChange
+
+Backend:
+search

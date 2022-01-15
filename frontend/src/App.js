@@ -1,51 +1,63 @@
 import React, { Component } from 'react';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
+
+/**
+ * Pages
+ */
+
+import HomePage from './pages/HomePage';
+import Dashboard from './pages/Dashboard';
+import Contact from './pages/Contact';
+import Impressum from './pages/Impressum';
+import UeberUns from './pages/UeberUns';
+import CreatePost from './pages/CreatePost';
+import SearchResult from './pages/SearchResult';
+import SinglePost from './pages/SinglePost';
+import CategoryPosts from './pages/CategoryPosts';
+import EditPost from './pages/EditPost';
+
+/**
+ * Components
+ */
 
 import TopMenu from './components/TopMenu';
-import PublicPage from './components/PublicPage';
-import PrivatePage from './components/PrivatePage';
-import CreatePost from './components/CreatePost';
 import Footer from './components/Footer';
-import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
-import {connect} from 'react-redux';
-
-const mapStateToProps = state => {
-  return state
-}
 
 class App extends Component {
-
   render() {
-
-    const user = this.props.user
-
-    let workspace;
-    let createPost;
-
-
-    if(user) {
-      workspace = <PrivatePage />
-      createPost = <CreatePost/>
-      
-    }
-    else {
-      workspace = <PublicPage />
-      
-    }
-
+    const homepage = <HomePage />
+    const dashboard = <Dashboard />
+    const contact = <Contact />
+    const impressum = <Impressum />
+    const ueberuns = <UeberUns />
+    const singlepost = <SinglePost />
+    const createpost = <CreatePost />
+    const editpost = <EditPost />
+    const categorypost = <CategoryPosts />
+    const searchresult = <SearchResult />
     return (
       <Router>
-      <div className="App">
         <TopMenu />
         <Routes>
-          <Route exact path = "/" element = {workspace}/>
-          <Route exact path = "/createPost" element = {createPost}/>
+          <Route exact path="/" element={homepage} />
+          <Route exact path="/dashboard" element={dashboard} />
+          <Route exact path="/contact" element={contact} />
+          <Route exact path="/impressum" element={impressum} />
+          <Route exact path="/ueberuns" element={ueberuns} />
+          <Route exact path="/post/:post_id" element={singlepost} />
+          <Route exact path="/post/create" element={createpost} />
+          <Route exact path="/post/edit/:post_id" element={editpost} />
+          <Route exact path="/post/category/:category_id" element={categorypost} />
+          <Route exact path="/search" element={searchresult} />
         </Routes>
-        {/* <Footer /> */}
-      </div>
+        <Footer />
       </Router>
     );
   }
 }
-
-export default connect(mapStateToProps)(App);
+export default App;

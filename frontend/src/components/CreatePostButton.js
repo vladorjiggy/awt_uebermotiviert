@@ -22,7 +22,7 @@ class CreatePostButton extends Component {
     render() {
         return (
             <div>
-                <Link to="/createPost" id="CreatePostOpenDialogButton"></Link>
+                <Link to="/post/create" id="CreatePostOpenDialogButton">createPost</Link>
             </div>
         )
     }
