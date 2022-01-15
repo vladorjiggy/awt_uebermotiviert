@@ -1,6 +1,23 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 class Dashboard extends Component {
+    state = {
+        posts: []
+    };
+    componentDidMount() {
+        const url = process.env.REACT_APP_SERVERHOST + '/post/get';
+        fetch(url, {
+            method: 'get',
+
+        })
+            .then(result => result.json())
+            .then(result => {
+                console.log(result)
+                this.setState({
+                    posts: result.posts
+                })
+            })
+    }
     render() {
         return(
            

@@ -5,7 +5,7 @@ class EditPost extends Component {
     post: {}
 };
   componentDidMount() {
-    const url = process.env.REACT_APP_SERVERHOST + '/post/get/' + this.props.match.params.post_id;
+    const url = process.env.REACT_APP_SERVERHOST + '/post/get/' + this.props.params.post_id;
     fetch(url, {
         method: 'get',
 

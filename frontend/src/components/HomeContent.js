@@ -4,9 +4,6 @@ class HomeContent extends Component {
     state = {
         posts: []
     };
-    routeToSingle(id){
-        console.log(id)
-    }
     componentDidMount() {
         const url = process.env.REACT_APP_SERVERHOST + '/post/get';
         fetch(url, {

@@ -5,7 +5,7 @@ class CategoryPosts extends Component {
         posts: []
     };
     componentDidMount() {
-        const url = process.env.REACT_APP_SERVERHOST + '/category/get/' + this.props.match.params.category_id;
+        const url = process.env.REACT_APP_SERVERHOST + '/category/get/' + this.props.params.category_id;
         fetch(url, {
             method: 'get',
 
