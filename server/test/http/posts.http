@@ -6,11 +6,15 @@ Authorization: Basic QWRtaW46YmVzdFBhc3N3b3JkRXZlcg==
 GET http://localhost:4000/post/get
 
 ###
+
+GET http://localhost:4000/post/get/61df4f83360b20298da3fad7
+
+###
 POST http://localhost:4000/post/create
 Content-Type: application/json
 
 {
-    "title": "TestPostYOYO",
+    "title": "TestPostYOYddddO",
     "content": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
     "categories": ["61ae49a754ec37e3d0acc031"],
     "post_image": "https://www.hotel-nuovaitalia.com/images/home-banner-1.jpg"

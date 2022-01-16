@@ -18,9 +18,9 @@ let cors = require('cors')
 app.use(cookieParser())
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
- const apphost = process.env.APPHOST.split(' ')
-let allowedDomains = apphost; 
-app.use(cors({credentials: true, origin: 'http://localhost:3000',}));
+const apphost = process.env.APPHOST.split(' ')
+let allowedDomains = apphost;
+app.use(cors({credentials: true, origin: process.env.APPHOST}));
 
 database.initDB((err, db) => {
   if(db){
@@ -34,7 +34,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use(session({
-  secret: 'abcchr',  
+  secret: sessionSecret,  //secret ändern
   resave: false,
   saveUninitialized: false,
   cookie: {
@@ -69,6 +69,6 @@ if (process.env.NODE_ENV === 'production'){
 
 // start server instant
 const port = process.env.PORT 
-app.listen(4000, function () {
-    console.log('Server listening on port 4000');
+app.listen(port, function () {
+    console.log('Server listening on port ' + port);
 });

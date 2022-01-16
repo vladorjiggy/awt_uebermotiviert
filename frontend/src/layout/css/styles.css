@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
 *,
 *::after,
 *::before {
@@ -863,6 +865,10 @@ input[type=file] {
   height: 3rem;
   font-family: inherit;
   font-size: 1rem;
+<<<<<<< HEAD:frontend/src/layout/css/styles.css
+=======
+
+>>>>>>> e1bf0b0a617f6b3ae4d06191e45f7dde48a285d3:frontend/src/layout/css/style.css
 }
 
 .div__select--dropDownMenu {

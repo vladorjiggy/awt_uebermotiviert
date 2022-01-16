@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 
 import { applyMiddleware, createStore } from 'redux'
 import { Provider } from 'react-redux'
-
+import { BrowserRouter } from "react-router-dom";
 import thunk from 'redux-thunk';
 
 import rootReducer from './reducer/RootReducer'
 //import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
-import './index.css';
+import "./layout/css/style.css";
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
@@ -22,7 +22,10 @@ const store = createStore(rootReducer, initialState, applyMiddleware(...middlewa
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    
+  
+  <App />
+
   </Provider>,
   document.getElementById('root')
 );

@@ -97,7 +97,9 @@ function register(userID,userName, password) {
     console.log("User: " + userID)
     console.log("Password: " + password)
 
-    return fetch('http://localhost:4000/user/login', requestOptions)
+    const url = process.env.REACT_APP_SERVERHOST + '/user/login';
+
+    return fetch(url, requestOptions)
         .then(handleResponse)
         .then(userRegister => {
             return userRegister;
