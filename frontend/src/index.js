@@ -8,7 +8,7 @@ import thunk from 'redux-thunk';
 
 import rootReducer from './reducer/RootReducer'
 //import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
-import './index.css';
+import "./layout/css/style.css";
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 

@@ -18,9 +18,11 @@ class TopMenu extends Component {
     const user = this.props.user;
 
     let loginLogout;
+    let dashboard;
 
     if (user) {
       loginLogout = <LogoutButton />
+      dashboard = <Link id="read-more-link" to={"/dashboard"}>Dashboard</Link>
     }
     else {
       loginLogout = <UserSessionWidget />
@@ -54,7 +56,7 @@ class TopMenu extends Component {
           </div>
           
           <div id="div-log">
-          <Link id="read-more-link" to={"/dashboard"}>Dashboard</Link>
+            {dashboard}
           {loginLogout}
           </div>
         </div>

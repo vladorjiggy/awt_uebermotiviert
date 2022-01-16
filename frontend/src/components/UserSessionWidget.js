@@ -69,9 +69,6 @@ class UserSessionWidget extends Component {
                 </a>
                 {this.state.openModal &&
 
-
-
-
                     <div id="containerLog">
                         <div id="bg-Blurred"></div>
                         <div id="div-log-form">

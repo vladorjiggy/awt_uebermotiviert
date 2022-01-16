@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 
-import "../layout/css/style.css";
-
 
 import Categorymenu from "../components/CategoryMenu";
 import HomeContent from "../components/HomeContent";
