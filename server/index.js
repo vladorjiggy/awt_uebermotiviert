@@ -18,8 +18,8 @@ let cors = require('cors')
 app.use(cookieParser())
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-const apphost = process.env.APPHOST.split(' ')
-let allowedDomains = apphost;
+ const apphost = process.env.APPHOST.split(' ')
+let allowedDomains = apphost; 
 app.use(cors({credentials: true, origin: 'http://localhost:3000',}));
 
 database.initDB((err, db) => {
