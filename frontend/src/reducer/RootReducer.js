@@ -1,5 +1,4 @@
 import * as authenticationActions from '../actions/AuthenticationActions'
-import * as registrationActions from '../actions/RegistrationActions'
 import * as createPostActions from '../actions/CreatePostActions'
 
 const initialState = {
@@ -63,44 +62,7 @@ function rootReducer(state = initialState, action) {
                     accessToken: null
                 }
             }
-
-            //Create User
-            case registrationActions.SHOW_REGISTER_DIALOG:
-                return {
-                    ...state,
-                    showRegisterDialog: true,
-                    error: null
-                }
-            case registrationActions.HIDE_REGISTER_DIALOG:
-                return {
-                    ...state,
-                    showRegisterDialog: false,
-                    error: null
-                }
-            case registrationActions.REGISTRATION_SUCCESS:
-                return {
-                    ...state,
-                    showRegisterDialog: false,
-                    pending: false,
-                }
-            case registrationActions.REGISTRATION_ERROR:
-                {
-                    return {
-                        ...state,
-                        pending: true,
-                        error: 'Registration Failed'
-                    }
-                }
-            
-            //Create Post
-            case createPostActions.SHOW_CREATE_POST_DIALOG:
-                {
-                return{
-                    ...state,
-                    showCreatePostDialog: true,
-                    error: null
-                }
-            }
+    
         case authenticationActions.LOGOUT_USER:
             return {
                 ...state,
@@ -110,19 +72,6 @@ function rootReducer(state = initialState, action) {
                 user: null
             }
 
-            case createPostActions.HIDE_CREATE_POST_DIALOG:
-                return {
-                    ...state,
-                    showCreatePostDialog: false,
-                    error: null
-                }
-
-            case createPostActions.CREATE_POST_PENDING:
-                return{
-                ...state,
-                pending: true,
-                error: null
-                }
             
                 
         default:
