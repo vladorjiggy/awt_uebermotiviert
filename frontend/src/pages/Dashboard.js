@@ -32,26 +32,22 @@ class Dashboard extends Component {
                     
                     <div id="table-list">
 
-                        
+                    <caption id="table-caption">Alle Beiträge</caption>
                         <table>
-
-                            <caption id="table-caption">Alle Beiträge</caption>
                             
-                            {/* <tr>
-                                    <th></th>
-                                    <td><span id="category"></span>Kategorie</span></td>
-                                    <td><span id="posteDate"></span>Datum</span></td>
-                                    <td id="td-e"><a href="#" id="edit">bearbeiten</a></td>
-                                    <td id="td-d"><a href="#" id="delete">löschen</a></td>
-                            </tr>
-
                             <tr>
-                                    <th><span id="postName"><span>PostName</span></th>
-                                    <td><span id="category"></span>Kategorie</span></td>
-                                    <td><span id="posteDate"></span>Datum</span></td>
+                                    <th><span id="postName">Name</span></th>
+                                    <td><span id="">Kategorie</span></td>
+                                    <td><span id="posteDate">Datum</span></td>
+                            </tr> 
+                             
+                            <tr>
+                                    <th><span id="postName">PostName</span></th>
+                                    <td><span id="category">Kategorie</span></td>
+                                    <td><span id="posteDate">Datum</span></td>
                                     <td id="td-e"><a href="#" id="edit">bearbeiten</a></td>
                                     <td id="td-d"><a href="#" id="delete">löschen</a></td>
-                            </tr> */}
+                            </tr> 
                          
                         </table>
 
