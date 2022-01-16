@@ -32,6 +32,41 @@ exports.findPostById = function (id, callback) {
         })
     }
 }
+
+exports.searchPosts = function (searchquery, callback) {
+    if (!searchquery) {
+        return callback(400, 'Id not provided', null)
+    }
+    else {
+        let regex = searchquery;
+        var queryOptions = {
+            $or: [{
+                title: {
+                    '$regex': regex,
+                    '$options': 'i'
+                }
+            }, {
+                content: {
+                    '$regex': regex,
+                    '$options': 'i'
+                }
+            }]
+        }
+        let query = Post.find(queryOptions)
+        .populate('categories', '-posts')
+        .sort('-createdAt')
+        query.exec((err, post) => {
+            if (err) {
+                return callback(404, "Post not found", null)
+            }
+            else {
+                if (post) {
+                    callback(200, null, post)
+                }
+            }
+        })
+    }
+}
 exports.updatePost = function (id, data, callback) {
     if (!id) {
         return callback(400, 'No ID', null)

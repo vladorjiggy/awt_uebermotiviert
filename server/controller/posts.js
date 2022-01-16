@@ -33,6 +33,23 @@ exports.getSinglePost = function(req, res){
     })
 }
 
+exports.searchPosts = function(req, res){
+    let searchquery = req.body.searchquery
+    postservice.searchPosts(searchquery, (status, err, posts) => {
+        if (err) {
+            res.status(status).json({ error: err })
+        }
+        else {
+            if (posts) {
+                res.status(status).json({ posts: posts })
+            }
+            else {
+                res.status(status).json({ error: err })
+            }
+        }
+    })
+}
+
 exports.updatePost = function(req, res){
     let id = req.params.id
     let data = req.body
