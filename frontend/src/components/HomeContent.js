@@ -38,7 +38,7 @@ class HomeContent extends Component {
                             <p class="cut-text" id="article1-text-index">
                                 {this.state.posts[0].content}
                             </p>
-                            <Link id="read-more-link" to={"/post/" + this.state.posts[0]._id}>Erfahre mehr...</Link>
+                            <Link id="read-more-link" to={"/post/single/" + this.state.posts[0]._id}>Erfahre mehr...</Link>
                         </article>
                     </div>
     
@@ -60,7 +60,7 @@ class HomeContent extends Component {
                                         <p class="cut-text" id="article2-text">
                                         {this.state.posts[1].content}
                                         </p>
-                                        <Link id="read-more-link" to={"/post/" + this.state.posts[1]._id}>Erfahre mehr...</Link>
+                                        <Link id="read-more-link" to={"/post/single/" + this.state.posts[1]._id}>Erfahre mehr...</Link>
                                     </article>
                                 </div>
                                 {this.state.posts.length > 2 && 
@@ -79,7 +79,7 @@ class HomeContent extends Component {
                                         <p class="cut-text" id="article2-text">
                                         {this.state.posts[2].content}
                                         </p>
-                                        <Link id="read-more-link" to={"/post/" + this.state.posts[2]._id}>Erfahre mehr...</Link>
+                                        <Link id="read-more-link" to={"/post/single/" + this.state.posts[2]._id}>Erfahre mehr...</Link>
                                     </article>
                                 </div>
                                 }
@@ -102,7 +102,7 @@ class HomeContent extends Component {
                                         <p class="cut-text" id="article3-text">
                                         {this.state.posts[3].content}
                                         </p>
-                                        <Link id="read-more-link" to={"/post/" + this.state.posts[3]._id}>Erfahre mehr...</Link>
+                                        <Link id="read-more-link" to={"/post/single/" + this.state.posts[3]._id}>Erfahre mehr...</Link>
                                     </article>
                                 </div>
                                 {this.state.posts.length > 4 && 
@@ -121,7 +121,7 @@ class HomeContent extends Component {
                                         <p class="cut-text" id="article3-text">
                                         {this.state.posts[4].content}
                                         </p>
-                                        <Link id="read-more-link" to={"/post/" + this.state.posts[4]._id}>Erfahre mehr...</Link>
+                                        <Link id="read-more-link" to={"/post/single/" + this.state.posts[4]._id}>Erfahre mehr...</Link>
                                     </article>
                                 </div>
                                 }
@@ -141,7 +141,7 @@ class HomeContent extends Component {
                                         <p class="cut-text" id="article3-text">
                                         {this.state.posts[5].content}
                                         </p>
-                                        <Link id="read-more-link" to={"/post/" + this.state.posts[5]._id}>Erfahre mehr...</Link>
+                                        <Link id="read-more-link" to={"/post/single/" + this.state.posts[5]._id}>Erfahre mehr...</Link>
                                     </article>
                                 </div>
                                 }
