@@ -4,7 +4,8 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom"
 
 import UserSessionWidget from './UserSessionWidget';
-import LogoutButton from './LogoutButton'
+import LogoutButton from './LogoutButton';
+import SearchForm from "./SearchForm";
 
 const mapStateToProps = state => {
   return state;
@@ -40,20 +41,7 @@ class TopMenu extends Component {
           </Link>
 
 
-          <div id="div-search">
-            <input
-              id="div-search-input"
-              type="text"
-              placeholder="Wonach suchst du?"
-            />
-            <button id="div-search-button"></button>
-            <img
-              id="div-search-image"
-              src="search.png"
-              alt="search.png"
-            />
-
-          </div>
+          <SearchForm />
           
           <div id="div-log">
             {dashboard}

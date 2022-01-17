@@ -28,3 +28,7 @@ createUser
 
 Backend:
 search
+
+Vlad:
+
+get single post: category populaten
