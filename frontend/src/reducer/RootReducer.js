@@ -1,5 +1,4 @@
 import * as authenticationActions from '../actions/AuthenticationActions'
-import * as createPostActions from '../actions/CreatePostActions'
 
 const initialState = {
     user: null,

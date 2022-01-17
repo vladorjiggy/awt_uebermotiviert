@@ -649,7 +649,12 @@ footer ul {
   width: 100%;
   margin-top: 2rem;
 }
-
+.negativeSearch{
+  min-height: 69vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 #container-search {
   margin-top: 3%;
   text-align: center;
@@ -865,7 +870,6 @@ input[type=file] {
   height: 3rem;
   font-family: inherit;
   font-size: 1rem;
-
 }
 
 .div__select--dropDownMenu {
