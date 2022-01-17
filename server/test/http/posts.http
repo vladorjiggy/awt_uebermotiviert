@@ -14,7 +14,7 @@ POST http://localhost:4000/post/create
 Content-Type: application/json
 
 {
-    "title": "TestPostYOYddddO",
+    "title": "TestPostYOYddddO987987",
     "content": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
     "categories": ["61ae49a754ec37e3d0acc031"],
     "post_image": "https://www.hotel-nuovaitalia.com/images/home-banner-1.jpg"
@@ -29,13 +29,12 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:4000/post/update/61df4b6ff250775ee5d9363c
+PUT http://localhost:4000/post/update/61e59dc43552578be220ad78
 Content-Type: application/json
 
 {
     "title": "TestPost",
-    "content": "Content of Testpost",
-    "post_image": "https://www.hotel-nuovaitalia.com/images/home-banner-1.jpg",
+    "content": null,
     "categories": ["61ae49a754ec37e3d0acc033"]
 }
 ###
