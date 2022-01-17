@@ -8,7 +8,7 @@ class UeberUns extends Component {
         <article id="article1-section1-aboutUs">
           <img
             id="article1-img-aboutUs"
-            src="../layout/images/aboutUs.jpeg"
+            src="searchImages/aboutUs.jpeg"
             alt="ueberUns_img"
           />
         </article>
