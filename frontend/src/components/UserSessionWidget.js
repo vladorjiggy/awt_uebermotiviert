@@ -91,10 +91,10 @@ class UserSessionWidget extends Component {
 
                                 <div id="wrap-input">
                                     <div id="wrap-input-UN">
-                                        <input type="text" id="LoginUserIDInput" type="text" placeholder="Enter userID" name="userID" onChange={this.handleChange}></input>
+                                        <input type="text" id="LoginUserIDInput" type="text" placeholder="Benutzername" name="userID" onChange={this.handleChange}></input>
                                     </div>
                                     <div id="wrap-input-PW">
-                                        <input id="LoginPasswordInput" type="password" placeholder="Enter password" name="password" onChange={this.handleChange} ></input>
+                                        <input id="LoginPasswordInput" type="password" placeholder="Passwort" name="password" onChange={this.handleChange} ></input>
                                     </div>
                                 </div>
 

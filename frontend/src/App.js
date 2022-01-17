@@ -49,11 +49,11 @@ class App extends Component {
           <Route exact path="/contact" element={contact} />
           <Route exact path="/impressum" element={impressum} />
           <Route exact path="/ueberuns" element={ueberuns} />
-          <Route exact path="/post/:post_id" element={singlepost} />
+          <Route exact path="/post/single/:post_id" element={singlepost} />
           <Route exact path="/post/create" element={createpost} />
           <Route exact path="/post/edit/:post_id" element={editpost} />
           <Route exact path="/post/category/:category_id" element={categorypost} />
-          <Route exact path="/search" element={searchresult} />
+          <Route exact path="/post/search" element={searchresult} />
         </Routes>
         <Footer />
       </Router>
