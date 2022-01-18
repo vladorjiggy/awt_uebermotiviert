@@ -14,12 +14,3 @@ content-type: application/json
     "oldPassword": "bestPasswordEver",
     "newPassword": "whatever"
 }
-
-### 
-PUT http://localhost:3000/user/changePassword
-content-type: application/json
-
-{
-    "oldPassword": "whatever",
-    "newPassword": "bestPasswordEver"
-}
