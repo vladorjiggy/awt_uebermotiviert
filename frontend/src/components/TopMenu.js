@@ -33,21 +33,20 @@ class TopMenu extends Component {
 
       <header id="header">
         <div id="div-header">
+
           <Link className="nav-link" to="/">
-            <div id="div-branding">
-              <h1>The Traveller's Chant</h1>
-              <h5>I havn't been everywhere. But it's on my list.</h5>
-            </div>
+            <h1>The Traveller's Chant</h1>
           </Link>
-
-
-          <SearchForm />
-          
-          <div id="div-log">
-            {dashboard}
-          {loginLogout}
-          </div>
+          <h5>I havn't been everywhere. But it's on my list.</h5>
         </div>
+
+        <SearchForm />
+
+        <div id="div-log">
+          {dashboard}
+          {loginLogout}
+        </div>
+
 
       </header>
     )
