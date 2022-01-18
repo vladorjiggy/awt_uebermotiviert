@@ -20,7 +20,6 @@ class Dashboard extends Component {
         })
             .then(result => result.json())
             .then(result => {
-                console.log(result)
                 this.setState({
                     posts: result.posts
                 })

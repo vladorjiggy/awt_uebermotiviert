@@ -8,7 +8,6 @@ function convertTimestamp(timestamp) {
 }
 
 const RenderPostTable = props => {
-    console.log(props)
     const rows = props.posts.map((row, index) => {
         return (
             <tr key={row._id} >

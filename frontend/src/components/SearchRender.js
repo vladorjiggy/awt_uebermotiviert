@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 const SearchRender = props => {
-    console.log(props)
+
     const rows = props.posts.map((row, index) => {
         return (
 
