@@ -1,7 +1,7 @@
 const config = require('config');
 const dBConnectionString = config.get('dbConfig.connectionString')
 const mongoose = require('mongoose')
-const {buildCategories, buildUsers} = require('./initData')
+const {buildCategories, buildUsers, buildFirstPosts} = require('./initData')
 
 let _db;
 function initDB(callback){
@@ -21,6 +21,7 @@ function initDB(callback){
         _db.once('open', function(){
             buildCategories()
             buildUsers()
+            buildFirstPosts()
             callback(null, _db)
         })
     }

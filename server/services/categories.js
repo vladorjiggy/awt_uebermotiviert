@@ -14,7 +14,7 @@ exports.getCategories = function (callback){
 
 exports.getCategoryPosts = function (id, callback){
     let query = Category.findOne({_id: id})
-    .populate('posts', '-categories')
+    .populate('posts')
         query.exec((err, category) => {
             if(err){
                 return callback(404, "Category not found", null)

@@ -10,10 +10,12 @@ main {
   margin: 1% auto;
   background-color: #f4f5ef;
 }
+
 body p,
 main p {
   margin-top: 0%;
 }
+
 body h3,
 main h3 {
   margin-top: 5%;
@@ -45,6 +47,7 @@ span h2 {
   color: #2a2a27;
   font-weight: 600;
 }
+
 span h3 {
   color: #2a2a27;
   font-weight: 600;
@@ -68,6 +71,7 @@ blockquote {
   line-height: 150%;
   color: #2a2a27;
 }
+
 p strong,
 blockquote strong {
   color: #2a2a27;
@@ -84,6 +88,7 @@ a {
   color: #2a2a27;
   font-weight: 600;
 }
+
 a:hover {
   color: #bfe0f2;
 }
@@ -92,6 +97,7 @@ a:hover {
   font-size: 0.8rem;
   font-weight: 600;
 }
+
 #breadcrumb li a {
   font-weight: 400;
 }
@@ -186,11 +192,13 @@ footer {
   text-align: center;
   left: -10%;
 }
+
 footer p {
   margin-top: 3rem;
   margin-bottom: 3rem;
   margin-left: 10%;
 }
+
 footer ul {
   display: flex;
   flex-flow: row nowrap;
@@ -210,11 +218,13 @@ footer ul {
   list-style: none;
   padding-top: 4%;
 }
+
 #breadcrumb li {
   display: inline;
   min-width: 5rem;
 }
-#breadcrumb li + li:before {
+
+#breadcrumb li+li:before {
   padding-right: 1rem;
   color: #2a2a27;
   content: "|";
@@ -224,6 +234,7 @@ footer ul {
 #read-more-link {
   color: #ff9457;
 }
+
 #read-more-link:hover {
   color: #bfe0f2;
 }
@@ -255,6 +266,7 @@ footer ul {
   margin-top: 4%;
   margin-bottom: 6%;
 }
+
 #container1-index h3 {
   margin-top: 0%;
   margin-bottom: 2%;
@@ -381,9 +393,11 @@ footer ul {
   width: 20rem;
   height: 10rem;
 }
+
 #div-log-span-text h3 {
   margin-top: 0rem;
 }
+
 #div-log-span-text h2 {
   margin-bottom: 0rem;
 }
@@ -399,6 +413,7 @@ footer ul {
   left: 10%;
   width: 30rem;
 }
+
 #wrap-input input {
   width: 29rem;
   height: 2.81rem;
@@ -438,6 +453,7 @@ footer ul {
   font-size: 1rem;
   border-radius: 0.3125rem;
 }
+
 #log-btn:hover {
   background-color: #bfe0f2;
   color: #2a2a27;
@@ -450,6 +466,7 @@ footer ul {
   text-align: center;
   font-family: inherit;
 }
+
 #div-log-text a {
   font-size: 0.8rem;
   font-weight: 400;
@@ -495,6 +512,7 @@ footer ul {
   color: #f4f5ef;
   border-radius: 0.5rem;
 }
+
 #close-button:hover {
   background-color: #bfe0f2;
   color: #2a2a27;
@@ -515,6 +533,7 @@ footer ul {
   width: 20rem;
   height: 5rem;
 }
+
 #div-NP-span-text h2 {
   margin-top: 2rem;
 }
@@ -530,6 +549,7 @@ footer ul {
   left: 10%;
   width: 30rem;
 }
+
 #wrap-input input {
   width: 29rem;
   height: 2.81rem;
@@ -569,6 +589,7 @@ footer ul {
   font-size: 1rem;
   border-radius: 0.3125rem;
 }
+
 #confirm-btn:hover {
   background-color: #bfe0f2;
   color: #2a2a27;
@@ -579,6 +600,7 @@ footer ul {
   flex-direction: row wrap;
   margin-bottom: 6%;
 }
+
 #container-impressum h4 {
   margin-bottom: 3%;
 }
@@ -593,7 +615,8 @@ footer ul {
   height: auto;
 }
 
-#article1-section1-text, #article3-section1-text {
+#article1-section1-text,
+#article3-section1-text {
   width: 7rem;
 }
 
@@ -627,6 +650,7 @@ footer ul {
   margin-top: 4%;
   margin-bottom: 6%;
 }
+
 #container-aboutUs h3 {
   margin-top: 0%;
   margin-bottom: 2%;
@@ -652,9 +676,11 @@ footer ul {
   margin-top: 3%;
   text-align: center;
 }
+
 #container-search span {
   font-weight: 600;
 }
+
 #container-search img {
   width: 45%;
   height: auto;
@@ -695,13 +721,17 @@ footer ul {
 #category-date {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
   align-content: center;
 }
 
 #category {
   color: #ff9457;
 }
+
+#category>a {
+  color: #ff9457;
+}
+
 #category:hover {
   color: #bfe0f2;
 }
@@ -711,7 +741,8 @@ footer ul {
   margin-left: 4%;
 }
 
-#article-blog-text-1, #article-blog-text-2 {
+#article-blog-text-1,
+#article-blog-text-2 {
   margin-top: 0.5%;
   margin-bottom: 3%;
 }
@@ -746,7 +777,10 @@ select {
 
 #div-add-button {
   width: 100%;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-top: 3rem;
   margin-bottom: 3rem;
 }
@@ -764,6 +798,7 @@ select {
   font-family: inherit;
   border-radius: 0.25rem;
 }
+
 #add-button:hover {
   background-color: #bfe0f2;
 }
@@ -776,6 +811,7 @@ select {
   color: #f4f5ef;
   line-height: 3rem;
 }
+
 #plusIcon:hover {
   color: #2a2a27;
 }
@@ -790,20 +826,24 @@ table {
   width: 100%;
   margin-bottom: 4rem;
 }
+
 table th {
   width: 20rem;
   text-align: start;
   padding-left: 1%;
 }
+
 table td {
   padding-left: 3rem;
   padding-right: 3rem;
   padding-top: 1%;
   padding-bottom: 1%;
 }
+
 table #td-e {
   padding-right: 1%;
 }
+
 table #td-d {
   padding-right: 1%;
   padding-left: 1%;
@@ -838,6 +878,7 @@ input[type=file] {
   line-height: 4rem;
   font-family: inherit;
 }
+
 .file-upload:hover {
   font-weight: 0.9rem;
   font-size: 3rem;
@@ -909,6 +950,7 @@ input[type=file] {
   font-size: 1rem;
   border-radius: 0.25rem;
 }
+
 .div__button--submit:hover {
   background-color: #149073;
   color: #f4f5ef;
@@ -929,6 +971,7 @@ input[type=file] {
   font-size: 1rem;
   border-radius: 0.25rem;
 }
+
 .div__button--delete:hover {
   background-color: #f05b3d;
   color: #f4f5ef;

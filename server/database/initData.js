@@ -1,6 +1,7 @@
 let fs = require('fs')
 const Category = require('../models/Category').Category
 const User = require('../models/User').User
+const Post = require('../models/Post').Post
 function buildCategories(){
     Category.find({},function(err,doc){
         if(!doc.length){
@@ -35,7 +36,26 @@ function buildUsers(){
     })
     
 }
+
+function buildFirstPosts() {
+    Post.find({},function(err,doc){
+        if(!doc.length){
+            fs.readFile('./database/default/Posts.json', 'utf-8', (err, data) => {
+                if (err){
+                    console.log(err)
+                }
+                let datafromfile = JSON.parse(data);
+                Object.values(datafromfile).forEach(function(obj){            
+                    let post = new Post(obj)
+                    post.save()            
+                })        
+            })
+        }
+        
+    })
+}
 module.exports = {
     buildCategories,
-    buildUsers
+    buildUsers,
+    buildFirstPosts
 }

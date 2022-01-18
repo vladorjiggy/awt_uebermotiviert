@@ -20,6 +20,7 @@ exports.findPostById = function (id, callback) {
     }
     else {
         let query = Post.findOne({ _id: id })
+        .populate('categories', '-posts')
         query.exec((err, post) => {
             if (err) {
                 return callback(404, "Post not found", null)
@@ -85,7 +86,6 @@ exports.updatePost = function (id, data, callback) {
                     return callback(500, "cannot update Post: " +err, null)
                 }
                 else {
-                    console.log('hwh')
                     return callback(200, null, post)
                 }
             })

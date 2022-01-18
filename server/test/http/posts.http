@@ -7,7 +7,7 @@ GET http://localhost:4000/post/get
 
 ###
 
-GET http://localhost:4000/post/get/61df4f83360b20298da3fad7
+GET http://localhost:4000/post/get/61e59dc43552578be220ad78
 
 ###
 POST http://localhost:4000/post/create
@@ -34,8 +34,8 @@ Content-Type: application/json
 
 {
     "title": "TestPost",
-    "content": null,
-    "categories": ["61ae49a754ec37e3d0acc033"]
+    "content": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+    "categories": "61ae49a754ec37e3d0acc033"
 }
 ###
 PUT http://localhost:4000/post/update/61df4b6af250775ee5d93637
