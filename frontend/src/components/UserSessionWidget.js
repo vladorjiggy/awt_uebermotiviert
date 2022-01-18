@@ -63,10 +63,12 @@ class UserSessionWidget extends Component {
 
         return (
             <div>
+                
                 {/* Login- & Logout Button switch: Beispielanwendung Folie 44 */}
                 <a variant="primary" className="button" onClick={this.handleShow}>
                     Login
                 </a>
+            
                 {this.state.openModal &&
 
                     <div id="containerLog">

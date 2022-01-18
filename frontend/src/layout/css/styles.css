@@ -8,14 +8,17 @@
 
 body,
 main {
-  width: 90%;
+  width: 100%;
   margin: 1% auto;
   background-color: #f4f5ef;
+
 }
+
 body p,
 main p {
   margin-top: 0%;
 }
+
 body h3,
 main h3 {
   margin-top: 5%;
@@ -32,6 +35,25 @@ main h3 {
   line-height: 1.5;
 }
 
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: 100%;
+
+}
+
+.content-wrap {
+  flex: 1;
+  width: 90%;
+  margin: auto;
+}
+
+.nav-link {
+  display:block;
+  width: fit-content;
+}
 h1 {
   font-size: 1.5rem;
   font-weight: 600;
@@ -47,6 +69,7 @@ span h2 {
   color: #2a2a27;
   font-weight: 600;
 }
+
 span h3 {
   color: #2a2a27;
   font-weight: 600;
@@ -56,6 +79,7 @@ h5 {
   color: #2a2a27;
   font-size: 0.7rem;
   font-weight: 600;
+
 }
 
 h4 {
@@ -70,6 +94,7 @@ blockquote {
   line-height: 150%;
   color: #2a2a27;
 }
+
 p strong,
 blockquote strong {
   color: #2a2a27;
@@ -86,6 +111,7 @@ a {
   color: #2a2a27;
   font-weight: 600;
 }
+
 a:hover {
   color: #bfe0f2;
 }
@@ -94,6 +120,7 @@ a:hover {
   font-size: 0.8rem;
   font-weight: 600;
 }
+
 #breadcrumb li a {
   font-weight: 400;
 }
@@ -109,6 +136,10 @@ h1 {
 
 h5 {
   margin-left: 10%;
+
+  width:fit-content;
+  margin-right: 0%;
+  margin-bottom: 0%;
   margin-top: 0%;
 }
 
@@ -148,13 +179,6 @@ h5 {
   position: absolute;
   left: 0.28rem;
 }
-
-#div-log {
-  position: absolute;
-  right: 10%;
-  top: 6%;
-}
-
 a {
   text-decoration: none;
 }
@@ -180,19 +204,27 @@ li {
   margin: 1%;
 }
 
-footer {
-  position: absolute;
-  width: 110%;
-  margin: 0%;
+
+
+.div__footer {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  margin-top: 1rem;
   background-color: #e1e1d5;
   text-align: center;
-  left: -10%;
+
 }
+
+
 footer p {
   margin-top: 3rem;
   margin-bottom: 3rem;
   margin-left: 10%;
 }
+
 footer ul {
   display: flex;
   flex-flow: row nowrap;
@@ -212,11 +244,13 @@ footer ul {
   list-style: none;
   padding-top: 4%;
 }
+
 #breadcrumb li {
   display: inline;
   min-width: 5rem;
 }
-#breadcrumb li + li:before {
+
+#breadcrumb li+li:before {
   padding-right: 1rem;
   color: #2a2a27;
   content: "|";
@@ -226,6 +260,7 @@ footer ul {
 #read-more-link {
   color: #ff9457;
 }
+
 #read-more-link:hover {
   color: #bfe0f2;
 }
@@ -257,6 +292,7 @@ footer ul {
   margin-top: 4%;
   margin-bottom: 6%;
 }
+
 #container1-index h3 {
   margin-top: 0%;
   margin-bottom: 2%;
@@ -349,6 +385,7 @@ footer ul {
   -webkit-line-clamp: 5;
 }
 
+
 #bg-Blurred {
   width: 110%;
   height: 110%;
@@ -359,14 +396,29 @@ footer ul {
   top: -10%;
 }
 
-#div-log-form {
+.button {
+  cursor: pointer;
+}
+
+#div-log {
+
   position: absolute;
-  top: 10%;
-  left: 25%;
+  top: 6%;
+  right: 10%;
+
+
+}
+
+#div-log-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 36rem;
   height: 27rem;
   background-color: #ff9457;
   border-radius: 0.625rem;
+
 }
 
 #div-wrap-head {
@@ -383,9 +435,11 @@ footer ul {
   width: 20rem;
   height: 10rem;
 }
+
 #div-log-span-text h3 {
   margin-top: 0rem;
 }
+
 #div-log-span-text h2 {
   margin-bottom: 0rem;
 }
@@ -401,11 +455,13 @@ footer ul {
   left: 10%;
   width: 30rem;
 }
+
 #wrap-input input {
   width: 29rem;
   height: 2.81rem;
   border-color: transparent;
   border-radius: 0.3125rem;
+
 }
 
 #wrap-input-UN {
@@ -416,6 +472,7 @@ footer ul {
 #input-PW {
   font-family: inherit;
   color: #2a2a27;
+
 }
 
 #div-log-btn {
@@ -440,6 +497,7 @@ footer ul {
   font-size: 1rem;
   border-radius: 0.3125rem;
 }
+
 #log-btn:hover {
   background-color: #bfe0f2;
   color: #2a2a27;
@@ -452,20 +510,13 @@ footer ul {
   text-align: center;
   font-family: inherit;
 }
+
 #div-log-text a {
   font-size: 0.8rem;
   font-weight: 400;
 }
 
-#bg-Blurred {
-  width: 110%;
-  height: 110%;
-  background-color: #f4f5ef;
-  opacity: 50%;
-  position: fixed;
-  left: -10%;
-  top: -10%;
-}
+
 
 #div-NP-form {
   position: absolute;
@@ -497,6 +548,7 @@ footer ul {
   color: #f4f5ef;
   border-radius: 0.5rem;
 }
+
 #close-button:hover {
   background-color: #bfe0f2;
   color: #2a2a27;
@@ -517,6 +569,7 @@ footer ul {
   width: 20rem;
   height: 5rem;
 }
+
 #div-NP-span-text h2 {
   margin-top: 2rem;
 }
@@ -532,12 +585,7 @@ footer ul {
   left: 10%;
   width: 30rem;
 }
-#wrap-input input {
-  width: 29rem;
-  height: 2.81rem;
-  border-color: transparent;
-  border-radius: 0.3125rem;
-}
+
 
 #wrap-input-NP {
   margin-bottom: 1rem;
@@ -571,6 +619,7 @@ footer ul {
   font-size: 1rem;
   border-radius: 0.3125rem;
 }
+
 #confirm-btn:hover {
   background-color: #bfe0f2;
   color: #2a2a27;
@@ -581,6 +630,7 @@ footer ul {
   flex-direction: row wrap;
   margin-bottom: 6%;
 }
+
 #container-impressum h4 {
   margin-bottom: 3%;
 }
@@ -629,6 +679,7 @@ footer ul {
   margin-top: 4%;
   margin-bottom: 6%;
 }
+
 #container-aboutUs h3 {
   margin-top: 0%;
   margin-bottom: 2%;
@@ -649,19 +700,23 @@ footer ul {
   width: 100%;
   margin-top: 2rem;
 }
-.negativeSearch{
+
+.negativeSearch {
   min-height: 69vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 #container-search {
   margin-top: 3%;
   text-align: center;
 }
+
 #container-search span {
   font-weight: 600;
 }
+
 #container-search img {
   width: 45%;
   height: auto;
@@ -709,6 +764,7 @@ footer ul {
 #category {
   color: #ff9457;
 }
+
 #category:hover {
   color: #bfe0f2;
 }
@@ -771,6 +827,7 @@ select {
   font-family: inherit;
   border-radius: 0.25rem;
 }
+
 #add-button:hover {
   background-color: #bfe0f2;
 }
@@ -783,6 +840,7 @@ select {
   color: #f4f5ef;
   line-height: 3rem;
 }
+
 #plusIcon:hover {
   color: #2a2a27;
 }
@@ -797,20 +855,24 @@ table {
   width: 100%;
   margin-bottom: 4rem;
 }
+
 table th {
   width: 20rem;
   text-align: start;
   padding-left: 1%;
 }
+
 table td {
   padding-left: 3rem;
   padding-right: 3rem;
   padding-top: 1%;
   padding-bottom: 1%;
 }
+
 table #td-e {
   padding-right: 1%;
 }
+
 table #td-d {
   padding-right: 1%;
   padding-left: 1%;
@@ -845,6 +907,7 @@ input[type=file] {
   line-height: 4rem;
   font-family: inherit;
 }
+
 .file-upload:hover {
   font-weight: 0.9rem;
   font-size: 3rem;
@@ -916,6 +979,7 @@ input[type=file] {
   font-size: 1rem;
   border-radius: 0.25rem;
 }
+
 .div__button--submit:hover {
   background-color: #149073;
   color: #f4f5ef;
@@ -936,6 +1000,7 @@ input[type=file] {
   font-size: 1rem;
   border-radius: 0.25rem;
 }
+
 .div__button--delete:hover {
   background-color: #f05b3d;
   color: #f4f5ef;
