@@ -23,7 +23,7 @@ class TopMenu extends Component {
 
     if (user) {
       loginLogout = <LogoutButton />
-      dashboard = <Link id="read-more-link" to={"/dashboard"}>Dashboard</Link>
+      dashboard = <Link id="dashboardLink" to={"/dashboard"}>Dashboard</Link>
     }
     else {
       loginLogout = <UserSessionWidget />
@@ -42,10 +42,13 @@ class TopMenu extends Component {
 
         <SearchForm />
 
-        <div id="div-log">
+        <div className="topMenu__links">
+
           {dashboard}
           {loginLogout}
+
         </div>
+
 
 
       </header>

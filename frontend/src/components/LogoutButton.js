@@ -13,7 +13,7 @@ class LogoutButton extends Component {
     render(){
         return(
             <div>
-                <button id="LogoutButton" onClick={() => { this.props.logoutAction() }} className="button">
+                <button id="LogoutLink" onClick={() => { this.props.logoutAction() }}>
                     Logout
                 </button>
             </div>
