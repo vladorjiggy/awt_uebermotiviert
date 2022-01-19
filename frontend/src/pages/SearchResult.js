@@ -1,6 +1,8 @@
 import SearchRender from "../components/SearchRender";
 import React, { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom';
+import { Link } from "react-router-dom";
+
 const SearchResult = props => {
   const { search } = useLocation();
   let params = new URLSearchParams(search);
@@ -27,6 +29,11 @@ const SearchResult = props => {
   if (posts.length) {
     return (
       <div>
+        <ul id="breadcrumb">
+          <li><Link to="/">Startseite</Link></li>
+          <li>Suche</li>
+        </ul>
+        
         <h3>
           Suchergebnisse zu
           <span id="searchWord"> {query}</span>:

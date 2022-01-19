@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
 
 *,
 *::after,
@@ -11,7 +11,6 @@ main {
   width: 100%;
   margin: 1% auto;
   background-color: #f4f5ef;
-
 }
 
 body p,
@@ -36,12 +35,53 @@ main h3 {
 }
 
 
+.topMenu__links {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+
+  width: 30%;
+  justify-content: space-evenly;
+  top: 6%;
+  right: 3%;
+}
+
+#LogoutLink {
+  font-size: 0.9rem;
+  color: #2a2a27;
+  font-weight: 600;
+
+}
+
+#LogoutLink :hover {
+  color: #bfe0f2;
+}
+
+#dashboardLink {
+  font-size: 0.9rem;
+  color: #2a2a27;
+  font-weight: 600;
+
+}
+
+#dashboardLink:hover {
+  color: #bfe0f2;
+}
+
+.changePasswordLink {
+  font-size: 0.9rem;
+  color: #2a2a27;
+  font-weight: 600;
+}
+
+
+
+
 .page-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   min-width: 100%;
-
 }
 
 .content-wrap {
@@ -51,7 +91,7 @@ main h3 {
 }
 
 .nav-link {
-  display:block;
+  display: block;
   width: fit-content;
 }
 h1 {
@@ -79,7 +119,6 @@ h5 {
   color: #2a2a27;
   font-size: 0.7rem;
   font-weight: 600;
-
 }
 
 h4 {
@@ -137,7 +176,7 @@ h1 {
 h5 {
   margin-left: 10%;
 
-  width:fit-content;
+  width: fit-content;
   margin-right: 0%;
   margin-bottom: 0%;
   margin-top: 0%;
@@ -149,7 +188,7 @@ h5 {
   top: 8%;
   display: flex;
   flex-direction: row wrap;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
 }
 
@@ -204,8 +243,6 @@ li {
   margin: 1%;
 }
 
-
-
 .div__footer {
   position: relative;
   bottom: 0;
@@ -215,9 +252,7 @@ li {
   margin-top: 1rem;
   background-color: #e1e1d5;
   text-align: center;
-
 }
-
 
 footer p {
   margin-top: 3rem;
@@ -239,7 +274,7 @@ footer ul {
   padding: 0;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: start;
+  justify-content: flex-start;
   align-content: center;
   list-style: none;
   padding-top: 4%;
@@ -250,7 +285,7 @@ footer ul {
   min-width: 5rem;
 }
 
-#breadcrumb li+li:before {
+#breadcrumb li + li:before {
   padding-right: 1rem;
   color: #2a2a27;
   content: "|";
@@ -327,7 +362,7 @@ footer ul {
   max-width: 100%;
   display: flex;
   flex-flow: row wrap;
-  justify-content: start;
+  justify-content: flex-start;
   align-content: center;
   margin-top: 6%;
   margin-bottom: 6%;
@@ -357,7 +392,7 @@ footer ul {
   max-width: 100%;
   display: flex;
   flex-flow: row wrap;
-  justify-content: start;
+  justify-content: flex-start;
   align-content: center;
   margin-top: 6%;
   margin-bottom: 6%;
@@ -385,7 +420,6 @@ footer ul {
   -webkit-line-clamp: 5;
 }
 
-
 #bg-Blurred {
   width: 110%;
   height: 110%;
@@ -400,13 +434,97 @@ footer ul {
   cursor: pointer;
 }
 
-#div-log {
-
+.deleteModal {
   position: absolute;
   top: 6%;
   right: 10%;
+}
 
+.deleteModal__div--form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 36rem;
+  height: 17rem;
+  background-color: #2a2a27;
+  border-radius: 0.625rem;
+  text-align: center;
+}
 
+.form__div--warningMessage {
+  margin-top: 8%;
+  margin-bottom: 5%;
+}
+
+.div__p--1 {
+  color: #f4f5ef;
+  margin-bottom: 2%;
+}
+
+.div__p--2 {
+  color: #f4f5ef;
+  margin-top: 2%;
+}
+
+.div__span--postTitle {
+  font-weight: 600 !important;
+  color: #f4f5ef;
+}
+
+.deleteModal__div--buttons {
+  margin-bottom: 5%;
+}
+
+.button__delete {
+  margin-right: 5%;
+  border-color: transparent;
+  color: #f4f5ef;
+  background-color: #ff7357;
+  width: 11.813rem;
+  height: 2.813rem;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+}
+
+.button__delete:hover {
+  background-color: #f05b3d;
+  color: #f4f5ef;
+}
+
+.button__cancel {
+  margin-left: 5%;
+  border-color: transparent;
+
+  color: #f4f5ef;
+  background-color: #4c9e8b;
+  width: 11.813rem;
+  height: 2.813rem;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+}
+
+.button__cancel:hover {
+  background-color: #149073;
+  color: #f4f5ef;
+}
+
+#div-log {
+  position: absolute;
+  top: 6%;
+  right: 10%;
+}
+
+#div-log {
+  position: absolute;
+  top: 6%;
+  right: 10%;
 }
 
 #div-log-form {
@@ -418,7 +536,6 @@ footer ul {
   height: 27rem;
   background-color: #ff9457;
   border-radius: 0.625rem;
-
 }
 
 #div-wrap-head {
@@ -461,7 +578,6 @@ footer ul {
   height: 2.81rem;
   border-color: transparent;
   border-radius: 0.3125rem;
-
 }
 
 #wrap-input-UN {
@@ -472,7 +588,6 @@ footer ul {
 #input-PW {
   font-family: inherit;
   color: #2a2a27;
-
 }
 
 #div-log-btn {
@@ -515,8 +630,6 @@ footer ul {
   font-size: 0.8rem;
   font-weight: 400;
 }
-
-
 
 #div-NP-form {
   position: absolute;
@@ -586,7 +699,6 @@ footer ul {
   width: 30rem;
 }
 
-
 #wrap-input-NP {
   margin-bottom: 1rem;
 }
@@ -645,7 +757,8 @@ footer ul {
   height: auto;
 }
 
-#article1-section1-text, #article3-section1-text {
+#article1-section1-text,
+#article3-section1-text {
   width: 7rem;
 }
 
@@ -725,7 +838,7 @@ footer ul {
 #container-result {
   display: flex;
   flex-flow: row wrap;
-  justify-content: start;
+  justify-content: flex-start;
   align-content: center;
 }
 
@@ -774,7 +887,8 @@ footer ul {
   margin-left: 4%;
 }
 
-#article-blog-text-1, #article-blog-text-2 {
+#article-blog-text-1,
+#article-blog-text-2 {
   margin-top: 0.5%;
   margin-bottom: 3%;
 }
@@ -885,7 +999,13 @@ tr:not(:first-of-type) {
   border-color: #e1e1d5;
 }
 
-input[type=file] {
+
+#container-edit{
+  margin-top: 3rem;
+}
+
+
+input[type="file"] {
   display: none;
 }
 

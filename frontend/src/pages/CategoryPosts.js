@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import withRouter from "../helpers/withRouter";
 import { Link } from "react-router-dom"
+import SearchRender from "../components/SearchRender";
 
 class CategoryPosts extends Component {
     state = {
@@ -15,6 +16,7 @@ class CategoryPosts extends Component {
         })
             .then(result => result.json())
             .then(result => {
+                console.log("result: ", result)
                 this.setState({
                     posts: result.category.posts,
                     categoryName: result.category.name
@@ -26,14 +28,14 @@ class CategoryPosts extends Component {
             return (
 
                 <main>
-
                     <ul id="breadcrumb">
-                        <li><a href="#">Startseite</a></li>
-                        <li><a href="#">Kategorien</a></li>
+                        <li><Link to="/">Startseite</Link></li>
                         <li>{this.state.categoryName}</li>
                     </ul>
 
-                    <div class="container1__post" id="container1-index">
+                    <SearchRender posts={this.state.posts} />
+
+                    {/*<div class="container1__post" id="container1-index">
                         <article id="article1-section1-index">
                             <button id="category-name">{this.state.categoryName}</button>
                             <img
@@ -162,7 +164,7 @@ class CategoryPosts extends Component {
 
                         </div>
 
-                    }
+                    }*/}
 
                 </main>
 

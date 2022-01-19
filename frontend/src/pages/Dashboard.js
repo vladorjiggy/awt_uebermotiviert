@@ -56,9 +56,14 @@ class Dashboard extends Component {
         return (
 
             <main>
+                <ul id="breadcrumb">
+                    <li><Link to="/">Startseite</Link></li>
+                    <li>Dashboard</li>
+                </ul>
+
                 <div id="container-cms">
                     <div id="div-add-button">
-                        <Link to={'/post/create'} className="nav-link"><button id="add-button"><p id="plusIcon">+</p></button></Link>
+                        <Link to={'/post/create'} className="Link__button--add"><button id="add-button"><p id="plusIcon">+</p></button></Link>
 
                         <p id="btn-lable">Beitrag erstellen</p>
                     </div>
@@ -87,13 +92,18 @@ class Dashboard extends Component {
                 </div>
 
                 {this.state.openModal &&
-
-                    <div id="containerLog">
+                    <div className="deleteModal">
                         <div id="bg-Blurred"></div>
-                        <div id="div-log-form">
-                            <p>Willst du den Post: <span>{this.state.postToDelete.title}</span> wirklich löschen?</p>
-                            <button onClick={() => this.deletePost()} >Löschen</button>
-                            <button onClick={() => this.closeModal()} >Abbrechen</button>
+                        <div className="deleteModal__div--form">
+                            <div className="form__div--warningMessage">
+                                <p className="div__p--1">Willst du den Post </p>
+                                <span className="div__span--postTitle">"{this.state.postToDelete.title}</span>
+                                <p className="div__p--2">unwiederruflich löschen?</p>
+                            </div>
+                            <div className="deleteModal__div--buttons">
+                                <button className="button__delete" onClick={() => this.deletePost()} >Löschen</button>
+                                <button className="button__cancel" onClick={() => this.closeModal()} >Abbrechen</button>
+                            </div>
                         </div>
                     </div>
 

@@ -103,7 +103,7 @@ class UserSessionWidget extends Component {
                                 </div>
 
                                 <div id="div-log-text">
-                                    <a href="#" id="div-log-text-a">Password vergessen?</a>
+                                    <a>Password vergessen?</a>
                                 </div>
                             </form>
                         </div>

@@ -1,10 +1,15 @@
 import React, { Component } from "react";
-
+import { Link } from "react-router-dom";
 class UeberUns extends Component {
 
   render() {
     return (
       <div id="container-aboutUs">
+        <ul id="breadcrumb">
+          <li><Link to="/">Startseite</Link></li>
+          <li>Über uns</li>
+        </ul>
+
         <article id="article1-section1-aboutUs">
           <img
             id="article1-img-aboutUs"

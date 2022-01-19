@@ -20,7 +20,7 @@ import SearchResult from './pages/SearchResult';
 import SinglePost from './pages/SinglePost';
 import CategoryPosts from './pages/CategoryPosts';
 import EditPost from './pages/EditPost';
-import Change from './components/pwChange';
+
 
 /**
  * Components
@@ -41,7 +41,6 @@ class App extends Component {
     const editpost = <EditPost />
     const categorypost = <CategoryPosts />
     const searchresult = <SearchResult />
-    const changePw = <Change />
     return (
       <div className="page-container">
 
@@ -59,7 +58,6 @@ class App extends Component {
               <Route exact path="/post/edit/:post_id" element={editpost} />
               <Route exact path="/post/category/:category_id" element={categorypost} />
               <Route exact path="/post/search" element={searchresult} />
-              <Route exact path="/cahngePw" element={changePw} />
             </Routes>
           </div>
           <Footer />
