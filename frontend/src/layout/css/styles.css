@@ -348,7 +348,9 @@ footer ul {
 
 #article1-img-index {
   width: 100%;
-  height: auto;
+  object-fit: cover;
+  height: 25vw;
+
 }
 
 #category-name-index {
@@ -383,11 +385,17 @@ footer ul {
 #article2-section1-index {
   width: 100%;
   height: auto;
+ 
+  
 }
 
 #article2-img {
   width: 100%;
-  height: auto;
+  object-fit: cover;
+  height: 25vw;
+
+  
+
 }
 
 #article2-section2 {
@@ -417,7 +425,10 @@ footer ul {
 
 #article3-img {
   width: 100%;
-  height: auto;
+  object-fit: cover;
+
+  height: 17vw;
+
 }
 
 .cut-text {
@@ -425,6 +436,13 @@ footer ul {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 5;
+}
+
+.cut-text-first {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 10;
 }
 
 
@@ -874,13 +892,13 @@ footer ul {
 
 #blog-title {
   margin-top: 2%;
-  width: 30rem;
+
 }
 
 #category-date {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+
   align-content: center;
 }
 
