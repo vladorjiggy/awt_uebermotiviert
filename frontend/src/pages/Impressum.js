@@ -1,10 +1,15 @@
 import React, { Component } from "react";
-
+import { Link } from "react-router-dom";
 class Impressum extends Component {
 
   render() {
     return (
       <div id="container-impressum">
+        <ul id="breadcrumb">
+          <li><Link to="/">Startseite</Link></li>
+          <li>Impressum</li>
+        </ul>
+
         <div id="con-left">
           <article id="article1-section1">
             <h4 id="article1-section1-headline">Angaben gemäß § 5 TMG:</h4>

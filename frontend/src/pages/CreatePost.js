@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import CategorySelect from "../components/CategorySelect";
+import { Link } from "react-router-dom";
 class CreatePost extends Component {
 
     constructor(props) {
@@ -21,7 +22,6 @@ class CreatePost extends Component {
         const url = process.env.REACT_APP_SERVERHOST + '/category/get';
         fetch(url, {
             method: 'get',
-
         })
             .then(result => result.json())
             .then(result => {
@@ -29,7 +29,6 @@ class CreatePost extends Component {
                     allCategories: result.categories
                 })
             })
-
     }
     handleChange(e) {
         const { name, value } = e.target;
@@ -61,25 +60,37 @@ class CreatePost extends Component {
         this.createPost(title, content, categories)
             .then(response => response.json())
             .then(data => {
-                let id = data.post._id
-                let formData = new FormData();
-                formData.append("post_image", this.state.post_image);
-                const requestOptions = {
-                    method: 'POST',
-                    credentials: 'include',
-                    body: formData
-                }
-                const url = process.env.REACT_APP_SERVERHOST + '/file/upload/' + id;
-                fetch(url, requestOptions).then(resp => {
-                    if (resp.status === 200) {
-                        this.setState({
-                            title: "",
-                            content: "",
-                            post_image: null,
-                            categories: ""
-                        })
+                console.log("data: ", data);
+                if(this.state.newPost_image != null) {
+                    let id = data.post._id;
+                    let formData = new FormData();
+                    formData.append("post_image", this.state.post_image);
+                    const requestOptions = {
+                        method: 'POST',
+                        credentials: 'include',
+                        body: formData
                     }
-                })
+                    const url = process.env.REACT_APP_SERVERHOST + '/file/upload/' + id;
+                    fetch(url, requestOptions).then(resp => {
+                        if (resp.status === 200) {
+                            this.setState({
+                                title: "",
+                                content: "",
+                                post_image: null,
+                                categories: ""
+                            })
+                        }
+                    })
+                    console.log("FileUpload erfolgreich")
+                }
+                else {
+                    this.setState({
+                      title: "",
+                      content: "",
+                      categories: ""
+                    })
+                    console.log("Ohne FileUpload erfolgreich");
+                  }
             })
             .catch(error => {
                 console.log(error)
@@ -107,6 +118,13 @@ class CreatePost extends Component {
         return (
 
             <div className="page-content" id="createPost">
+
+                <ul id="breadcrumb">
+                    <li><Link to="/">Startseite</Link></li>
+                    <li><Link to="/dashboard">Dashboard</Link></li>
+                    <li>Beitrag erstellen</li>
+                </ul>
+
                 <div id="container-edit">
 
                     <div class="form-group">

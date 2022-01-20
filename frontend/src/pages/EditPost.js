@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import withRouter from "../helpers/withRouter";
 import CategorySelect from "../components/CategorySelect";
+import { Link } from "react-router-dom";
+
 
 class EditPost extends Component {
   
@@ -13,7 +15,8 @@ class EditPost extends Component {
         content: ``,
         post_image: null,
         allCategories: [],
-        categories: null
+        categories: null,
+        newPost_image: null
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -74,6 +77,7 @@ class EditPost extends Component {
         title: "",
         content: "",
         post_image: null,
+        newPost_image: null,
         categories: ""
     })
   }
@@ -87,30 +91,42 @@ class EditPost extends Component {
             console.log("editPost.then(data): " + data)
             console.log("editPost.then(data) stringify: " + JSON.stringify(data))
 
-
-            let id = data.post._id
-            let formData = new FormData();
-            formData.append("post_image", this.state.post_image);
-            const requestOptions = {
-                method: 'POST',
-                credentials: 'include',
-                body: formData
+            if(this.state.newPost_image != null) {
+              let id = data.post._id
+              let formData = new FormData();
+              formData.append("post_image", this.state.newPost_image);
+              const requestOptions = {
+                  method: 'POST',
+                  credentials: 'include',
+                  body: formData
+              }
+              const url = process.env.REACT_APP_SERVERHOST + '/file/upload/' + id;
+              console.log("editPost: fileUpload: url: " + url);
+              fetch(url, requestOptions).then(resp => {
+                  if (resp.status === 200) {
+                      this.setState({
+                          post: null,
+                          _id: null,
+                          title: "",
+                          content: "",
+                          post_image: null,
+                          newPost_image: null,
+                          categories: ""
+                      })
+                      console.log("FileUpload erfolgreich")
+                  }
+              })
             }
-            const url = process.env.REACT_APP_SERVERHOST + '/file/upload/' + id;
-            console.log("editPost: fileUpload: url: " + url);
-            fetch(url, requestOptions).then(resp => {
-                if (resp.status === 200) {
-                    this.setState({
-                        post: null,
-                        _id: null,
-                        title: "",
-                        content: "",
-                        post_image: null,
-                        categories: ""
-                    })
-                    console.log("FileUpload erfolgreich")
-                }
-            })
+            else {
+              this.setState({
+                post: null,
+                _id: null,
+                title: "",
+                content: "",
+                categories: ""
+              })
+              console.log("Ohne FileUpload erfolgreich");
+            }
         })
         .catch(error => {
             console.log(error)
@@ -133,8 +149,8 @@ class EditPost extends Component {
         return(
           <main>
             <ul id="breadcrumb">
-              <li><a href="#">Startseite</a></li>
-              <li><a href="#">Dashboard</a></li>
+              <li><Link to="/">Startseite</Link></li>
+              <li><Link to="/dashboard">Dashboard</Link></li>
               <li>Beitrag bearbeiten</li>
             </ul>
 
@@ -142,7 +158,7 @@ class EditPost extends Component {
 
               <div class="form-group">
                 <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="attachment" name="post_image" onChange={this.handleFileSelect} />
+                  <input type="file" class="custom-file-input" id="attachment" name="newPost_image" onChange={this.handleFileSelect} />
                   <label for="attachment" class="file-upload">
                     <span class="lable-span__text">+</span>
                     <span id="filename"></span>

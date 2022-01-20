@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom"
 const CategoryRenderList = props => {
-    console.log(props)
     const rows = props.categories.map((row, index) => {
         return (
 

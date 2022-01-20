@@ -1,5 +1,4 @@
 const CategorySelect = props => {
-    console.log(props)
     let rows = props.categories.map((row, index) => {
         return (
 

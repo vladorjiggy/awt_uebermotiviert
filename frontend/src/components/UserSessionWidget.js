@@ -36,13 +36,13 @@ class UserSessionWidget extends Component {
         //this.setState({show: false})
         const { hideLoginDialogAction } = this.props;
         hideLoginDialogAction();
-        this.setState( { openModal: false } );
+        this.setState({ openModal: false });
     }
 
     handleChange(e) {
         const { name, value } = e.target;
         this.setState({ [name]: value })
-        console.log(JSON.stringify(this.state))
+
     }
 
     handleSubmit(e) {
@@ -50,8 +50,8 @@ class UserSessionWidget extends Component {
         const { userID, password } = this.state;
         const { authenticateUserAction } = this.props;
         authenticateUserAction(userID, password);
-        console.log("Pushed Submit");
-        this.setState( { openModal: false } );
+
+        this.setState({ openModal: false });
     }
 
     render() {
@@ -63,12 +63,10 @@ class UserSessionWidget extends Component {
 
         return (
             <div>
-                
-                {/* Login- & Logout Button switch: Beispielanwendung Folie 44 */}
                 <a variant="primary" className="button" onClick={this.handleShow}>
                     Login
                 </a>
-            
+
                 {this.state.openModal &&
 
                     <div id="containerLog">
@@ -105,7 +103,7 @@ class UserSessionWidget extends Component {
                                 </div>
 
                                 <div id="div-log-text">
-                                    <a href="#" id="div-log-text-a">Password vergessen?</a>
+                                    <a>Password vergessen?</a>
                                 </div>
                             </form>
                         </div>

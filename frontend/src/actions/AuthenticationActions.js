@@ -1,23 +1,6 @@
 import base64 from 'base-64'
+import { SHOW_LOGIN_DIALOG, HIDE_LOGIN_DIALOG, LOGOUT_USER, USER_LOGOUT, AUTHENTICATION_PENDING, AUTHENTICATION_SUCCESS, AUTHENTICATION_ERROR, AUTHENTICATION_LOGOUT,  } from './actions';
 
-export const SHOW_LOGIN_DIALOG = 'SHOW_LOGIN_DIALOG';
-export const HIDE_LOGIN_DIALOG = "HIDE_LOGIN_DIALOG";
-
-export const AUTHENTICATION_PENDING = "AUTHENTICATION_PENDING";
-export const AUTHENTICATION_SUCCESS = "AUTHENTICATION_SUCCESS";
-export const AUTHENTICATION_ERROR = "AUTHENTICATION_ERROR";
-export const USER_LOGOUT = "LOGOUT";
-
-
-
-export const LOGOUT_USER = "LOGOUT_USER"
-
-export function logoutUserAction()
-{
-    return {
-        type: LOGOUT_USER
-    }
-}
 
 export function getShowLoginDialogAction()
 {
@@ -54,11 +37,13 @@ export function getAuthenticationErrorAction(error){
     }
 }
 
-export function getUserLogout(){
-    return{
-        type: USER_LOGOUT
+export function logoutUserAction()
+{
+    return {
+        type: LOGOUT_USER
     }
 }
+
 
 export function authenticateUser(userID, password){
     return dispatch => {
@@ -82,8 +67,6 @@ export function authenticateUser(userID, password){
 }
 
 export function logoutUser() {
-    console.log('logoutrigger')
-
     return dispatch => {
         logout()
             .then(
@@ -134,7 +117,6 @@ function handleResponse(response) {
         }
 
         if(!response.ok) {
-            console.log('true')
             if(response.status === 401) {
                 logout();
             }

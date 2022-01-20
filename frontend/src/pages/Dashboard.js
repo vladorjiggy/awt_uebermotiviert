@@ -20,7 +20,6 @@ class Dashboard extends Component {
         })
             .then(result => result.json())
             .then(result => {
-                console.log(result)
                 this.setState({
                     posts: result.posts
                 })
@@ -57,6 +56,11 @@ class Dashboard extends Component {
         return (
 
             <main>
+                <ul id="breadcrumb">
+                    <li><Link to="/">Startseite</Link></li>
+                    <li>Dashboard</li>
+                </ul>
+
                 <div id="container-cms">
                     <div id="div-add-button">
                         <Link to={'/post/create'} className="Link__button--add"><button id="add-button"><p id="plusIcon">+</p></button></Link>
@@ -87,14 +91,13 @@ class Dashboard extends Component {
                     </div>
                 </div>
 
-
                 {this.state.openModal &&
                     <div className="deleteModal">
                         <div id="bg-Blurred"></div>
                         <div className="deleteModal__div--form">
                             <div className="form__div--warningMessage">
                                 <p className="div__p--1">Willst du den Post </p>
-                                <span className="div__span--postTitle">"{this.state.postToDelete.title}"</span>
+                                <span className="div__span--postTitle">"{this.state.postToDelete.title}</span>
                                 <p className="div__p--2">unwiederruflich löschen?</p>
                             </div>
                             <div className="deleteModal__div--buttons">

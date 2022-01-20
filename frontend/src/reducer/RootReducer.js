@@ -1,4 +1,4 @@
-import * as authenticationActions from '../actions/AuthenticationActions'
+import { SHOW_LOGIN_DIALOG, LOGOUT_USER, HIDE_LOGIN_DIALOG, AUTHENTICATION_PENDING, AUTHENTICATION_SUCCESS, AUTHENTICATION_ERROR } from '../actions/actions';
 
 const initialState = {
     user: null,
@@ -9,24 +9,22 @@ const initialState = {
     showCreatePostDialog: false
 };
 function rootReducer(state = initialState, action) {
-    console.log("Bin im Reducer: " + action.type)
-
     switch (action.type) {
 
         //Login
-        case authenticationActions.SHOW_LOGIN_DIALOG:
+        case SHOW_LOGIN_DIALOG:
             return {
                 ...state,
                 showLoginDialog: true,
                 error: null
             }
-        case authenticationActions.HIDE_LOGIN_DIALOG:
+        case HIDE_LOGIN_DIALOG:
             return {
                 ...state,
                 showLoginDialog: false,
                 error: null
             }
-        case authenticationActions.AUTHENTICATION_PENDING:
+        case AUTHENTICATION_PENDING:
             {
                 return {
                     ...state,
@@ -34,7 +32,7 @@ function rootReducer(state = initialState, action) {
                     error: null
                 }
             }
-        case authenticationActions.AUTHENTICATION_SUCCESS:
+        case AUTHENTICATION_SUCCESS:
             {
                 return {
                     ...state,
@@ -44,7 +42,7 @@ function rootReducer(state = initialState, action) {
                     accessToken: action.accessToken
                 }
             }
-        case authenticationActions.AUTHENTICATION_ERROR:
+        case AUTHENTICATION_ERROR:
             {
                 return {
                     ...state,
@@ -53,16 +51,7 @@ function rootReducer(state = initialState, action) {
                 }
             }
 
-        case authenticationActions.USER_LOGOUT:
-            {
-                return{
-                    ...state,
-                    user: null,
-                    accessToken: null
-                }
-            }
-    
-        case authenticationActions.LOGOUT_USER:
+        case LOGOUT_USER:
             return {
                 ...state,
                 pending: false,
@@ -71,8 +60,8 @@ function rootReducer(state = initialState, action) {
                 user: null
             }
 
-            
-                
+
+
         default:
             return state;
     }
