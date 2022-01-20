@@ -45,9 +45,14 @@ function buildFirstPosts() {
                     console.log(err)
                 }
                 let datafromfile = JSON.parse(data);
-                Object.values(datafromfile).forEach(function(obj){            
-                    let post = new Post(obj)
-                    post.save()            
+                Object.values(datafromfile).forEach(function(obj){  
+                    let post = new Post()
+                    post.post_image = obj.post_image
+                    post.title = obj.title
+                    post.content = obj.content
+                    post.categories.push(obj.categories[0])
+                    post.save()   
+                             
                 })        
             })
         }
