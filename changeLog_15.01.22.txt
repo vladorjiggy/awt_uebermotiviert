@@ -1,8 +1,6 @@
 permissions fehlen noch
 
-login modal ausblenden wenn man ausserhalb klickt
+env beim start festlegen
 
-editpost: file wird übergeben auch wenn keins ausgewählt wurde
-
-responsive
+redux persist im sessionstorage ablegen
 

@@ -60,55 +60,54 @@ class CreatePost extends Component {
         this.createPost(title, content, categories)
             .then(response => response.json())
             .then(data => {
-                console.log("data: ", data);
-                if(this.state.newPost_image != null) {
-                    let id = data.post._id;
-                    let formData = new FormData();
-                    formData.append("post_image", this.state.post_image);
-                    const requestOptions = {
-                        method: 'POST',
-                        credentials: 'include',
-                        body: formData
-                    }
-                    const url = process.env.REACT_APP_SERVERHOST + '/file/upload/' + id;
-                    fetch(url, requestOptions).then(resp => {
-                        if (resp.status === 200) {
-                            this.setState({
-                                title: "",
-                                content: "",
-                                post_image: null,
-                                categories: ""
-                            })
-                        }
-                    })
-                    console.log("FileUpload erfolgreich")
+                console.log(data)
+                let id = data.post._id;
+                let formData = new FormData();
+                formData.append("post_image", this.state.post_image);
+                const requestOptions = {
+                    method: 'POST',
+                    credentials: 'include',
+                    body: formData
                 }
-                else {
-                    this.setState({
-                      title: "",
-                      content: "",
-                      categories: ""
-                    })
-                    console.log("Ohne FileUpload erfolgreich");
-                  }
+                const url = process.env.REACT_APP_SERVERHOST + '/file/upload/' + id;
+                fetch(url, requestOptions).then(resp => {
+                    if (resp.status === 200) {
+                        this.setState({
+                            title: "",
+                            content: "",
+                            post_image: null,
+                            categories: ""
+                        })
+                        this.props.navigate('/dashboard');
+                    }
+                })
+                
             })
             .catch(error => {
-                console.log(error)
+                console.error(error)
             })
     }
 
 
     createPost(title, content, categories) {
-        const requestOptions = {
-            method: 'POST',
-            credentials: 'include',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ title, content, categories })
+        if(this.state.post_image != null){
+            const requestOptions = {
+                method: 'POST',
+                credentials: 'include',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ title, content, categories })
+            }
+            const url = process.env.REACT_APP_SERVERHOST + '/post/create';
+            return fetch(url, requestOptions)
         }
-        const url = process.env.REACT_APP_SERVERHOST + '/post/create';
-        return fetch(url, requestOptions)
+        else{
+            alert('Bitte Bild auswählen')
+            return Promise.resolve({error: 'Bitte Bild auswählen'})
+            
+        }
+        
     }
 
     componentDidMount() {

@@ -20,6 +20,7 @@ class EditPost extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSelectChange = this.handleSelectChange.bind(this);
     this.handleFileSelect = this.handleFileSelect.bind(this);
@@ -67,6 +68,7 @@ class EditPost extends Component {
     const target = e.target;
     const value = target.type === 'select' ? target.checked : target.value;
     const name = target.name;
+    console.log([name], [value])
     this.setState({ [name]: [value] })
   }
   handleCancel(e) {
@@ -127,6 +129,7 @@ class EditPost extends Component {
               })
               console.log("Ohne FileUpload erfolgreich");
             }
+            this.props.navigate('/dashboard')
         })
         .catch(error => {
             console.log(error)
@@ -174,7 +177,7 @@ class EditPost extends Component {
                   <input class="div__input--headline" placeholder="Wie soll dein Beitrag heißen?" name="title" value={this.state.title} onChange={this.handleChange}></input>
 
                   <div class="select-category">
-                    <CategorySelect value={this.state.categories} categories={this.state.allCategories} handleSelectChange={this.handleSelectChange} />
+                    <CategorySelect value={this.state.categories || ""} categories={this.state.allCategories} handleSelectChange={this.handleSelectChange} />
                   </div>
 
                 </div>

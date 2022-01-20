@@ -28,6 +28,7 @@ import EditPost from './pages/EditPost';
 
 import TopMenu from './components/TopMenu';
 import Footer from './components/Footer';
+import WrappedComponent from './components/WrappedComponent';
 
 class App extends Component {
   render() {
@@ -37,8 +38,8 @@ class App extends Component {
     const impressum = <Impressum />
     const ueberuns = <UeberUns />
     const singlepost = <SinglePost />
-    const createpost = <CreatePost />
-    const editpost = <EditPost />
+    const createpost = <WrappedComponent component={CreatePost} />
+    const editpost = <WrappedComponent component={EditPost}/>
     const categorypost = <CategoryPosts />
     const searchresult = <SearchResult />
     return (
