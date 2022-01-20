@@ -5,10 +5,8 @@ class ChangePassword extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        // brauchen noch userID
       oldPassword: ``,
       newPassword: ``,
-      confirmNewPassword: ``,
     };
 
     this.handleShow = this.handleShow.bind(this);
@@ -17,38 +15,17 @@ class ChangePassword extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidMount() {
-    this.getOldPassword();
-  }
-
-  getOldPassword() {
-    //      WIE/WOHER HOLEN WIR DIE userID?
-    //      + im Backend muss die Route einkommentiert und noch im controller etc definiert werden
-    const url = process.env.REACT_APP_SERVERHOST + "/user/get/" /* + this.props.params.userID */;  
-    fetch(url, {
-      method: "get",
-    })
-      .then((result) => result.json())
-      .then((result) => {
-        this.setState({
-          oldPassword: result.password,
-        });
-      });
-  }
-
   handleSubmit(e) {
     e.preventDefault();
     const { oldPassword, newPassword } = this.state;
-    this.editPassword(oldPassword, newPassword)
-      .then((response) => response.json())
-      .then((data) => {
-      });
+    this.editPassword(oldPassword, newPassword);
   }
 
   editPassword(oldPassword, newPassword) {
-    const url = process.env.REACT_APP_SERVERHOST + "/user/changePassword" + this.props.params.userID;
+    const url = process.env.REACT_APP_SERVERHOST + "/user/changePassword"
     fetch(url, {
       method: "put",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
@@ -58,7 +35,6 @@ class ChangePassword extends Component {
     .then((result) => {
         this.setState({
           openModal: false,
-          _id: ``,
           oldPassword: ``,
           newPassword: ``,
         });
@@ -117,8 +93,8 @@ class ChangePassword extends Component {
                     <input
                       id="input-NP"
                       type="password"
-                      name="newPassword"
-                      placeholder="neues Passwort"
+                      name="oldPassword"
+                      placeholder="altes Passwort"
                       onChange={this.handleChange}
                     />
                   </div>
@@ -127,8 +103,8 @@ class ChangePassword extends Component {
                     <input
                       id="input-CNP"
                       type="password"
-                      name="confirmNewPassword"
-                      placeholder="bestätige neues Passwort"
+                      name="newPassword"
+                      placeholder="neues Passwort"
                       onChange={this.handleChange}
                     />
                   </div>

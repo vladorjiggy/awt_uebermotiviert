@@ -73,7 +73,7 @@ class UserSessionWidget extends Component {
                                     <img
                                         id="log-span-img"
                                         src="composition.png"
-                                        alt="search.png"
+                                        alt="composition.png"
                                     />
                                     <div id="div-log-span-text">
                                         <span id="log-span-text">
@@ -96,10 +96,6 @@ class UserSessionWidget extends Component {
 
                                 <div id="div-log-btn">
                                     <button id="log-btn" onClick={this.handleSubmit}>Los Gehts</button>
-                                </div>
-
-                                <div id="div-log-text">
-                                    <a>Password vergessen?</a>
                                 </div>
                             </form>
                         </div>
