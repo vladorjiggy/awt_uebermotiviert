@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: vladorjiggy/awt_uebermotiviert@v1
+      - uses: vladorjiggy/awt_uebermotiviert@main
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "awt-blog" #Must be unique in Heroku
