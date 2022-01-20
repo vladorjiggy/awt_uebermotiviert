@@ -104,8 +104,8 @@ class ChangePassword extends Component {
                 <div id="div-wrap-head">
                   <img
                     id="NP-span-img"
-                    src="../images/icons/passwort.png"
-                    alt="search.png"
+                    src="passwort.png"
+                    alt="password.png"
                   />
                   <div id="div-NP-span-text">
                     <span id="NP-span-text">

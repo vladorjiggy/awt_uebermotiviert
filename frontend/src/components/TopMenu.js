@@ -44,8 +44,9 @@ class TopMenu extends Component {
 
         <div className="topMenu__links">
           {dashboard}
-          {loginLogout}
           {changePassword}
+          {loginLogout}
+          
         </div>
       </header>
     );
