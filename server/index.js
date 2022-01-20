@@ -34,7 +34,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use(session({
-  secret: sessionSecret,  //secret ändern
+  secret: sessionSecret,
   resave: false,
   saveUninitialized: false,
   cookie: {

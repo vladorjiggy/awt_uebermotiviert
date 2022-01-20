@@ -38,7 +38,7 @@ function buildUsers(){
     
 }
 
-async function buildFirstPosts() {
+function buildFirstPosts() {
     
     Post.find({},function(err,doc){
         if(!doc.length){
