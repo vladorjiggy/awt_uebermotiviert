@@ -1,8 +1,1 @@
-permissions fehlen noch
-
-login modal ausblenden wenn man ausserhalb klickt
-
-editpost: file wird übergeben auch wenn keins ausgewählt wurde
-
-responsive
-
+env beim start festlegen

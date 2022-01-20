@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import withRouter from "../helpers/withRouter";
 import CategorySelect from "../components/CategorySelect";
-import { Link } from "react-router-dom";
-
-
+import { Navigate , Link} from "react-router-dom";
+import { connect } from "react-redux";
+const mapStateToProps = (state) => {
+  return state;
+};
 class EditPost extends Component {
   
   constructor(props) {
@@ -20,6 +22,7 @@ class EditPost extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSelectChange = this.handleSelectChange.bind(this);
     this.handleFileSelect = this.handleFileSelect.bind(this);
@@ -67,6 +70,7 @@ class EditPost extends Component {
     const target = e.target;
     const value = target.type === 'select' ? target.checked : target.value;
     const name = target.name;
+    console.log([name], [value])
     this.setState({ [name]: [value] })
   }
   handleCancel(e) {
@@ -80,6 +84,7 @@ class EditPost extends Component {
         newPost_image: null,
         categories: ""
     })
+    this.props.navigate('/dashboard')
   }
   handleSubmit(e) {
     e.preventDefault();
@@ -127,6 +132,7 @@ class EditPost extends Component {
               })
               console.log("Ohne FileUpload erfolgreich");
             }
+            this.props.navigate('/dashboard')
         })
         .catch(error => {
             console.log(error)
@@ -146,6 +152,7 @@ class EditPost extends Component {
     return fetch(url, requestOptions)
   }
     render() {
+      if(this.props.user){
         return(
           <main>
             <ul id="breadcrumb">
@@ -174,7 +181,7 @@ class EditPost extends Component {
                   <input class="div__input--headline" placeholder="Wie soll dein Beitrag heißen?" name="title" value={this.state.title} onChange={this.handleChange}></input>
 
                   <div class="select-category">
-                    <CategorySelect value={this.state.categories} categories={this.state.allCategories} handleSelectChange={this.handleSelectChange} />
+                    <CategorySelect value={this.state.categories || ""} categories={this.state.allCategories} handleSelectChange={this.handleSelectChange} />
                   </div>
 
                 </div>
@@ -190,7 +197,14 @@ class EditPost extends Component {
             </div>
           </main>
         )
+      }
+      else{
+        return (
+          <Navigate replace to="/" />
+      )
+      }
+        
     }
 }
 
-export default withRouter(EditPost);
+export default withRouter(connect(mapStateToProps)(EditPost));

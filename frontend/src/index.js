@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import { applyMiddleware, createStore } from 'redux'
 import { persistStore, persistReducer } from 'redux-persist'
-import storage from 'redux-persist/lib/storage'
+import storage from 'redux-persist/lib/storage/session'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk';
 import { PersistGate } from 'redux-persist/integration/react'

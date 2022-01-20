@@ -33,7 +33,7 @@ class CategoryPosts extends Component {
                         <li>{this.state.categoryName}</li>
                     </ul>
 
-                    <SearchRender posts={this.state.posts} />
+                    <SearchRender posts={this.state.posts} categoryName={this.state.categoryName} />
 
                     {/*<div class="container1__post" id="container1-index">
                         <article id="article1-section1-index">

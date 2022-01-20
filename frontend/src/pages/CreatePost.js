@@ -1,8 +1,14 @@
 import React, { Component } from "react";
 import CategorySelect from "../components/CategorySelect";
-import { Link } from "react-router-dom";
-class CreatePost extends Component {
+import { connect } from "react-redux";
+import { Navigate , Link} from "react-router-dom";
 
+const mapStateToProps = (state) => {
+    return state;
+  };
+class CreatePost extends Component {
+    
+    
     constructor(props) {
         super(props)
         this.state = {
@@ -60,109 +66,124 @@ class CreatePost extends Component {
         this.createPost(title, content, categories)
             .then(response => response.json())
             .then(data => {
-                console.log("data: ", data);
-                if(this.state.newPost_image != null) {
-                    let id = data.post._id;
-                    let formData = new FormData();
-                    formData.append("post_image", this.state.post_image);
-                    const requestOptions = {
-                        method: 'POST',
-                        credentials: 'include',
-                        body: formData
-                    }
-                    const url = process.env.REACT_APP_SERVERHOST + '/file/upload/' + id;
-                    fetch(url, requestOptions).then(resp => {
-                        if (resp.status === 200) {
-                            this.setState({
-                                title: "",
-                                content: "",
-                                post_image: null,
-                                categories: ""
-                            })
-                        }
-                    })
-                    console.log("FileUpload erfolgreich")
+                console.log(data)
+                let id = data.post._id;
+                let formData = new FormData();
+                formData.append("post_image", this.state.post_image);
+                const requestOptions = {
+                    method: 'POST',
+                    credentials: 'include',
+                    body: formData
                 }
-                else {
-                    this.setState({
-                      title: "",
-                      content: "",
-                      categories: ""
-                    })
-                    console.log("Ohne FileUpload erfolgreich");
-                  }
+                const url = process.env.REACT_APP_SERVERHOST + '/file/upload/' + id;
+                fetch(url, requestOptions).then(resp => {
+                    if (resp.status === 200) {
+                        this.setState({
+                            title: "",
+                            content: "",
+                            post_image: null,
+                            categories: ""
+                        })
+                        this.props.navigate('/dashboard');
+                    }
+                })
+                
             })
             .catch(error => {
-                console.log(error)
+                console.error(error)
             })
     }
 
 
     createPost(title, content, categories) {
-        const requestOptions = {
-            method: 'POST',
-            credentials: 'include',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ title, content, categories })
+        if(this.state.post_image != null){
+            const requestOptions = {
+                method: 'POST',
+                credentials: 'include',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ title, content, categories })
+            }
+            const url = process.env.REACT_APP_SERVERHOST + '/post/create';
+            return fetch(url, requestOptions)
         }
-        const url = process.env.REACT_APP_SERVERHOST + '/post/create';
-        return fetch(url, requestOptions)
+        else{
+            alert('Bitte Bild auswählen')
+            return Promise.resolve({error: 'Bitte Bild auswählen'})
+            
+        }
+        
     }
 
     componentDidMount() {
-        this.getCategories()
+        console.log(this.props.user)
+        if(!this.props.user){
+            console.log('noUser')
+            return this.props.navigate('/');
+        }
+        else{
+            this.getCategories()
+        }
+        
     }
     render() {
-        return (
+        if(this.props.user){
+            return (
 
-            <div className="page-content" id="createPost">
-
-                <ul id="breadcrumb">
-                    <li><Link to="/">Startseite</Link></li>
-                    <li><Link to="/dashboard">Dashboard</Link></li>
-                    <li>Beitrag erstellen</li>
-                </ul>
-
-                <div id="container-edit">
-
-                    <div class="form-group">
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="attachment" name="post_image" onChange={this.handleFileSelect} />
-                            <label for="attachment" class="file-upload">
-                                <span class="lable-span__text">+</span>
-                                <span id="filename"></span>
-                            </label>
-                            <p id="btn-lable">Bild auswählen und hochladen</p>
-                        </div>
-                    </div>
-
-                    <div id="con-edit">
-
-                        <div class="div-postHeadline-category">
-
-                            <input class="div__input--headline" placeholder="Wie soll dein Beitrag heißen?" name="title" value={this.state.title} onChange={this.handleChange}></input>
-
-                            <div class="select-category">
-                                <CategorySelect value={this.state.categories} categories={this.state.allCategories} handleSelectChange={this.handleSelectChange} />
-
+                <div className="page-content" id="createPost">
+    
+                    <ul id="breadcrumb">
+                        <li><Link to="/">Startseite</Link></li>
+                        <li><Link to="/dashboard">Dashboard</Link></li>
+                        <li>Beitrag erstellen</li>
+                    </ul>
+    
+                    <div id="container-edit">
+    
+                        <div class="form-group">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="attachment" name="post_image" onChange={this.handleFileSelect} />
+                                <label for="attachment" class="file-upload">
+                                    <span class="lable-span__text">+</span>
+                                    <span id="filename"></span>
+                                </label>
+                                <p id="btn-lable">Bild auswählen und hochladen</p>
                             </div>
                         </div>
-
-                        <textarea class="div__textarea--post" placeholder="Schreibe hier deinen Beitrag..." name="content" value={this.state.content} onChange={this.handleChange}></textarea>
-
-                    </div>
-
-                    <div class="div-container-button">
-                        <button class="div__button--submit" id="submit-post" onClick={this.handleSubmit}>Speichern</button>
-                        <button class="div__button--delete" id="delete-post" onClick={this.handleCancel}>Abbrechen</button>
+    
+                        <div id="con-edit">
+    
+                            <div class="div-postHeadline-category">
+    
+                                <input class="div__input--headline" placeholder="Wie soll dein Beitrag heißen?" name="title" value={this.state.title} onChange={this.handleChange}></input>
+    
+                                <div class="select-category">
+                                    <CategorySelect value={this.state.categories} categories={this.state.allCategories} handleSelectChange={this.handleSelectChange} />
+    
+                                </div>
+                            </div>
+    
+                            <textarea class="div__textarea--post" placeholder="Schreibe hier deinen Beitrag..." name="content" value={this.state.content} onChange={this.handleChange}></textarea>
+    
+                        </div>
+    
+                        <div class="div-container-button">
+                            <button class="div__button--submit" id="submit-post" onClick={this.handleSubmit}>Speichern</button>
+                            <button class="div__button--delete" id="delete-post" onClick={this.handleCancel}>Abbrechen</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-        )
+    
+            )
+        }
+        else{
+            return (
+                <Navigate replace to="/" />
+            )
+        }
+        
     }
 }
 
-export default CreatePost
+export default connect(mapStateToProps)(CreatePost);

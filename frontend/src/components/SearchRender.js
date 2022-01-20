@@ -7,7 +7,7 @@ const SearchRender = props => {
 
             <div id="con-result">
                 <article id="article3-section1">
-                    <button id="category-name">{row.categories[0].name}</button>
+                    <button id="category-name">{row.categories[0].name || props.categoryName}</button>
                     <img
                         id="article3-img"
                         src={row.post_image}

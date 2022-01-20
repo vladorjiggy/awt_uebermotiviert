@@ -11,7 +11,10 @@ function SearchForm() {
     function handleSubmit(e) {
         e.preventDefault();
         setQuery('')
-        navigate(`/post/search?q=${query}`);
+        if(query){
+            navigate(`/post/search?q=${query}`);
+        }
+        
     }
     return (
 
