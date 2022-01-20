@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import {Link} from "react-router-dom";
+
 class ChangePassword extends Component {
   constructor(props) {
     super(props);
@@ -88,9 +90,9 @@ class ChangePassword extends Component {
   render() {
     return (
       <div>
-        <a className="changePasswordLink" onClick={this.handleShow}>
+        <Link className="changePasswordLink" onClick={this.handleShow} to="">
           Passwort ändern
-        </a>
+        </Link>
 
         {this.state.openModal && (
           <div id="containerLog">
