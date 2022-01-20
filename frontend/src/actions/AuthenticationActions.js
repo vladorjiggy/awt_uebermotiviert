@@ -32,7 +32,6 @@ export function getAuthenticationErrorAction(error){
     return{
             type: AUTHENTICATION_ERROR,
             error: error
-
     }
 }
 

@@ -18,6 +18,3 @@ export const ALLUSERS_ERROR = 'ALLUSERS_ERROR'
 export const EDIT_SUCCESS = 'EDIT_SUCCESS'
 export const EDIT_ERROR = 'EDIT_ERROR'
 export const SHOW_EDIT_DIALOG = 'SHOW_EDIT_DIALOG';
-
-
-
