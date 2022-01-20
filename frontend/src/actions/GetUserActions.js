@@ -1,4 +1,4 @@
-import {HIDE_DIALOG,  ALLUSERS_SUCCESS, ALLUSERS_ERROR, USER_PENDING } from "./actions";
+import { ALLUSERS_SUCCESS, ALLUSERS_ERROR } from "./actions";
 
 export function getAllUsersSuccessAction(userSession) {
     return {
@@ -11,18 +11,6 @@ export function getAllUsersErrorAction(error) {
     return {
         type: ALLUSERS_ERROR,
         error: error
-    }
-}
-
-export function getHideDialogAction() {
-    return {
-        type: HIDE_DIALOG
-    }
-}
-
-export function getUserPendingAction() {
-    return {
-        type: USER_PENDING
     }
 }
 
