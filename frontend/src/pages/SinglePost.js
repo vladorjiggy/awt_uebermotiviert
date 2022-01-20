@@ -1,16 +1,18 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import withRouter from "../helpers/withRouter";
+
 class SinglePost extends Component {
+
   state = {
     post: {},
     category: {}
   };
+
   componentWillMount() {
     const url = process.env.REACT_APP_SERVERHOST + '/post/get/' + this.props.params.post_id;
     fetch(url, {
       method: 'get',
-
     })
       .then(result => result.json())
       .then(result => {
@@ -20,18 +22,20 @@ class SinglePost extends Component {
           category: result.post.categories[0]
         })
       })
-
-
   }
+
   checkIfDigit(int) {
     return int < 10 ? '0' + int : int
   }
+
   convertTimestamp(timestamp) {
     let date = new Date(timestamp)
     return `${this.checkIfDigit(date.getDate())}.${this.checkIfDigit(date.getMonth() + 1)}.${date.getFullYear()}`
   }
+
   render() {
     return (
+
       <main>
         <ul id="breadcrumb">
           <li><Link to="/">Startseite</Link></li>

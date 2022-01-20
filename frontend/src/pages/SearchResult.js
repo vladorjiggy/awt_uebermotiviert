@@ -56,9 +56,7 @@ const SearchResult = props => {
             alt="searchNeg.png"
           />
         </div>
-
       </div>
-
     )
   }
 }

@@ -8,7 +8,6 @@ const mapStateToProps = (state) => {
   };
 class CreatePost extends Component {
     
-    
     constructor(props) {
         super(props)
         this.state = {
@@ -24,6 +23,7 @@ class CreatePost extends Component {
         this.handleSelectChange = this.handleSelectChange.bind(this);
         this.handleFileSelect = this.handleFileSelect.bind(this);
     }
+
     getCategories() {
         const url = process.env.REACT_APP_SERVERHOST + '/category/get';
         fetch(url, {
@@ -36,13 +36,16 @@ class CreatePost extends Component {
                 })
             })
     }
+
     handleChange(e) {
         const { name, value } = e.target;
         this.setState({ [name]: value })
     }
+
     handleFileSelect(e) {
         this.setState({ post_image: e.target.files[0] })
     }
+
     handleSelectChange(e) {
         const target = e.target;
         const value = target.type === 'select' ? target.checked : target.value;
@@ -66,7 +69,6 @@ class CreatePost extends Component {
         this.createPost(title, content, categories)
             .then(response => response.json())
             .then(data => {
-                console.log(data)
                 let id = data.post._id;
                 let formData = new FormData();
                 formData.append("post_image", this.state.post_image);
@@ -87,13 +89,11 @@ class CreatePost extends Component {
                         this.props.navigate('/dashboard');
                     }
                 })
-                
             })
             .catch(error => {
-                console.error(error)
+                alert(error)
             })
     }
-
 
     createPost(title, content, categories) {
         if(this.state.post_image != null){
@@ -111,28 +111,23 @@ class CreatePost extends Component {
         else{
             alert('Bitte Bild auswählen')
             return Promise.resolve({error: 'Bitte Bild auswählen'})
-            
         }
-        
     }
 
     componentDidMount() {
-        console.log(this.props.user)
         if(!this.props.user){
-            console.log('noUser')
             return this.props.navigate('/');
         }
         else{
             this.getCategories()
         }
-        
     }
+
     render() {
         if(this.props.user){
             return (
 
                 <div className="page-content" id="createPost">
-    
                     <ul id="breadcrumb">
                         <li><Link to="/">Startseite</Link></li>
                         <li><Link to="/dashboard">Dashboard</Link></li>
@@ -140,7 +135,6 @@ class CreatePost extends Component {
                     </ul>
     
                     <div id="container-edit">
-    
                         <div class="form-group">
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="attachment" name="post_image" onChange={this.handleFileSelect} />
@@ -153,19 +147,15 @@ class CreatePost extends Component {
                         </div>
     
                         <div id="con-edit">
-    
                             <div class="div-postHeadline-category">
-    
                                 <input class="div__input--headline" placeholder="Wie soll dein Beitrag heißen?" name="title" value={this.state.title} onChange={this.handleChange}></input>
     
                                 <div class="select-category">
                                     <CategorySelect value={this.state.categories} categories={this.state.allCategories} handleSelectChange={this.handleSelectChange} />
-    
                                 </div>
                             </div>
     
                             <textarea class="div__textarea--post" placeholder="Schreibe hier deinen Beitrag..." name="content" value={this.state.content} onChange={this.handleChange}></textarea>
-    
                         </div>
     
                         <div class="div-container-button">
@@ -174,7 +164,6 @@ class CreatePost extends Component {
                         </div>
                     </div>
                 </div>
-    
             )
         }
         else{
@@ -182,7 +171,6 @@ class CreatePost extends Component {
                 <Navigate replace to="/" />
             )
         }
-        
     }
 }
 

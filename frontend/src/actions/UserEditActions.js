@@ -1,6 +1,5 @@
 import { SHOW_EDIT_DIALOG, EDIT_SUCCESS, EDIT_ERROR, USER_PENDING, HIDE_DIALOG} from "./actions";
 
-
 export function getShowEditDialogAction() {
     return {
         type: SHOW_EDIT_DIALOG
@@ -69,8 +68,8 @@ function editUser(token, userData) {
         },
         body: editing
     };
-
-    return fetch('http://localhost:4000/user/changePassword', requestOptions)
+    const url = process.env.REACT_APP_SERVERHOST + '/user/changePassword';
+    return fetch(url, requestOptions)
         .then(handleEditResponse)
         .then(userSession => {
             return userSession.user;

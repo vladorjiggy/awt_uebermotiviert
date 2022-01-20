@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -8,13 +7,14 @@ import LogoutButton from "./LogoutButton";
 import SearchForm from "./SearchForm";
 import ChangePassword from "./ChangePassword";
 
-
 const mapStateToProps = (state) => {
   return state;
 };
 
 class TopMenu extends Component {
+
   render() {
+
     const user = this.props.user;
 
     let loginLogout;
@@ -27,7 +27,8 @@ class TopMenu extends Component {
         dashboard = <Link id="dashboardLink" to={"/dashboard"}>Dashboard</Link>
       );
       changePassword = <ChangePassword />;
-    } else {
+    } 
+    else {
       loginLogout = <UserSessionWidget />;
     }
 
@@ -46,7 +47,6 @@ class TopMenu extends Component {
           {dashboard}
           {changePassword}
           {loginLogout}
-          
         </div>
       </header>
     );

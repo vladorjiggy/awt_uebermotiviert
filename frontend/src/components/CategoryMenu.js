@@ -1,14 +1,16 @@
 import React,{ Component } from "react";
 import CategoryRenderList from "./CategoryRenderList";
+
 class Categorymenu extends Component {
+
     state = {
         categories: []
     };
+
     componentDidMount(){
         const url = process.env.REACT_APP_SERVERHOST + '/category/get';
         fetch(url, { 
             method: 'get',
-            
           })
           .then(result => result.json())
           .then(result => {
@@ -17,13 +19,14 @@ class Categorymenu extends Component {
               })
           })
     }
+
     render() {
       return (
         <nav>
-        <CategoryRenderList categories={this.state.categories} />
-      </nav>
-        
+          <CategoryRenderList categories={this.state.categories} />
+        </nav>
       );      
     }
 }
+
 export default Categorymenu

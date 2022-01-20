@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom"
+
 class HomeContent extends Component {
+
     state = {
         posts: []
     };
+
     componentWillMount() {
         const url = process.env.REACT_APP_SERVERHOST + '/post/get';
         fetch(url, {
@@ -11,15 +14,16 @@ class HomeContent extends Component {
         })
             .then(result => result.json())
             .then(result => {
-                console.log("result: ", result)
                 this.setState({
                     posts: result.posts
                 })
             })
     }
+
     render() {
         if(this.state.posts.length){
             return (
+
                 <main>
                     <div class="container1__post" id="container1-index">
                         <article id="article1-section1-index">
@@ -262,17 +266,12 @@ class HomeContent extends Component {
                                         <Link id="read-more-link" to={"/post/single/" + this.state.posts[11]._id}>Erfahre mehr...</Link>
                                     </article>
                                 </div>
-                                }
-                                
+                                } 
                             </div>
                             }
-                            
                         </div>
-    
                     }
-    
                 </main>
-    
             );
         }
         else{
@@ -280,7 +279,7 @@ class HomeContent extends Component {
                 <div></div>
             );
         }
-        
     }
 }
+
 export default HomeContent

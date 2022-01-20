@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import { bindActionCreators } from 'redux'
 import { connect } from "react-redux"
 import * as authenticationActions from '../actions/AuthenticationActions'
@@ -26,4 +25,5 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 }, dispatch)
 
 const connectedLogout = connect(mapStateToProps, mapDispatchToProps)(LogoutButton)
+
 export default connectedLogout

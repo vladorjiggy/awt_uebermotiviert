@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+
 class Impressum extends Component {
   render() {
     return (
@@ -10,6 +11,7 @@ class Impressum extends Component {
           </li>
           <li>Impressum</li>
         </ul>
+
         <div id="container-impressum">
           <div id="con-left">
             <article id="article1-section1">

@@ -1,7 +1,6 @@
 let authservice = require('../services/authentication')
 let userservice = require('../services/user')
 exports.login = function (req, res) {
-    console.log('logintrigger')
     const authHeader = req.headers.authorization
     if (!authHeader || authHeader.indexOf('Basic') === -1) {
         res.status(401).send({ error: "No Authorization Header provided" })
@@ -28,7 +27,6 @@ exports.login = function (req, res) {
 }
 
 exports.logout = function (req, res) {
-    console.log('logout_trigger')
     req.session.destroy()
     res.clearCookie("connect.sid", { path: "/" })
     res.status(200).json({ message: "user successfully logged out" })

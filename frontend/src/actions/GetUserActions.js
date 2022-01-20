@@ -51,8 +51,8 @@ export function getAllUsers(adminToken) {
             'Authorization': "Bearer " + adminToken
         }
     };
-
-    return fetch('http://localhost:8080/user', requestOptions)
+    const url = process.env.REACT_APP_SERVERHOST + '/user';
+    return fetch(url, requestOptions)
         .then(handleUsersResponse)
         .then(userSession => {
             return userSession.users;

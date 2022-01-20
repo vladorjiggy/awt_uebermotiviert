@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
-
 class ChangePassword extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -10,6 +10,7 @@ class ChangePassword extends Component {
       newPassword: ``,
       confirmNewPassword: ``,
     };
+
     this.handleShow = this.handleShow.bind(this);
     this.handleClose = this.handleClose.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -38,19 +39,14 @@ class ChangePassword extends Component {
   handleSubmit(e) {
     e.preventDefault();
     const { oldPassword, newPassword } = this.state;
-    this.editPost(oldPassword, newPassword)
+    this.editPassword(oldPassword, newPassword)
       .then((response) => response.json())
       .then((data) => {
-        console.log("data: ", data);
-        console.log("New Password  ", newPassword);
       });
   }
 
   editPassword(oldPassword, newPassword) {
-    const url =
-      process.env.REACT_APP_SERVERHOST +
-      "/user/changePassword" +
-      this.props.params.userID;
+    const url = process.env.REACT_APP_SERVERHOST + "/user/changePassword" + this.props.params.userID;
     fetch(url, {
       method: "put",
       headers: {
@@ -60,7 +56,6 @@ class ChangePassword extends Component {
     })
     .then((result) => result.json())
     .then((result) => {
-        console.log("result: ", result);
         this.setState({
           openModal: false,
           _id: ``,
@@ -68,24 +63,25 @@ class ChangePassword extends Component {
           newPassword: ``,
         });
     });
-    }
+  }
 
-    handleChange(e) {
-        const { name, value } = e.target;
-        this.setState({ [name]: value });
-    }
+  handleChange(e) {
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
+  }
 
-    handleShow(e) {
-        e.preventDefault();
-        this.setState({ openModal: true })
-    }
+  handleShow(e) {
+    e.preventDefault();
+    this.setState({ openModal: true })
+  }
 
-    handleClose(e) {
-        this.setState({ openModal: false });
-    }
+  handleClose(e) {
+    this.setState({ openModal: false });
+  }
 
   render() {
     return (
+
       <div>
         <a variant="primary" className="changePasswordLink" onClick={this.handleShow}>
           Passwort ändern
@@ -100,6 +96,7 @@ class ChangePassword extends Component {
                   X
                 </button>
               </div>
+
               <form id="log-form">
                 <div id="div-wrap-head">
                   <img
@@ -107,6 +104,7 @@ class ChangePassword extends Component {
                     src="passwort.png"
                     alt="password.png"
                   />
+
                   <div id="div-NP-span-text">
                     <span id="NP-span-text">
                       <h2>Neues Passwort anlegen:</h2>
@@ -124,6 +122,7 @@ class ChangePassword extends Component {
                       onChange={this.handleChange}
                     />
                   </div>
+
                   <div id="wrap-input-CNP">
                     <input
                       id="input-CNP"

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+
 const CategoryRenderList = props => {
     const rows = props.categories.map((row, index) => {
         return (
@@ -8,7 +9,7 @@ const CategoryRenderList = props => {
             </li>
         )
     })
-    return <ul>{rows}</ul> // sollte passen
-    
+    return <ul>{rows}</ul>
 }
+
 export default CategoryRenderList
