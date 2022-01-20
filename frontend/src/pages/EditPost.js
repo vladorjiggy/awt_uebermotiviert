@@ -82,6 +82,7 @@ class EditPost extends Component {
         newPost_image: null,
         categories: ""
     })
+    this.props.navigate('/dashboard')
   }
   handleSubmit(e) {
     e.preventDefault();

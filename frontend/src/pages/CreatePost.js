@@ -1,8 +1,14 @@
 import React, { Component } from "react";
 import CategorySelect from "../components/CategorySelect";
 import { Link } from "react-router-dom";
-class CreatePost extends Component {
+import { connect } from "react-redux";
 
+const mapStateToProps = (state) => {
+    return state;
+  };
+class CreatePost extends Component {
+    
+    
     constructor(props) {
         super(props)
         this.state = {
@@ -111,7 +117,15 @@ class CreatePost extends Component {
     }
 
     componentDidMount() {
-        this.getCategories()
+        console.log(this.props.user)
+        if(!this.props.user){
+            console.log('noUser')
+            return this.props.navigate('/');
+        }
+        else{
+            this.getCategories()
+        }
+        
     }
     render() {
         return (
@@ -164,4 +178,4 @@ class CreatePost extends Component {
     }
 }
 
-export default CreatePost
+export default connect(mapStateToProps)(CreatePost);

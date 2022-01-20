@@ -1,6 +1,3 @@
 permissions fehlen noch
 
 env beim start festlegen
-
-redux persist im sessionstorage ablegen
-
