@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import withRouter from "../helpers/withRouter";
 import CategorySelect from "../components/CategorySelect";
-import { Link } from "react-router-dom";
-
-
+import { Navigate , Link} from "react-router-dom";
+import { connect } from "react-redux";
+const mapStateToProps = (state) => {
+  return state;
+};
 class EditPost extends Component {
   
   constructor(props) {
@@ -150,6 +152,7 @@ class EditPost extends Component {
     return fetch(url, requestOptions)
   }
     render() {
+      if(this.props.user){
         return(
           <main>
             <ul id="breadcrumb">
@@ -194,7 +197,14 @@ class EditPost extends Component {
             </div>
           </main>
         )
+      }
+      else{
+        return (
+          <Navigate replace to="/" />
+      )
+      }
+        
     }
 }
 
-export default withRouter(EditPost);
+export default withRouter(connect(mapStateToProps)(EditPost));
