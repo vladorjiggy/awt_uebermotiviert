@@ -97,13 +97,20 @@ exports.createPost = function (data, callback) {
     if (!data) {
         return callback(400, 'no Data', null)
     }
+    
+
+    
     else {
+        let postId;
+    Post.find({}, (err, posts) => {
+        let postId = posts.length + 1
         Post.findOne({ title: data.title }, function (err, user) {
             if (user) {
                 return callback(400, 'Post with this Title already exists', null, null)
             }
             else {
                 let newPost = new Post()
+                newPost._id = postId
                 newPost.title = data.title
                 newPost.content = data.content
                 if(data.post_image){
@@ -131,6 +138,8 @@ exports.createPost = function (data, callback) {
                 })
             }
         })
+    })
+        
     }
 }
 

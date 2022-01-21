@@ -1,26 +1,32 @@
 [
     {
-        "id": 1,
-        "name": "Strand"
+        "_id": 1,
+        "name": "Strand",
+        "posts": [2]
     },
     {
-        "id": 2,
-        "name": "Berge"
+        "_id": 2,
+        "name": "Berge",
+        "posts": []
     },
     {
-        "id": 3,
-        "name": "Stadt"
+        "_id": 3,
+        "name": "Stadt",
+        "posts": [1,3,5,6]
     },
     {
-        "id": 4,
-        "name": "Wald"
+        "_id": 4,
+        "name": "Wald",
+        "posts": []
     },
     {
-        "id": 5,
-        "name": "Kultur"
+        "_id": 5,
+        "name": "Kultur",
+        "posts": [4]
     },
     {
-        "id": 6,
-        "name": "Party"
+        "_id": 6,
+        "name": "Party",
+        "posts": []
     }
 ]

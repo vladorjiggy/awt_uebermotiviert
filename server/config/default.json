@@ -1,6 +1,6 @@
 {
     "dbConfig": {
-        "connectionString": "mongodb+srv://awt_blog_user:bestPasswordEver@cluster0.n8kky.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+        "connectionString": "mongodb://localhost/awtReiseblog"
     },
     "session": {
         "secret": "abcchr",

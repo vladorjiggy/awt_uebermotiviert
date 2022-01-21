@@ -17,10 +17,12 @@ function buildCategories(){
                         //console.log(cat)
                         cat.save()
                         if (index === Object.values(datafromfile).length -1) resolve();
-                    })     
+                    })   
+                    console.log('CAT')  
                 })
             }
-        });
+        })
+        //resolve()
     })
 
 
@@ -46,7 +48,7 @@ function buildUsers(){
 }
 
 function buildFirstPosts() {
-    
+    console.log('POSTS') 
     Post.find({},function(err,doc){
         if(!doc.length){
             fs.readFile('./database/default/Posts.json', 'utf-8', (err, data) => {
@@ -56,26 +58,17 @@ function buildFirstPosts() {
                 let datafromfile = JSON.parse(data);
                 Object.values(datafromfile).forEach(function(obj){  
 
-                    Category.findOne({name: obj.categories},(err, categories) => {
-                        if(err){
-                            console.log("Fehler bei Suche: " + err)
-                            
-                        }
-                        else{
-                            let post = new Post()
-                            post.post_image = obj.post_image
-                            post.title = obj.title
-                            post.content = obj.content
-                            post.categories.push(categories._id)
+                        
+                        
+                            let post = new Post(obj)
                             post.save()  
-                            categories.posts.push(post._id)
-                            categories.save()
-                        }
+                            
+                        
                     })
                     
                     
                      
-                })        
+                      
             })
         }
         
