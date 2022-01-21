@@ -1,5 +1,5 @@
-const config = require('config');
-const dBConnectionString = config.get('dbConfig.connectionString')
+
+dotenv.config();
 const mongoose = require('mongoose')
 const {buildCategories, buildUsers, buildFirstPosts} = require('./initData')
 
@@ -14,7 +14,7 @@ function initDB(callback){
         }
     }
     else{
-        mongoose.connect(dBConnectionString, {useNewUrlParser: true, useUnifiedTopology: true})
+        mongoose.connect(process.env.DB_CONNECTION_STRING, {useNewUrlParser: true, useUnifiedTopology: true})
         _db = mongoose.connection
 
         _db.on('error', console.error.bind(console, 'connection error:'))

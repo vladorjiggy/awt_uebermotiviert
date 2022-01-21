@@ -172,7 +172,7 @@ Monitor: Browser-DevTools
 - MongoDB > 5
 - create-react-app via npm
 
-## 6.3 Ablauf für das Deployment und Start der Anwendung (lokal):
+## 6.3 Ablauf für den Start der Anwendung (lokal):
 
 1. Projekt aus dem Github-Verzeichnis ziehen unter https://github.com/vladorjiggy/awt_uebermotiviert.git
 
@@ -207,4 +207,32 @@ Monitor: Browser-DevTools
   - um sich im CMS anzumelden benötigt man die Adminzugangsdaten aus der default Datei User.json (könne bei Bedarf geändert werden)
   
 
-## 6.4 Voraussetzungen für das Deployment und Start der Anwendung (production Build):
+## 6.4 Ablauf für das Deployment und Start der Anwendung (production Build):
+
+1. Projekt aus dem Github-Verzeichnis ziehen unter https://github.com/vladorjiggy/awt_uebermotiviert.git
+
+2. Projekt öffnen in Editor jeglicher Art (z.B. Visual Studio Code)
+
+3. Heroku CLI herunterladen und installieren (https://devcenter.heroku.com/articles/heroku-cli)
+
+4. Einloggen in der Heroku CLI:
+  - Terminal öffnen 
+  - "heroku login" ausführen
+
+5. In Heroku eine App erstellen
+
+6. MongoDB Atlas Cluster erstellen:
+  - Einloggen oder Registrieren unter https://www.mongodb.com/atlas/database
+  - Cluster erstellen
+  - Netzwerkfreigabe für alle IP-Adressen freigeben
+  - Connection-String erstellen
+
+7. UmgebungsVariablen in der zuvor erstellten Heroku App eintragen anhand der .env.example Datei im Ordner server
+
+8. Im Ordner frontend eine .env Datei erstellen und Variablen eintragen anhand der Datei .env.example im Ordner frontend
+
+9. Im Ordner server ein git repo für heroku erstellen -> git init
+
+10. Im Ordner server die heroku-app als remote repo hinzufügen -> heroku git:remote -a <appname>
+
+11. Im Ordner frontend "npm run production" ausführen

@@ -3,7 +3,6 @@ const app = express();
 const dotenv = require('dotenv');
 dotenv.config();
 const config = require('config');
-const dBConnectionString = config.get('dbConfig.connectionString')
 const bodyParser = require('body-parser');
 const sessionSecret = config.get('session.secret')
 const database = require('./database/db')
@@ -45,7 +44,7 @@ app.use(session({
       path: '/',
       domain: process.env.DOMAIN
   },
-  store: MongoStore.create({ mongoUrl: dBConnectionString }),
+  store: MongoStore.create({ mongoUrl: process.env.DB_CONNECTION_STRING }),
 }))
 
 /**

@@ -1,9 +1,6 @@
 {
-    "dbConfig": {
-        "connectionString": "mongodb+srv://awt_blog_user:bestPasswordEver@cluster0.n8kky.mongodb.net/awtReiseblog?retryWrites=true&w=majority"
-    },
     "session": {
-        "secret": "abcchr",
+        "secret": "abcchreqfqefeqrqr56erq4686q8r16qweqesdutkk",
         "timeout": 86400
     }
 }
