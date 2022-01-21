@@ -2,8 +2,8 @@ const Post = require('../models/Post').Post
 const Category = require('../models/Category').Category
 exports.getPosts = function (callback) {
     let query = Post.find()
-    .populate('categories', '-posts')
-    .sort('-createdAt')
+        .populate('categories', '-posts')
+        .sort('-createdAt')
     query.exec((err, posts) => {
         if (err) {
             console.log("Fehler bei Suche: " + err)
@@ -20,7 +20,7 @@ exports.findPostById = function (id, callback) {
     }
     else {
         let query = Post.findOne({ _id: id })
-        .populate('categories', '-posts')
+            .populate('categories', '-posts')
         query.exec((err, post) => {
             if (err) {
                 return callback(404, "Post not found", null)
@@ -54,8 +54,8 @@ exports.searchPosts = function (searchquery, callback) {
             }]
         }
         let query = Post.find(queryOptions)
-        .populate('categories', '-posts')
-        .sort('-createdAt')
+            .populate('categories', '-posts')
+            .sort('-createdAt')
         query.exec((err, post) => {
             if (err) {
                 return callback(404, "Post not found", null)
@@ -83,7 +83,7 @@ exports.updatePost = function (id, data, callback) {
             query.exec((err, post) => {
                 console.log(post)
                 if (err) {
-                    return callback(500, "cannot update Post: " +err, null)
+                    return callback(500, "cannot update Post: " + err, null)
                 }
                 else {
                     return callback(200, null, post)
@@ -97,49 +97,49 @@ exports.createPost = function (data, callback) {
     if (!data) {
         return callback(400, 'no Data', null)
     }
-    
 
-    
+
+
     else {
         let postId;
-    Post.find({}, (err, posts) => {
-        let postId = posts.length + 1
-        Post.findOne({ title: data.title }, function (err, user) {
-            if (user) {
-                return callback(400, 'Post with this Title already exists', null, null)
-            }
-            else {
-                let newPost = new Post()
-                newPost._id = postId
-                newPost.title = data.title
-                newPost.content = data.content
-                if(data.post_image){
-                    newPost.post_image = data.post_image
+        Post.find({}, (err, posts) => {
+            let postId = posts.length + 1
+            Post.findOne({ title: data.title }, function (err, user) {
+                if (user) {
+                    return callback(400, 'Post with this Title already exists', null, null)
                 }
-                
-                newPost.categories = data.categories
-                newPost.save(err => {
-                    if (err) {
-                        console.log("Could not save Post", err)
-                        callback(500, "Could not save Post: " + err, null)
+                else {
+                    let newPost = new Post()
+                    newPost._id = postId
+                    newPost.title = data.title
+                    newPost.content = data.content
+                    if (data.post_image) {
+                        newPost.post_image = data.post_image
                     }
-                    else {
-                        data.categories.forEach(cat => {
-                            let categoryRef = Category.findOne({ _id: cat })
-                            categoryRef.exec((err, category) => {
-                                category.posts.push(newPost._id)
-                                category.save()
-                                
-                            })
-                        })
-                        callback(201, null, newPost)
 
-                    }
-                })
-            }
+                    newPost.categories = data.categories
+                    newPost.save(err => {
+                        if (err) {
+                            console.log("Could not save Post", err)
+                            callback(500, "Could not save Post: " + err, null)
+                        }
+                        else {
+                            data.categories.forEach(cat => {
+                                let categoryRef = Category.findOne({ _id: cat })
+                                categoryRef.exec((err, category) => {
+                                    category.posts.push(newPost._id)
+                                    category.save()
+
+                                })
+                            })
+                            callback(201, null, newPost)
+
+                        }
+                    })
+                }
+            })
         })
-    })
-        
+
     }
 }
 
