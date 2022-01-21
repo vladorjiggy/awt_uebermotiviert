@@ -1,4 +1,4 @@
-
+const dotenv = require('dotenv');
 dotenv.config();
 const mongoose = require('mongoose')
 const {buildCategories, buildUsers, buildFirstPosts} = require('./initData')

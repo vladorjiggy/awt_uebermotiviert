@@ -207,6 +207,7 @@ Monitor: Browser-DevTools
 4. Einloggen in der Heroku CLI:
   - Terminal öffnen 
   - "heroku login" ausführen
+  - npm install -g heroku
 
 5. In Heroku eine App erstellen
 
@@ -224,4 +225,4 @@ Monitor: Browser-DevTools
 
 10. Im Ordner server die heroku-app als remote repo hinzufügen -> heroku git:remote -a AppName
 
-11. Im Ordner frontend "npm run production" ausführen
+11. Im Ordner frontend "npm install" und dann "npm run production" ausführen

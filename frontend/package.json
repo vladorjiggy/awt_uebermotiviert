@@ -21,8 +21,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "BUILD_PATH='../server/build' react-scripts build && cd .. && cd frontend && git add . && git commit -m \"production\" && git push heroku master",
-    "production": "rm -R ../server/build && react-scripts build && mv build ../server && cd ../server && git add . && git commit -m \"production\" && git push heroku master",
+    "production": "react-scripts build && cd .. && cd server && git add . && git commit -m \"production\" && git push heroku master",
     "deploy": "git push heroku master",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
