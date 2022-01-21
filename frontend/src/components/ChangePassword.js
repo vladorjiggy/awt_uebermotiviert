@@ -1,19 +1,12 @@
 import React, { Component } from "react";
 
-<<<<<<< HEAD
 import {Link} from "react-router-dom";
 
-=======
->>>>>>> frontend
 class ChangePassword extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-<<<<<<< HEAD
-      // brauchen noch userID
-=======
->>>>>>> frontend
       oldPassword: ``,
       newPassword: ``,
     };
@@ -24,30 +17,6 @@ class ChangePassword extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-<<<<<<< HEAD
-  componentDidMount() {
-    this.getOldPassword();
-  }
-
-  getOldPassword() {
-    //      WIE/WOHER HOLEN WIR DIE userID?
-    //      + im Backend muss die Route einkommentiert und noch im controller etc definiert werden
-    const url =
-      process.env.REACT_APP_SERVERHOST +
-      "/user/get/"; /* + this.props.params.userID */
-    fetch(url, {
-      method: "get",
-    })
-      .then((result) => result.json())
-      .then((result) => {
-        this.setState({
-          oldPassword: result.password,
-        });
-      });
-  }
-
-=======
->>>>>>> frontend
   handleSubmit(e) {
     e.preventDefault();
     const { oldPassword, newPassword } = this.state;
@@ -64,24 +33,14 @@ class ChangePassword extends Component {
       },
       body: JSON.stringify({ oldPassword, newPassword }),
     })
-<<<<<<< HEAD
-      .then((result) => result.json())
-      .then((result) => {
-        console.log("result: ", result);
-=======
     .then((result) => result.json())
     .then((result) => {
->>>>>>> frontend
         this.setState({
           openModal: false,
           oldPassword: ``,
           newPassword: ``,
         });
-<<<<<<< HEAD
-      });
-=======
     });
->>>>>>> frontend
   }
 
   handleChange(e) {
@@ -91,11 +50,7 @@ class ChangePassword extends Component {
 
   handleShow(e) {
     e.preventDefault();
-<<<<<<< HEAD
-    this.setState({ openModal: true });
-=======
     this.setState({ openModal: true })
->>>>>>> frontend
   }
 
   handleClose(e) {
@@ -122,16 +77,12 @@ class ChangePassword extends Component {
 
               <form id="log-form">
                 <div id="div-wrap-head">
-<<<<<<< HEAD
-                  <img id="NP-span-img" src="passwort.png" alt="password.png" />
-=======
                   <img
                     id="NP-span-img"
                     src="passwort.png"
                     alt="password.png"
                   />
 
->>>>>>> frontend
                   <div id="div-NP-span-text">
                     <span id="NP-span-text">
                       <h2>Neues Passwort anlegen:</h2>

@@ -1,12 +1,8 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-<<<<<<< HEAD
 import { bindActionCreators } from 'redux';
 import {Link} from "react-router-dom";
 
-=======
-import { bindActionCreators } from 'redux'
->>>>>>> frontend
 import * as authenticationActions from '../actions/AuthenticationActions'
 
 const mapStateToProps = state => {
@@ -93,11 +89,7 @@ class UserSessionWidget extends Component {
 
                                 <div id="wrap-input">
                                     <div id="wrap-input-UN">
-<<<<<<< HEAD
-                                        <input type="text" id="LoginUserIDInput" placeholder="Benutzername" name="userID" onChange={this.handleChange}></input>
-=======
                                         <input id="LoginUserIDInput" type="text" placeholder="Benutzername" name="userID" onChange={this.handleChange}></input>
->>>>>>> frontend
                                     </div>
                                     <div id="wrap-input-PW">
                                         <input id="LoginPasswordInput" type="password" placeholder="Passwort" name="password" onChange={this.handleChange} ></input>
@@ -107,10 +99,6 @@ class UserSessionWidget extends Component {
                                 <div id="div-log-btn">
                                     <button id="log-btn" onClick={this.handleSubmit}>Los Gehts</button>
                                 </div>
-<<<<<<< HEAD
-
-=======
->>>>>>> frontend
                             </form>
                         </div>
                     </div>
