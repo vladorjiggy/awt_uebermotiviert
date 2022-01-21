@@ -3,21 +3,28 @@ const Category = require('../models/Category').Category
 const User = require('../models/User').User
 const Post = require('../models/Post').Post
 function buildCategories(){
-    Category.find({},function(err,doc){
-        if(!doc.length){
-            fs.readFile('./database/default/Categories.json', 'utf-8', (err, data) => {
-                if (err){
-                    console.log(err)
-                }
-                let datafromfile = JSON.parse(data);
-                Object.values(datafromfile).forEach(function(obj){            
-                    let cat = new Category(obj)
-                    //console.log(cat)
-                    cat.save()
-                })     
-            })
-        }
-    });
+
+    return new Promise((resolve, reject) => {
+        Category.find({},function(err,doc){
+            if(!doc.length){
+                fs.readFile('./database/default/Categories.json', 'utf-8', (err, data) => {
+                    if (err){
+                        reject(error)
+                    }
+                    let datafromfile = JSON.parse(data);
+                    Object.values(datafromfile).forEach((obj, index) => {            
+                        let cat = new Category(obj)
+                        //console.log(cat)
+                        cat.save()
+                        if (index === Object.values(datafromfile).length -1) resolve();
+                    })     
+                })
+            }
+        });
+    })
+
+
+    
 }
 function buildUsers(){
     User.find({},function(err,doc){

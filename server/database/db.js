@@ -19,9 +19,12 @@ function initDB(callback){
 
         _db.on('error', console.error.bind(console, 'connection error:'))
         _db.once('open', function(){
-            buildCategories()
             buildUsers()
-            buildFirstPosts()
+            buildCategories().then(() => {
+                buildFirstPosts()
+            })
+            
+            
             callback(null, _db)
         })
     }
