@@ -33,7 +33,7 @@ class HomeContent extends Component {
     
                         <article id="article1-section1-index">
                             <h3 id="article1-headline-index">{this.state.posts[0].title}</h3>
-                            <p class="cut-text-first" id="article1-text-index">
+                            <p className="cut-text-first" id="article1-text-index">
                                 {this.state.posts[0].content}
                             </p>
                             <Link id="read-more-link" to={"/post/single/" + this.state.posts[0]._id}>Erfahre mehr...</Link>

@@ -8,7 +8,6 @@ import LogoutButton from "./LogoutButton";
 import SearchForm from "./SearchForm";
 import ChangePassword from "./ChangePassword";
 
-
 const mapStateToProps = (state) => {
   return state;
 };
@@ -23,8 +22,10 @@ class TopMenu extends Component {
 
     if (user) {
       loginLogout = <LogoutButton />;
-      dashboard = (
-        dashboard = <Link id="dashboardLink" to={"/dashboard"}>Dashboard</Link>
+      dashboard = dashboard = (
+        <Link id="dashboardLink" to={"/dashboard"}>
+          Dashboard
+        </Link>
       );
       changePassword = <ChangePassword />;
     } else {
@@ -43,10 +44,9 @@ class TopMenu extends Component {
         <SearchForm />
 
         <div className="topMenu__links">
-          {dashboard}
+          <div>{dashboard}</div>
           {changePassword}
           {loginLogout}
-          
         </div>
       </header>
     );

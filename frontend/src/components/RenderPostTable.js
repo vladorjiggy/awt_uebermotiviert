@@ -16,7 +16,7 @@ const RenderPostTable = props => {
                 <td><span id="posteDate">{convertTimestamp(row.created)}</span></td>
 
                 <td id="td-e"><Link id="edit" to={"/post/edit/" + row._id}>bearbeiten</Link></td>
-                <td id="td-d"><a onClick={() => { props.parentOpenModal(row) }} href="#" id="delete">löschen</a></td>
+                <td id="td-d"><Link to="" onClick={() => { props.parentOpenModal(row) }} href="#" id="delete">löschen</Link></td>
             </tr>
 
 

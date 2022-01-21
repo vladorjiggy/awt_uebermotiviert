@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux'
+import { bindActionCreators } from 'redux';
+import {Link} from "react-router-dom";
 
 import * as authenticationActions from '../actions/AuthenticationActions'
 
@@ -63,9 +64,9 @@ class UserSessionWidget extends Component {
 
         return (
             <div>
-                <a variant="primary" className="button" onClick={this.handleShow}>
+                <Link  onClick={this.handleShow} to="">
                     Login
-                </a>
+                </Link>
 
                 {this.state.openModal &&
 
@@ -91,7 +92,7 @@ class UserSessionWidget extends Component {
 
                                 <div id="wrap-input">
                                     <div id="wrap-input-UN">
-                                        <input type="text" id="LoginUserIDInput" type="text" placeholder="Benutzername" name="userID" onChange={this.handleChange}></input>
+                                        <input type="text" id="LoginUserIDInput" placeholder="Benutzername" name="userID" onChange={this.handleChange}></input>
                                     </div>
                                     <div id="wrap-input-PW">
                                         <input id="LoginPasswordInput" type="password" placeholder="Passwort" name="password" onChange={this.handleChange} ></input>
@@ -102,9 +103,6 @@ class UserSessionWidget extends Component {
                                     <button id="log-btn" onClick={this.handleSubmit}>Los Gehts</button>
                                 </div>
 
-                                <div id="div-log-text">
-                                    <a>Password vergessen?</a>
-                                </div>
                             </form>
                         </div>
                     </div>

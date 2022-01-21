@@ -1,29 +1,41 @@
 import React, { Component } from "react";
 
-import { bindActionCreators } from 'redux'
-import { connect } from "react-redux"
-import * as authenticationActions from '../actions/AuthenticationActions'
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import * as authenticationActions from "../actions/AuthenticationActions";
+import {Link} from "react-router-dom";
 
-const mapStateToProps = state =>{
-    return state
-}
+const mapStateToProps = (state) => {
+  return state;
+};
 
 class LogoutButton extends Component {
-
-    render(){
-        return(
-            <div>
-                <a id="LogoutLink" onClick={() => { this.props.logoutAction() }} className="button">
-                    Logout
-                </a>
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div>
+        <Link
+          id="LogoutLink"
+          onClick={() => {
+            this.props.logoutAction();
+          }}
+        to ="">
+          Logout
+        </Link>
+      </div>
+    );
+  }
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-    logoutAction: authenticationActions.logoutUser
-}, dispatch)
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators(
+    {
+      logoutAction: authenticationActions.logoutUser,
+    },
+    dispatch
+  );
 
-const connectedLogout = connect(mapStateToProps, mapDispatchToProps)(LogoutButton)
-export default connectedLogout
+const connectedLogout = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LogoutButton);
+export default connectedLogout;

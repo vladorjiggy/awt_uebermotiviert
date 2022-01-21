@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 
+import {Link} from "react-router-dom";
 
 class ChangePassword extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        // brauchen noch userID
+      // brauchen noch userID
       oldPassword: ``,
       newPassword: ``,
       confirmNewPassword: ``,
@@ -23,7 +24,9 @@ class ChangePassword extends Component {
   getOldPassword() {
     //      WIE/WOHER HOLEN WIR DIE userID?
     //      + im Backend muss die Route einkommentiert und noch im controller etc definiert werden
-    const url = process.env.REACT_APP_SERVERHOST + "/user/get/" /* + this.props.params.userID */;  
+    const url =
+      process.env.REACT_APP_SERVERHOST +
+      "/user/get/"; /* + this.props.params.userID */
     fetch(url, {
       method: "get",
     })
@@ -58,8 +61,8 @@ class ChangePassword extends Component {
       },
       body: JSON.stringify({ oldPassword, newPassword }),
     })
-    .then((result) => result.json())
-    .then((result) => {
+      .then((result) => result.json())
+      .then((result) => {
         console.log("result: ", result);
         this.setState({
           openModal: false,
@@ -67,29 +70,29 @@ class ChangePassword extends Component {
           oldPassword: ``,
           newPassword: ``,
         });
-    });
-    }
+      });
+  }
 
-    handleChange(e) {
-        const { name, value } = e.target;
-        this.setState({ [name]: value });
-    }
+  handleChange(e) {
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
+  }
 
-    handleShow(e) {
-        e.preventDefault();
-        this.setState({ openModal: true })
-    }
+  handleShow(e) {
+    e.preventDefault();
+    this.setState({ openModal: true });
+  }
 
-    handleClose(e) {
-        this.setState({ openModal: false });
-    }
+  handleClose(e) {
+    this.setState({ openModal: false });
+  }
 
   render() {
     return (
       <div>
-        <a variant="primary" className="changePasswordLink" onClick={this.handleShow}>
+        <Link className="changePasswordLink" onClick={this.handleShow} to="">
           Passwort ändern
-        </a>
+        </Link>
 
         {this.state.openModal && (
           <div id="containerLog">
@@ -102,11 +105,7 @@ class ChangePassword extends Component {
               </div>
               <form id="log-form">
                 <div id="div-wrap-head">
-                  <img
-                    id="NP-span-img"
-                    src="passwort.png"
-                    alt="password.png"
-                  />
+                  <img id="NP-span-img" src="passwort.png" alt="password.png" />
                   <div id="div-NP-span-text">
                     <span id="NP-span-text">
                       <h2>Neues Passwort anlegen:</h2>

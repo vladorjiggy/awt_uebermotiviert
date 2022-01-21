@@ -20,7 +20,7 @@ const SearchRender = props => {
                     <p class="cut-text" id="article3-text">
                         {row.content}
                     </p>
-                    <Link to={"/post/single/" + row._id}>Erfahre mehr...</Link>
+                    <Link className="read-more-link "to={"/post/single/" + row._id}>Erfahre mehr...</Link>
                 </article>
             </div>
         )
