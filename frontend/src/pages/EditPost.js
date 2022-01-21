@@ -7,6 +7,9 @@ import { connect } from "react-redux";
 const mapStateToProps = (state) => {
   return state;
 };
+
+// Über requests ans Backend (getCategories() & get request in componentDidMount) wird der zu editierende post und allCategories (für die CategorySelect Komponente) bezogen.
+// In handleSubmit wird abschließend der editPost request und bei ausgewähltem Bild auch der fileUpload ausgeführt.
 class EditPost extends Component {
   
   constructor(props) {

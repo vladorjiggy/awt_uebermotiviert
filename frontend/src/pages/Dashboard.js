@@ -5,7 +5,9 @@ import { connect } from "react-redux";
 
 const mapStateToProps = (state) => {
     return state;
-  };
+};
+
+// Liste aller posts, deletePost und Verlinkung zu editPost
 class Dashboard extends Component {
 
     constructor(props) {

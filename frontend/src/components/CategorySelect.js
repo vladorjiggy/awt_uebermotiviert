@@ -1,3 +1,4 @@
+// Erstellt ein select zur Kategorie-Auswahl in editPost und createPost
 const CategorySelect = props => {
     
     let rows = props.categories.map((row, index) => {

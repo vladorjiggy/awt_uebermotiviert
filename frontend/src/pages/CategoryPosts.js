@@ -3,6 +3,7 @@ import withRouter from "../helpers/withRouter";
 import { Link } from "react-router-dom"
 import SearchRender from "../components/SearchRender";
 
+// Nur posts der gewählten Kategorie werden mittels request bezogen und an die Komponente SearchRender übergeben
 class CategoryPosts extends Component {
     state = {
         posts: [],

@@ -1,6 +1,7 @@
 import React,{ Component } from "react";
 import CategoryRenderList from "./CategoryRenderList";
 
+// Alle Kategorien werden bezogen und an die Komponente CategoryRenderList übergeben
 class Categorymenu extends Component {
 
     state = {

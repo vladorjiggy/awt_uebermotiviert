@@ -7,6 +7,8 @@ import LogoutButton from "./LogoutButton";
 import SearchForm from "./SearchForm";
 import ChangePassword from "./ChangePassword";
 
+//Ansicht ändert sich je nachdem ob User eingelogt ist oder nicht.
+
 const mapStateToProps = (state) => {
   return state;
 };

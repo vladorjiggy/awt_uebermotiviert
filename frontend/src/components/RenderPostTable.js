@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom"
 
+// Auflistung der erstellten Posts im Dashboard, deletePost sowie Link zur editPost page des jeweiligen Posts, Konvertierung des timestamp
+
 function checkIfDigit(int) {
     return int < 10 ? '0' + int : int
 }

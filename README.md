@@ -92,12 +92,9 @@ Performancegründen HTTP-Requests zu sparen
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!WICHTIG!!!!!!!!!!!!!!!!!!!
 // Configure und Monitor weglassen?
-// was ist mit web-vitals und base-64, müssen die bei 3.1 Technologien dokumentiert werden?
-// bootstrap aus dependencies kicken? 
 // defaultLoginDaten noch irgendwo aufführen?
 // wie machen wir das mit der .env? "durch npm run production zb" "Nun, nicht die originalen. aber ein example.env ohne credentials"
 // Tools für Build, Release, Deploy müssen noch in die Liste 
-// was schreiben wir zu: Operate / Monitor ?! sollen wir schreiben, dass wir für unsere Anwendung das nicht brauchten? Wenn ja, Erklärung!
 //  "Im weiteren Verlauf sollte euer Konzept größtenteils nur noch auf die Verwendeten Technologien eingehen (also Verweise auf Tutorials, Konfiguration und Inbetriebnahme). Nicht zu viel umschreiben und keine Prosa." meint er damit, dass wir das Konzept nochmal umschreiben sollen?
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -113,12 +110,11 @@ Create:
 - Frontend: Safak Altundag, Jim Kendzierski
 - Design/Styling: Isabelle Karal
 
-Build, Release, Deploy: Vlad Fetisov
+Build, Release, Deploy, Configure: Vlad Fetisov
 
 Operate / Monitor: 
 
-
-## 6. Vorstellung DevOps-Ansatz mit Tools
+## 6. Vorstellung DevOps-Ansatz
 ## 6.1 Vorstellung der Tools
 
 Plan: 
@@ -130,19 +126,7 @@ Create:
 - Visuelle Übersicht der Datenbank mit MongoDB Compass 
 - Browser: Chrome, Firefox
 - Browser-DevTools
-- Frontend dependencies:
-    "base-64": "^1.0.0",
-    "react": "^17.0.2",
-    "react-app": "^1.1.2",
-    "react-dom": "^17.0.2",
-    "react-redux": "^7.2.6",
-    "react-router-dom": "^6.2.1",
-    "react-scripts": "4.0.3",
-    "redux": "^4.1.2",
-    "redux-persist": "^6.0.0",
-    "redux-thunk": "^2.4.1",
-    "web-vitals": "^1.1.2"
-    
+- Global dependencies: node js, npm & create-react-app
 - Backend dependencies:
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.1",
@@ -157,40 +141,70 @@ Create:
     "mongoose": "^6.0.13",
     "multer": "^1.4.4",
     "nodemon": "^2.0.15"
+- Frontend dependencies:
+    "base-64": "^1.0.0",
+    "react": "^17.0.2",
+    "react-app": "^1.1.2",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.6",
+    "react-router-dom": "^6.2.1",
+    "react-scripts": "4.0.3",
+    "redux": "^4.1.2",
+    "redux-persist": "^6.0.0",
+    "redux-thunk": "^2.4.1",
+    "web-vitals": "^1.1.2"
 
-Build:
+Build: "create-react-app" (basierend auf webpack) -> npm run build
 
-Release:
+Release: 
+- lokal: kein Tool
+- production: git-flow bei push in Main Branch
 
-Deploy:
+Deploy: git-action pipeline push zu heroku
 
-Operate / Monitor: 
+Configure:  selbsterstellte env Datei (lokal)
 
-## 6.2 Voraussetzungen für das Deployment und Start der Anwendung:
+Monitor: Browser-DevTools
+
+## 6.2 Vorraussetzungen:
+
+- Nodejs > v14 & npm > 5
+- MongoDB > 5
+- create-react-app via npm
+
+## 6.3 Ablauf für das Deployment und Start der Anwendung (lokal):
 
 1. Projekt aus dem Github-Verzeichnis ziehen unter https://github.com/vladorjiggy/awt_uebermotiviert.git
 
 2. Projekt öffnen in Editor jeglicher Art (z.B. Visual Studio Code)
 
-3. Datenbank Mongodb 5.0 herunterladen unter https://www.mongodb.com/try/download/community und installieren
+3. .env Datei anlegen | Beispiel: example.env
 
-4. Im Verzeichnis von Mongodb die Anwendung "mongod" ausführen (Pfad: MongoDB/Server/5.0/bin)
+4. Datenbank Mongodb 5.0 herunterladen unter https://www.mongodb.com/try/download/community und installieren
 
-5. Frontend: 
-  - Konsole öffnen und in den Ordner frontend navigieren mittels "cd frontend"
-  - Im Verzeichnis frontend: Installation der dependencies mittels "npm install"
-  - "npm start" um das Frontend zu starten 
+5. Die "mongod" Anwendung ausführen (unter Windows im Verzeichnis von Mongodb, Pfad: MongoDB/Server/5.0/bin)
 
-6. Backend: 
+6. ConnectionString in die configDatei schreiben unter /server/config/default.json
+
+7. Backend: 
   - Konsole öffnen und in den Ordner frontend navigieren mittels "cd server"
   - Im Verzeichnis server: Installation der dependencies mittels "npm install"
   - "npm start" um das Backend zu starten
 
-7. (Optional bei Bedarf) Bei MongoDB Compass angelegte Datenbank einsehen:
+8. Frontend: 
+  - Konsole öffnen und in den Ordner frontend navigieren mittels "cd frontend"
+  - Im Verzeichnis frontend: Installation der dependencies mittels "npm install"
+  - "npm start" um das Frontend zu starten 
+
+9. (Optional bei Bedarf) Bei MongoDB Compass angelegte Datenbank einsehen:
   - MongoDB Compass installieren unter https://www.mongodb.com/products/compass
   - öffnen und unter New Connection auf den Button Connect klicken
-  - unter Datenbank awtReiseblog können die Collections "Categories", "posts", "sessions" und "users" eingesehen werden
+  - unter Datenbank awtReiseblog können die Collections "categories", "posts", "sessions" und "users" eingesehen werden
 
-8. (Optional bei Bedarf) Start der Anwendung: 
+10. Start der Anwendung: 
   - Wenn frontend und Backend laufen im Browser http://localhost:3000/ aufrufen
   - Anwendung kann als normaler Nutzer/Leser benutzt werden oder durch Klick auf "Login" kann man das CMS nutzen
+  - um sich im CMS anzumelden benötigt man die Adminzugangsdaten aus der default Datei User.json (könne bei Bedarf geändert werden)
+  
+
+## 6.4 Voraussetzungen für das Deployment und Start der Anwendung (production Build):

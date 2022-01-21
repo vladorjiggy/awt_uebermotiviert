@@ -6,6 +6,9 @@ import { Navigate , Link} from "react-router-dom";
 const mapStateToProps = (state) => {
     return state;
   };
+
+// Über den getCategories() request wird allCategories für die CategorySelect Komponente bezogen.
+// In handleSubmit wird abschließend der createPost request und bei ausgewähltem Bild auch der fileUpload ausgeführt.
 class CreatePost extends Component {
     
     constructor(props) {
