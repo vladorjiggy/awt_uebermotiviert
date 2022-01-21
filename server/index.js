@@ -58,17 +58,15 @@ app.use('/category', CategoryRouter)
 app.use('/file/upload', require('./controller/fileUpload'))
 app.use('/uploads',express.static(__dirname + '/uploads/'))
 
-
-if (process.env.NODE_ENV === 'production'){
-    // static folder
-    app.use(express.static(__dirname + '/dist/'))
+app.use(express.static(__dirname + '/build/'))
 
     // Handle SPA 
-    app.get(/.*/, (req,res) => res.sendFile(__dirname + '/dist/index.html'))
-}
+    app.get(/.*/, (req,res) => res.sendFile(__dirname + '/build/index.html'))
+
+
 
 // start server instant
-const port = process.env.PORT 
+const port = process.env.PORT || 5000
 app.listen(port, function () {
     console.log('Server listening on port ' + port);
 });
