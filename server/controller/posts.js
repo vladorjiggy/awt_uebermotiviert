@@ -1,5 +1,10 @@
 let postservice = require('../services/posts')
 
+/**
+ * 
+ * Bezieht alle Posts
+ */
+
 exports.getPosts = function(req, res){
     postservice.getPosts((status, err, posts) => {
         if (err) {
@@ -16,6 +21,10 @@ exports.getPosts = function(req, res){
     })
 }
 
+/**
+ * 
+ * Bezieht einen bestimmten Post
+ */
 exports.getSinglePost = function(req, res){
     let id = req.params.id
     postservice.findPostById(id, (status, err, post) => {
@@ -33,6 +42,11 @@ exports.getSinglePost = function(req, res){
     })
 }
 
+/**
+ * 
+ * Bezieht einen bestimmten Post anhand eines Suchparameters
+ */
+
 exports.searchPosts = function(req, res){
     let searchquery = req.body.searchquery
     postservice.searchPosts(searchquery, (status, err, posts) => {
@@ -49,7 +63,10 @@ exports.searchPosts = function(req, res){
         }
     })
 }
-
+/**
+ * 
+ * Updatet einen bestimmten Post
+ */
 exports.updatePost = function(req, res){
     let id = req.params.id
     let data = req.body
@@ -68,6 +85,11 @@ exports.updatePost = function(req, res){
     })
 }
 
+/**
+ * 
+ * Erstellt einen Post anhand der mitgeschickten Daten
+ */
+
 exports.createPost = function(req, res){
     let data = req.body
     postservice.createPost(data, (status, err, post) => {
@@ -84,6 +106,11 @@ exports.createPost = function(req, res){
         }
     })
 }
+
+/**
+ * 
+ *Löscht einen bestimmten Post
+ */
 
 exports.deletePost = function(req, res){
     let id = req.params.id

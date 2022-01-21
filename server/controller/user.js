@@ -1,5 +1,12 @@
 let authservice = require('../services/authentication')
 let userservice = require('../services/user')
+
+/**
+ * 
+ * Login anhand mitgeschickter Userdaten
+ * 
+ */
+
 exports.login = function (req, res) {
     const authHeader = req.headers.authorization
     if (!authHeader || authHeader.indexOf('Basic') === -1) {
@@ -26,11 +33,21 @@ exports.login = function (req, res) {
     })
 }
 
+/**
+ * 
+ * Logout eines eingeloggten Users
+ */
+
 exports.logout = function (req, res) {
     req.session.destroy()
     res.clearCookie("connect.sid", { path: "/" })
     res.status(200).json({ message: "user successfully logged out" })
 }
+
+/**
+ * 
+ * Ändert das Passwort eines Users
+ */
 
 exports.changePassword = function (req, res) {
     const oldPassword = req.body.oldPassword

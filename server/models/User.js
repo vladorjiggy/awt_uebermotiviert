@@ -5,6 +5,11 @@ const UserSchema = new mongoose.Schema({
     password: String,
     created: {type: Date, default: Date.now()},
 }, {timestamps: true})
+
+/**
+ * Bevor das Passwort in die Datenbank gespeichert wird, wird es verschlüsselt
+ */
+
 UserSchema.pre('save', function(next){
     let user = this;
     if (!user.isModified('password')){return next()};
@@ -15,6 +20,13 @@ UserSchema.pre('save', function(next){
 }), function(err){
     next(err)
 }
+
+/**
+ * 
+ * Vergleicht das verschlüsselte Passwort
+ * 
+ */
+
 UserSchema.methods.comparePassword = function(enteredPassword, next){
     bcrypt.compare(enteredPassword, this.password, function(err, isMatch){
         if(err){

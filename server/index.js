@@ -17,8 +17,6 @@ let cors = require('cors')
 app.use(cookieParser())
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-const apphost = process.env.APPHOST.split(' ')
-let allowedDomains = apphost;
 app.use(cors({credentials: true, origin: process.env.APPHOST}));
 
 database.initDB((err, db) => {
@@ -58,9 +56,7 @@ app.use('/file/upload', require('./controller/fileUpload'))
 app.use('/uploads',express.static(__dirname + '/uploads/'))
 
 app.use(express.static(__dirname + '/build/'))
-
-    // Handle SPA 
-    app.get(/.*/, (req,res) => res.sendFile(__dirname + '/build/index.html'))
+app.get(/.*/, (req,res) => res.sendFile(__dirname + '/build/index.html'))
 
 
 

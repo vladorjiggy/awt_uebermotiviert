@@ -90,15 +90,6 @@ Performancegründen HTTP-Requests zu sparen
 - Repository: [Github](https://github.com/vladorjiggy/awt_uebermotiviert.git)
 
 
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!WICHTIG!!!!!!!!!!!!!!!!!!!
-// Configure und Monitor weglassen?
-// defaultLoginDaten noch irgendwo aufführen?
-// wie machen wir das mit der .env? "durch npm run production zb" "Nun, nicht die originalen. aber ein example.env ohne credentials"
-// Tools für Build, Release, Deploy müssen noch in die Liste 
-//  "Im weiteren Verlauf sollte euer Konzept größtenteils nur noch auf die Verwendeten Technologien eingehen (also Verweise auf Tutorials, Konfiguration und Inbetriebnahme). Nicht zu viel umschreiben und keine Prosa." meint er damit, dass wir das Konzept nochmal umschreiben sollen?
-
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
 ## 5. Teamaufteilung in Kernkompetenzen:
 
 Plan: 

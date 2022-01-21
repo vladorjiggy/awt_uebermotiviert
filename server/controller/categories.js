@@ -1,5 +1,10 @@
 let categoryservice = require('../services/categories')
 
+/**
+ * 
+ * Alle Kategorien beziehen
+ */
+
 exports.getCategories = function(req, res){
     categoryservice.getCategories((status, err, categories) => {
         if (err) {
@@ -15,6 +20,11 @@ exports.getCategories = function(req, res){
         }
     })
 }
+
+/**
+ * 
+ * Alle Posts einer bestimmten Kategorie beziehen
+ */
 
 exports.getCategoryPosts = function(req, res){
     let id = req.params.id

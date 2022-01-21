@@ -1,12 +1,16 @@
 const Post = require('../models/Post').Post
 const Category = require('../models/Category').Category
+
+/**
+ * 
+ * Datenbankzugriff für das beziehen aller Posts
+ */
 exports.getPosts = function (callback) {
     let query = Post.find()
         .populate('categories', '-posts')
         .sort('-createdAt')
     query.exec((err, posts) => {
         if (err) {
-            console.log("Fehler bei Suche: " + err)
             return callback(500, err, null)
         }
         else {
@@ -14,6 +18,11 @@ exports.getPosts = function (callback) {
         }
     })
 }
+
+/**
+ * 
+ * Datenbankzugriff für das beziehen eines bestimmten Posts
+ */
 exports.findPostById = function (id, callback) {
     if (!id) {
         return callback(400, 'Id not provided', null)
@@ -33,6 +42,11 @@ exports.findPostById = function (id, callback) {
         })
     }
 }
+
+/**
+ * 
+ * Datenbankzugriff für das beziehen eines bestimmten Posts anhand eines Suchparameters
+ */
 
 exports.searchPosts = function (searchquery, callback) {
     if (!searchquery) {
@@ -68,6 +82,12 @@ exports.searchPosts = function (searchquery, callback) {
         })
     }
 }
+
+/**
+ * 
+ * Datenbankzugriff für das updaten eines bestimmten Posts
+ */
+
 exports.updatePost = function (id, data, callback) {
     if (!id) {
         return callback(400, 'No ID', null)
@@ -81,7 +101,6 @@ exports.updatePost = function (id, data, callback) {
                 new: true
             })
             query.exec((err, post) => {
-                console.log(post)
                 if (err) {
                     return callback(500, "cannot update Post: " + err, null)
                 }
@@ -93,15 +112,16 @@ exports.updatePost = function (id, data, callback) {
     }
 }
 
+/**
+ * 
+ * Datenbankzugriff für das erstellen eines bestimmten Posts
+ */
+
 exports.createPost = function (data, callback) {
     if (!data) {
         return callback(400, 'no Data', null)
     }
-
-
-
     else {
-        let postId;
         Post.find({}, (err, posts) => {
             let postId = posts.length + 1
             Post.findOne({ title: data.title }, function (err, user) {
@@ -120,7 +140,6 @@ exports.createPost = function (data, callback) {
                     newPost.categories = data.categories
                     newPost.save(err => {
                         if (err) {
-                            console.log("Could not save Post", err)
                             callback(500, "Could not save Post: " + err, null)
                         }
                         else {
@@ -143,15 +162,18 @@ exports.createPost = function (data, callback) {
     }
 }
 
+/**
+ * 
+ * Datenbankzugriff für das löschen eines bestimmten Posts
+ */
+
 exports.deletePost = function (id, callback) {
     if (id) {
         Post.findByIdAndRemove(id, function (err, docs) {
             if (err) {
-                console.log(err)
                 callback(404, 'Post not found', null)
             }
             else {
-                console.log("Removed Post : ", docs)
                 callback(200, null, 'Post removed')
             }
         });

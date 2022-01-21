@@ -8,6 +8,11 @@ dotenv.config();
 
 let postservice = require('../services/posts')
 
+/**
+ * 
+ * Prüft ob ankommende Dateien den passenden Dateitypen haben
+ */
+
 const fileFilter = (req, file, cb) => {
     const allowedTypes = ["image/jpeg", "image/jpg", "image/png"]
     if (!allowedTypes.includes(file.mimetype)){
@@ -17,6 +22,10 @@ const fileFilter = (req, file, cb) => {
     }
     cb(null, true)
 }
+
+/**
+ * Legt das Speicherziel fest
+ */
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -31,6 +40,11 @@ const upload = multer({ storage: storage })
 
 
 router.post('/:post_id', upload.single('post_image'), userUpload)
+
+/**
+ * 
+ * Updatet den Post mit der Adresse des Bildes
+ */
 
 function userUpload(req, res){
     let post_id = req.params.post_id

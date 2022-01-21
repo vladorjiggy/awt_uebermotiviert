@@ -1,9 +1,13 @@
 const Category = require('../models/Category').Category
 
+/**
+ * 
+ * Datenbankzugriff für das beziehen aller Kategorien
+ */
+
 exports.getCategories = function (callback){
     Category.find((err, categories) => {
         if(err){
-            console.log("Fehler bei Suche: " + err)
             return callback(500, err, null)
         }
         else{
@@ -11,6 +15,11 @@ exports.getCategories = function (callback){
         }
     }).select('-posts')
 }
+
+/**
+ * 
+ * Datenbankzugriff für das beziehen aller Posts einer bestimmten Kategorie
+ */
 
 exports.getCategoryPosts = function (id, callback){
     let query = Category.findOne({_id: id})

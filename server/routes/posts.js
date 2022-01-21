@@ -4,6 +4,10 @@ let router = express.Router()
 const postsController =  require('../controller/posts')
 const checkLogin = require('../services/authentication')
 
+/**
+ * Routen für Posts
+ */
+
 router.get("/get", postsController.getPosts)
 router.get("/get/:id", postsController.getSinglePost)
 router.post("/search", postsController.searchPosts)

@@ -3,6 +3,11 @@ dotenv.config();
 const mongoose = require('mongoose')
 const {buildCategories, buildUsers, buildFirstPosts} = require('./initData')
 
+/**
+ * Initialisiert die Datenbank und erste Kategorien, Posts und einen Admin-User
+ */
+
+
 let _db;
 function initDB(callback){
     if(_db){

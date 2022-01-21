@@ -1,5 +1,10 @@
 let userservice = require('./user')
 
+/**
+ * 
+ * Middleware für das Überprüfen des Passworts
+ */
+
 exports.checkPassword = function (username, password, callback) {
 
     if (!username || !password) {
@@ -33,9 +38,12 @@ exports.checkPassword = function (username, password, callback) {
     }
 }
 
+/**
+ * 
+ * Middleware für das Überprüfen ob ein User eingeloggt ist
+ */
 
 exports.checkLogin = function (req, res, next) {
-    console.log(req.session)
     if (req.session?.isLoggedIn) {
         next()
     }
