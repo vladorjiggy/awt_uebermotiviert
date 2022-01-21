@@ -206,10 +206,11 @@ Monitor: Browser-DevTools
 
 4. Einloggen in der Heroku CLI:
   - Terminal öffnen 
-  - "heroku login" ausführen
   - npm install -g heroku
+  - "heroku login" ausführen
+  
 
-5. In Heroku eine App erstellen
+5. Auf der Heroku Webseite eine App erstellen
 
 6. MongoDB Atlas Cluster erstellen:
   - Einloggen oder Registrieren unter https://www.mongodb.com/atlas/database
