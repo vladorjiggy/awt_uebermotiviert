@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom';
 import { Link } from "react-router-dom";
 
+// Posts werden mittels request ans Backend gesucht und dann über die SearchRender Komponente angezeigt.
+
 const SearchResult = props => {
   const { search } = useLocation();
   let params = new URLSearchParams(search);
@@ -19,7 +21,6 @@ const SearchResult = props => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(data)
-
     })
       .then(result => result.json())
       .then(result => {
@@ -56,9 +57,7 @@ const SearchResult = props => {
             alt="searchNeg.png"
           />
         </div>
-
       </div>
-
     )
   }
 }

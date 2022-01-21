@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
+<<<<<<< HEAD
 import { bindActionCreators } from 'redux';
 import {Link} from "react-router-dom";
 
+=======
+import { bindActionCreators } from 'redux'
+>>>>>>> frontend
 import * as authenticationActions from '../actions/AuthenticationActions'
-
 
 const mapStateToProps = state => {
     return state;
@@ -19,6 +22,7 @@ class UserSessionWidget extends Component {
             password: '',
             openModal: false
         };
+
         this.handleShow = this.handleShow.bind(this);
         this.handleClose = this.handleClose.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -28,13 +32,11 @@ class UserSessionWidget extends Component {
     handleShow(e) {
         e.preventDefault();
         this.setState({ openModal: true })
-        //this.setState({show: true})
         const { showLoginDialogAction } = this.props;
         showLoginDialogAction();
     }
 
     handleClose(e) {
-        //this.setState({show: false})
         const { hideLoginDialogAction } = this.props;
         hideLoginDialogAction();
         this.setState({ openModal: false });
@@ -43,7 +45,6 @@ class UserSessionWidget extends Component {
     handleChange(e) {
         const { name, value } = e.target;
         this.setState({ [name]: value })
-
     }
 
     handleSubmit(e) {
@@ -78,7 +79,7 @@ class UserSessionWidget extends Component {
                                     <img
                                         id="log-span-img"
                                         src="composition.png"
-                                        alt="search.png"
+                                        alt="composition.png"
                                     />
                                     <div id="div-log-span-text">
                                         <span id="log-span-text">
@@ -92,7 +93,11 @@ class UserSessionWidget extends Component {
 
                                 <div id="wrap-input">
                                     <div id="wrap-input-UN">
+<<<<<<< HEAD
                                         <input type="text" id="LoginUserIDInput" placeholder="Benutzername" name="userID" onChange={this.handleChange}></input>
+=======
+                                        <input id="LoginUserIDInput" type="text" placeholder="Benutzername" name="userID" onChange={this.handleChange}></input>
+>>>>>>> frontend
                                     </div>
                                     <div id="wrap-input-PW">
                                         <input id="LoginPasswordInput" type="password" placeholder="Passwort" name="password" onChange={this.handleChange} ></input>
@@ -102,15 +107,14 @@ class UserSessionWidget extends Component {
                                 <div id="div-log-btn">
                                     <button id="log-btn" onClick={this.handleSubmit}>Los Gehts</button>
                                 </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> frontend
                             </form>
                         </div>
                     </div>
-
                 }
-
-
-
             </div>
         );
     }

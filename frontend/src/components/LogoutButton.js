@@ -1,9 +1,15 @@
 import React, { Component } from "react";
+<<<<<<< HEAD
 
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as authenticationActions from "../actions/AuthenticationActions";
 import {Link} from "react-router-dom";
+=======
+import { bindActionCreators } from 'redux'
+import { connect } from "react-redux"
+import * as authenticationActions from '../actions/AuthenticationActions'
+>>>>>>> frontend
 
 const mapStateToProps = (state) => {
   return state;
@@ -34,8 +40,14 @@ const mapDispatchToProps = (dispatch) =>
     dispatch
   );
 
+<<<<<<< HEAD
 const connectedLogout = connect(
   mapStateToProps,
   mapDispatchToProps
 )(LogoutButton);
 export default connectedLogout;
+=======
+const connectedLogout = connect(mapStateToProps, mapDispatchToProps)(LogoutButton)
+
+export default connectedLogout
+>>>>>>> frontend

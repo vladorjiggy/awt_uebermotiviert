@@ -2,9 +2,12 @@ import React, { Component } from "react";
 import { Navigate , Link} from "react-router-dom";
 import RenderPostTable from "../components/RenderPostTable";
 import { connect } from "react-redux";
+
 const mapStateToProps = (state) => {
     return state;
-  };
+};
+
+// Liste aller posts, deletePost und Verlinkung zu editPost
 class Dashboard extends Component {
 
     constructor(props) {
@@ -16,6 +19,7 @@ class Dashboard extends Component {
         };
         this.openDeleteModal = this.openDeleteModal.bind(this);
     }
+
     componentDidMount() {
         const url = process.env.REACT_APP_SERVERHOST + '/post/get';
         fetch(url, {
@@ -29,13 +33,16 @@ class Dashboard extends Component {
                 })
             })
     }
+
     openDeleteModal(post) {
         this.setState({ openModal: true })
         this.setState({ postToDelete: post })
     }
+
     closeModal() {
         this.setState({ openModal: false })
     }
+
     deletePost() {
         const url = process.env.REACT_APP_SERVERHOST + '/post/delete/' + this.state.postToDelete._id;
         fetch(url, {
@@ -50,12 +57,12 @@ class Dashboard extends Component {
                     posts: filteredPosts,
                     openModal: false
                 })
-
             })
             .catch(error => {
                 alert(error)
             })
     }
+
     render() {
         if(this.props.user){
             return (
@@ -73,9 +80,7 @@ class Dashboard extends Component {
                             <p id="btn-lable">Beitrag erstellen</p>
                         </div>
     
-    
                         <div id="table-list">
-    
                             <div id="table-caption">Alle Beiträge</div>
                             <table>
                                 <thead>
@@ -85,13 +90,10 @@ class Dashboard extends Component {
                                         <td><span id="posteDate">Datum</span></td>
                                     </tr>
                                 </thead>
+
                                 <tbody>
                                     <RenderPostTable parentOpenModal={this.openDeleteModal} posts={this.state.posts} />
                                 </tbody>
-    
-    
-    
-    
                             </table>
                         </div>
                     </div>
@@ -105,13 +107,13 @@ class Dashboard extends Component {
                                     <span className="div__span--postTitle">"{this.state.postToDelete.title}</span>
                                     <p className="div__p--2">unwiederruflich löschen?</p>
                                 </div>
+
                                 <div className="deleteModal__div--buttons">
                                     <button className="button__delete" onClick={() => this.deletePost()} >Löschen</button>
                                     <button className="button__cancel" onClick={() => this.closeModal()} >Abbrechen</button>
                                 </div>
                             </div>
                         </div>
-    
                     }
                 </main>
             )
@@ -121,7 +123,6 @@ class Dashboard extends Component {
                 <Navigate replace to="/" />
             )
         }
-        
     }
 }
 export default connect(mapStateToProps)(Dashboard)

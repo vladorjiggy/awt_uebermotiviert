@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom"
+
 const SearchRender = props => {
 
     const rows = props.posts.map((row, index) => {
         return (
-
 
             <div id="con-result">
                 <article id="article3-section1">
@@ -26,6 +26,6 @@ const SearchRender = props => {
         )
     })
     return <div id="container-result">{rows}</div>
-
 }
+
 export default SearchRender

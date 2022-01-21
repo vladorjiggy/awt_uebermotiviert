@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -8,12 +7,19 @@ import LogoutButton from "./LogoutButton";
 import SearchForm from "./SearchForm";
 import ChangePassword from "./ChangePassword";
 
+<<<<<<< HEAD
+=======
+//Ansicht ändert sich je nachdem ob User eingelogt ist oder nicht.
+
+>>>>>>> frontend
 const mapStateToProps = (state) => {
   return state;
 };
 
 class TopMenu extends Component {
+
   render() {
+
     const user = this.props.user;
 
     let loginLogout;
@@ -28,7 +34,8 @@ class TopMenu extends Component {
         </Link>
       );
       changePassword = <ChangePassword />;
-    } else {
+    } 
+    else {
       loginLogout = <UserSessionWidget />;
     }
 

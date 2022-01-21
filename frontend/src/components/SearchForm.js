@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import React, { useState } from 'react';
+
 function SearchForm() {
     let navigate = useNavigate();
     const [query, setQuery] = useState('');
@@ -14,8 +15,8 @@ function SearchForm() {
         if(query){
             navigate(`/post/search?q=${query}`);
         }
-        
     }
+
     return (
 
         <form onSubmit={handleSubmit}>
@@ -29,17 +30,16 @@ function SearchForm() {
                     onChange={handleChange}
                 />
                 <input id="div-search-button" type="submit" />
+
                 <img
                     id="div-search-image"
                     src="/search.png"
                     alt="search.png"
                     onClick={handleSubmit}
                 />
-
-
             </div>
         </form>
-
     )
 }
+
 export default SearchForm

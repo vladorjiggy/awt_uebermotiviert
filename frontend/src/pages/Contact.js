@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+
 class Contact extends Component {
+
   render() {
     return (
       <div>
@@ -10,6 +12,7 @@ class Contact extends Component {
           </li>
           <li>Kontakt</li>
         </ul>
+
         <div id="container-contact">
           <div id="container-p">
             <article id="container-article1-p1">

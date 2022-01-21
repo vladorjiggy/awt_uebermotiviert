@@ -1,22 +1,30 @@
 import React, { Component } from "react";
 
+<<<<<<< HEAD
 import {Link} from "react-router-dom";
 
+=======
+>>>>>>> frontend
 class ChangePassword extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
+<<<<<<< HEAD
       // brauchen noch userID
+=======
+>>>>>>> frontend
       oldPassword: ``,
       newPassword: ``,
-      confirmNewPassword: ``,
     };
+
     this.handleShow = this.handleShow.bind(this);
     this.handleClose = this.handleClose.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+<<<<<<< HEAD
   componentDidMount() {
     this.getOldPassword();
   }
@@ -38,39 +46,42 @@ class ChangePassword extends Component {
       });
   }
 
+=======
+>>>>>>> frontend
   handleSubmit(e) {
     e.preventDefault();
     const { oldPassword, newPassword } = this.state;
-    this.editPost(oldPassword, newPassword)
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("data: ", data);
-        console.log("New Password  ", newPassword);
-      });
+    this.editPassword(oldPassword, newPassword);
   }
 
   editPassword(oldPassword, newPassword) {
-    const url =
-      process.env.REACT_APP_SERVERHOST +
-      "/user/changePassword" +
-      this.props.params.userID;
+    const url = process.env.REACT_APP_SERVERHOST + "/user/changePassword"
     fetch(url, {
       method: "put",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ oldPassword, newPassword }),
     })
+<<<<<<< HEAD
       .then((result) => result.json())
       .then((result) => {
         console.log("result: ", result);
+=======
+    .then((result) => result.json())
+    .then((result) => {
+>>>>>>> frontend
         this.setState({
           openModal: false,
-          _id: ``,
           oldPassword: ``,
           newPassword: ``,
         });
+<<<<<<< HEAD
       });
+=======
+    });
+>>>>>>> frontend
   }
 
   handleChange(e) {
@@ -80,7 +91,11 @@ class ChangePassword extends Component {
 
   handleShow(e) {
     e.preventDefault();
+<<<<<<< HEAD
     this.setState({ openModal: true });
+=======
+    this.setState({ openModal: true })
+>>>>>>> frontend
   }
 
   handleClose(e) {
@@ -89,6 +104,7 @@ class ChangePassword extends Component {
 
   render() {
     return (
+
       <div>
         <Link className="changePasswordLink" onClick={this.handleShow} to="">
           Passwort ändern
@@ -103,9 +119,19 @@ class ChangePassword extends Component {
                   X
                 </button>
               </div>
+
               <form id="log-form">
                 <div id="div-wrap-head">
+<<<<<<< HEAD
                   <img id="NP-span-img" src="passwort.png" alt="password.png" />
+=======
+                  <img
+                    id="NP-span-img"
+                    src="passwort.png"
+                    alt="password.png"
+                  />
+
+>>>>>>> frontend
                   <div id="div-NP-span-text">
                     <span id="NP-span-text">
                       <h2>Neues Passwort anlegen:</h2>
@@ -118,17 +144,18 @@ class ChangePassword extends Component {
                     <input
                       id="input-NP"
                       type="password"
-                      name="newPassword"
-                      placeholder="neues Passwort"
+                      name="oldPassword"
+                      placeholder="altes Passwort"
                       onChange={this.handleChange}
                     />
                   </div>
+
                   <div id="wrap-input-CNP">
                     <input
                       id="input-CNP"
                       type="password"
-                      name="confirmNewPassword"
-                      placeholder="bestätige neues Passwort"
+                      name="newPassword"
+                      placeholder="neues Passwort"
                       onChange={this.handleChange}
                     />
                   </div>

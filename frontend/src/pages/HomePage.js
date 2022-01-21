@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-
-
 import Categorymenu from "../components/CategoryMenu";
 import HomeContent from "../components/HomeContent";
+
 class HomePage extends Component {
 
     render() {
@@ -11,7 +10,6 @@ class HomePage extends Component {
             <Categorymenu />
             <HomeContent />
           </div>
-
         )
     }
 }

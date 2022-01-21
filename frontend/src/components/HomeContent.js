@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom"
+
 class HomeContent extends Component {
+
     state = {
         posts: []
     };
+
     componentWillMount() {
         const url = process.env.REACT_APP_SERVERHOST + '/post/get';
         fetch(url, {
@@ -11,15 +14,16 @@ class HomeContent extends Component {
         })
             .then(result => result.json())
             .then(result => {
-                console.log("result: ", result)
                 this.setState({
                     posts: result.posts
                 })
             })
     }
+
     render() {
         if(this.state.posts.length){
             return (
+
                 <main>
                     <div class="container1__post" id="container1-index">
                         <article id="article1-section1-index">
@@ -203,76 +207,11 @@ class HomeContent extends Component {
                                     </article>
                                 </div>
                                 }
-                                {this.state.posts.length > 9 && 
-                                    <div class="container3__post"  id="con3-3">
-                                    <article id="article3-section1">
-                                        <button id="category-name">{this.state.posts[9].categories[0].name}</button>
-                                        <img
-                                            id="article3-img"
-                                            src={this.state.posts[9].post_image}
-                                            alt={this.state.posts[9].post_image}
-                                        />
-                                    </article>
-    
-                                    <article id="article3-section2">
-                                        <h3 id="article3-headline">{this.state.posts[9].title}</h3>
-                                        <p class="cut-text" id="article3-text">
-                                        {this.state.posts[9].content}
-                                        </p>
-                                        <Link id="read-more-link" to={"/post/single/" + this.state.posts[9]._id}>Erfahre mehr...</Link>
-                                    </article>
-                                </div>
-                                }
-                                {this.state.posts.length > 10 && 
-                                    <div class="container3__post"  id="con3-3">
-                                    <article id="article3-section1">
-                                        <button id="category-name">{this.state.posts[10].categories[0].name}</button>
-                                        <img
-                                            id="article3-img"
-                                            src={this.state.posts[10].post_image}
-                                            alt={this.state.posts[10].post_image}
-                                        />
-                                    </article>
-    
-                                    <article id="article3-section2">
-                                        <h3 id="article3-headline">{this.state.posts[10].title}</h3>
-                                        <p class="cut-text" id="article3-text">
-                                        {this.state.posts[10].content}
-                                        </p>
-                                        <Link id="read-more-link" to={"/post/single/" + this.state.posts[10]._id}>Erfahre mehr...</Link>
-                                    </article>
-                                </div>
-                                }
-                                {this.state.posts.length > 11 && 
-                                    <div class="container3__post"  id="con3-3">
-                                    <article id="article3-section1">
-                                        <button id="category-name">{this.state.posts[11].categories[0].name}</button>
-                                        <img
-                                            id="article3-img"
-                                            src={this.state.posts[11].post_image}
-                                            alt={this.state.posts[11].post_image}
-                                        />
-                                    </article>
-    
-                                    <article id="article3-section2">
-                                        <h3 id="article3-headline">{this.state.posts[11].title}</h3>
-                                        <p class="cut-text" id="article3-text">
-                                        {this.state.posts[11].content}
-                                        </p>
-                                        <Link id="read-more-link" to={"/post/single/" + this.state.posts[11]._id}>Erfahre mehr...</Link>
-                                    </article>
-                                </div>
-                                }
-                                
                             </div>
                             }
-                            
                         </div>
-    
                     }
-    
                 </main>
-    
             );
         }
         else{
@@ -280,7 +219,7 @@ class HomeContent extends Component {
                 <div></div>
             );
         }
-        
     }
 }
+
 export default HomeContent

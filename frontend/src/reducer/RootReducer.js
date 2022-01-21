@@ -8,10 +8,10 @@ const initialState = {
     showRegisterDialog: false,
     showCreatePostDialog: false
 };
+
 function rootReducer(state = initialState, action) {
     switch (action.type) {
 
-        //Login
         case SHOW_LOGIN_DIALOG:
             return {
                 ...state,
@@ -50,7 +50,6 @@ function rootReducer(state = initialState, action) {
                     error: 'Auth failed'
                 }
             }
-
         case LOGOUT_USER:
             return {
                 ...state,
@@ -59,8 +58,6 @@ function rootReducer(state = initialState, action) {
                 error: null,
                 user: null
             }
-
-
 
         default:
             return state;

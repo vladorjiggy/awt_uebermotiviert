@@ -1,6 +1,5 @@
 import base64 from 'base-64'
-import { SHOW_LOGIN_DIALOG, HIDE_LOGIN_DIALOG, LOGOUT_USER, USER_LOGOUT, AUTHENTICATION_PENDING, AUTHENTICATION_SUCCESS, AUTHENTICATION_ERROR, AUTHENTICATION_LOGOUT,  } from './actions';
-
+import { SHOW_LOGIN_DIALOG, HIDE_LOGIN_DIALOG, LOGOUT_USER, AUTHENTICATION_PENDING, AUTHENTICATION_SUCCESS, AUTHENTICATION_ERROR, } from './actions';
 
 export function getShowLoginDialogAction()
 {
@@ -33,7 +32,6 @@ export function getAuthenticationErrorAction(error){
     return{
             type: AUTHENTICATION_ERROR,
             error: error
-
     }
 }
 
@@ -72,11 +70,9 @@ export function logoutUser() {
             .then(
                 () => {
                     dispatch(logoutUserAction());
-                    // return true
                 },
                 error => {
                     dispatch(getAuthenticationErrorAction(error));
-                    // return false
                 }
             )
             .catch(error => {
