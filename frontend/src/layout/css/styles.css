@@ -486,6 +486,14 @@ footer ul {
   -webkit-line-clamp: 5;
 }
 
+.cut-text-first {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 10;
+
+}
+
 #bg-Blurred {
   width: 110%;
   height: 110%;
