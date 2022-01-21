@@ -103,10 +103,8 @@ Create:
 
 Build, Release, Deploy, Configure: Vlad Fetisov
 
-Operate / Monitor: 
-
 ## 6. Vorstellung DevOps-Ansatz
-## 6.1 Vorstellung der Tools
+### 6.1 Vorstellung der Tools
 
 Plan: 
 - Trello (Sprintplanung und Orga-Übersicht)
@@ -157,13 +155,13 @@ Configure:  selbsterstellte env Datei (lokal)
 
 Monitor: Browser-DevTools
 
-## 6.2 Vorraussetzungen:
+### 6.2 Vorraussetzungen:
 
 - Nodejs > v14 & npm > 5
 - MongoDB > 5
 - create-react-app via npm
 
-## 6.3 Ablauf für den Start der Anwendung (lokal):
+### 6.3 Ablauf für den Start der Anwendung (lokal):
 
 1. Projekt aus dem Github-Verzeichnis ziehen unter https://github.com/vladorjiggy/awt_uebermotiviert.git
 
@@ -198,7 +196,7 @@ Monitor: Browser-DevTools
   - um sich im CMS anzumelden benötigt man die Adminzugangsdaten aus der default Datei User.json (könne bei Bedarf geändert werden)
   
 
-## 6.4 Ablauf für das Deployment und Start der Anwendung (production Build):
+### 6.4 Ablauf für das Deployment und Start der Anwendung (production Build):
 
 1. Projekt aus dem Github-Verzeichnis ziehen unter https://github.com/vladorjiggy/awt_uebermotiviert.git
 
