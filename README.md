@@ -222,6 +222,6 @@ Monitor: Browser-DevTools
 
 9. Im Ordner server ein git repo für heroku erstellen -> git init
 
-10. Im Ordner server die heroku-app als remote repo hinzufügen -> heroku git:remote -a <appname>
+10. Im Ordner server die heroku-app als remote repo hinzufügen -> heroku git:remote -a AppName
 
 11. Im Ordner frontend "npm run production" ausführen
